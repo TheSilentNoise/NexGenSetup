@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <p>All Courses</p><hr class="bottom-line">
+          </div>
+</header>
+
+    <section id ="pricing" class="section-padding">
+      <div class="container">
+       <!--
+        <div class="col-md-12">
+          <div class=" text-center">
+            <h2 class="page-heading">All Courses</h2>
+          </div>
+        </div>
+        -->
+
+
+        <div class="col-md-12">
+            <div class="pull-right">
+             <input type="text" id="course-search-box" placeholder="Search a course here...">
+            </div>
+        </div>
+
+ <div id="course-div" >
+
+     <div class="row">
+         <h3 style="padding: 0px 0px 0px 23px;">Active Courses</h3><hr/>
+     </div>
+
+         {% for course in activeCourseList %}
+    <div class="course-item" onclick="location.href='{{course[5]}}'">
+        <div class="col-md-4 col-sm-6 padleft-right" >
+	        <div class="course-div">
+	            <figure class="imghvr-fold-up">
+	              <img src="{{course[1]}}"img-responsive">
+	               <figcaption>
+	                  	       <p>{{course[6]|safe}} </p>
+	              </figcaption>
+	            </figure>
+	            <h4 class="text-center">
+                    <a href="{{course[5]}}">{{course[0]}}</a>
+                </h4><hr/>
+	            <p>Duration : {{course[2]}} </p>
+	            <p>Course Fees :  {{course[3]}}</p>
+                <p>Course Mode :  {{course[4]}}</p><hr/>
+
+	            <div class="text-center">
+	            <button class="btn btn-success" onclick="window.location.href='{{course[5]}}'">
+                    Enroll Now</button>
+	            </div>
+	         </div>
+         </div>
+         </div>
+ {% endfor %}
+
+
+     <div class="col-sm-12">
+         <h3 style="padding: 0px 0px 0px 23px;">Upcoming Courses</h3><hr/>
+     </div>
+
+         {% for course in otherCourseList %}
+    <div class="course-item">
+        <div class="col-md-4 col-sm-6 padleft-right" >
+	        <div class="course-div">
+	            <figure class="imghvr-fold-up">
+	              <img src="{{course[1]}}"img-responsive">
+	               <figcaption>
+	                  <p>{{course[6] | safe }}</p>
+	              </figcaption>
+	            </figure>
+	            <h4 class="text-center">{{course[0]}}</h4><hr/>
+	            <p>Duration : {{course[2]}} </p>
+	            <p>Course Fees :  {{course[3]}}</p>
+                <p>Course Mode :  {{course[4]}}</p><hr/>
+
+	            <div class="text-center">
+	            <button class="btn btn-success" disabled>Coming Soon</button>
+	            </div>
+	         </div>
+         </div>
+         </div>
+ {% endfor %}
+
+
+
+
+   </div>
+
+      </div>
+      </div>
+    </section>
+{% endblock %}

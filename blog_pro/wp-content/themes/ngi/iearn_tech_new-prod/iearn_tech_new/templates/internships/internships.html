@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <p>Internship Opportunities</p><hr class="bottom-line">
+          </div>
+</header>
+
+<section id ="pricing" class="section-padding">
+     <div class="container">
+
+          <!-- {{ pagination.info }}--> {{ pagination.links }}
+
+       <div class="col-md-12 col-sm-12 col-lg-10 col-md-offset-1">
+
+            {% for internship in internships %}
+
+         <div class="col-md-12 profile-item">
+
+              <!--{{ loop.index + (page - 1) * per_page }}-->
+
+             <div class="col-md-2"><label>Publish Date:</label></div>
+             <div class="col-md-4">{{internship.publish_date }}</div>
+
+             <div class="col-md-2"><label>Apply By:</label></div>
+             <div class="col-md-4">{{internship.last_application_date}}</div>
+
+             <br/>
+             <hr style="border-top: 3px solid #24a6d4;"/>
+
+             <div class="col-md-12"><h4>{{internship.title}}</h4></div>
+
+             <div class="col-md-2"><label>Company Name:</label></div>
+             <div class="col-md-10"><p>{{internship.company_name}}</p></div>
+
+
+              <div class="col-md-2"><label>Location:</label></div>
+             <div class="col-md-10"><p>{{internship.city}} , {{internship.state}} ,{{internship.country}}</p></div>
+
+              <div class="col-md-2"><label>Experience:</label></div>
+             <div class="col-md-10"><p>{{internship.experience}}</p></div>
+
+
+              <div class="col-md-2"><label>Qualification:</label></div>
+             <div class="col-md-10"><p>{{internship.qualification}}</p></div>
+
+               <div class="pull-right">
+                   <a class="btn btn-success" href="internship/id={{internship.pk_internship_id}}"><u>View Details</u></a>
+              </div>
+
+
+         </div>
+
+
+             {% endfor %}
+
+       </div>
+
+
+            {{ pagination.links }}
+
+
+
+     </div>
+</section>
+
+
+{% endblock %}

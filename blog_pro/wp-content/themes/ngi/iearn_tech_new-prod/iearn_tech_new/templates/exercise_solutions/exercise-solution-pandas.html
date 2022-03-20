@@ -1,0 +1,1140 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+     <section id ="pricing" class="section-padding">
+     <div class="container">
+          <div class="col-md-12">
+       <div class="row">
+          <div class="exercise-header">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                    Pandas - Exercise & Solutions
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+
+
+<div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pandas-Exercise---Solutions">SF Salaries Data Exploration</a></h2><p>Welcome to a quick exercise for you to practice your pandas skills! We will be using the <a href="https://www.kaggle.com/kaggle/sf-salaries">SF Salaries Dataset</a> from Kaggle! Just follow along and complete the tasks outlined in bold below. The tasks will get harder and harder as you go along.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Import pandas as pd.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Read Salaries.csv as a dataframe called sal.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Salaries.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Check the head of the DataFrame. </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>NATHANIEL FORD</td>
+      <td>GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY</td>
+      <td>167411.18</td>
+      <td>0.00</td>
+      <td>400184.25</td>
+      <td>NaN</td>
+      <td>567595.43</td>
+      <td>567595.43</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>GARY JIMENEZ</td>
+      <td>CAPTAIN III (POLICE DEPARTMENT)</td>
+      <td>155966.02</td>
+      <td>245131.88</td>
+      <td>137811.38</td>
+      <td>NaN</td>
+      <td>538909.28</td>
+      <td>538909.28</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>ALBERT PARDINI</td>
+      <td>CAPTAIN III (POLICE DEPARTMENT)</td>
+      <td>212739.13</td>
+      <td>106088.18</td>
+      <td>16452.60</td>
+      <td>NaN</td>
+      <td>335279.91</td>
+      <td>335279.91</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>CHRISTOPHER CHONG</td>
+      <td>WIRE ROPE CABLE MAINTENANCE MECHANIC</td>
+      <td>77916.00</td>
+      <td>56120.71</td>
+      <td>198306.90</td>
+      <td>NaN</td>
+      <td>332343.61</td>
+      <td>332343.61</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>PATRICK GARDNER</td>
+      <td>DEPUTY CHIEF OF DEPARTMENT,(FIRE DEPARTMENT)</td>
+      <td>134401.60</td>
+      <td>9737.00</td>
+      <td>182234.59</td>
+      <td>NaN</td>
+      <td>326373.19</td>
+      <td>326373.19</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Use the .info() method to find out how many entries there are.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> <span class="c1"># 148654 Entries</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 148654 entries, 0 to 148653
+Data columns (total 13 columns):
+Id                  148654 non-null int64
+EmployeeName        148654 non-null object
+JobTitle            148654 non-null object
+BasePay             148045 non-null float64
+OvertimePay         148650 non-null float64
+OtherPay            148650 non-null float64
+Benefits            112491 non-null float64
+TotalPay            148654 non-null float64
+TotalPayBenefits    148654 non-null float64
+Year                148654 non-null int64
+Notes               0 non-null float64
+Agency              148654 non-null object
+Status              0 non-null float64
+dtypes: float64(8), int64(2), object(3)
+memory usage: 14.7+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the .describe() method to find out more about statistics of data</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>148654.000000</td>
+      <td>148045.000000</td>
+      <td>148650.000000</td>
+      <td>148650.000000</td>
+      <td>112491.000000</td>
+      <td>148654.000000</td>
+      <td>148654.000000</td>
+      <td>148654.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>74327.500000</td>
+      <td>66325.448841</td>
+      <td>5066.059886</td>
+      <td>3648.767297</td>
+      <td>25007.893151</td>
+      <td>74768.321972</td>
+      <td>93692.554811</td>
+      <td>2012.522643</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>42912.857795</td>
+      <td>42764.635495</td>
+      <td>11454.380559</td>
+      <td>8056.601866</td>
+      <td>15402.215858</td>
+      <td>50517.005274</td>
+      <td>62793.533483</td>
+      <td>1.117538</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>-166.010000</td>
+      <td>-0.010000</td>
+      <td>-7058.590000</td>
+      <td>-33.890000</td>
+      <td>-618.130000</td>
+      <td>-618.130000</td>
+      <td>2011.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>37164.250000</td>
+      <td>33588.200000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>11535.395000</td>
+      <td>36168.995000</td>
+      <td>44065.650000</td>
+      <td>2012.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>74327.500000</td>
+      <td>65007.450000</td>
+      <td>0.000000</td>
+      <td>811.270000</td>
+      <td>28628.620000</td>
+      <td>71426.610000</td>
+      <td>92404.090000</td>
+      <td>2013.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>111490.750000</td>
+      <td>94691.050000</td>
+      <td>4658.175000</td>
+      <td>4236.065000</td>
+      <td>35566.855000</td>
+      <td>105839.135000</td>
+      <td>132876.450000</td>
+      <td>2014.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>148654.000000</td>
+      <td>319275.010000</td>
+      <td>245131.880000</td>
+      <td>400184.250000</td>
+      <td>96570.660000</td>
+      <td>567595.430000</td>
+      <td>567595.430000</td>
+      <td>2014.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>What is the average BasePay ?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;BasePay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>66325.44884050643</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What is the highest amount of OvertimePay in the dataset ? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;OvertimePay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>245131.88</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What is the job title of  JOSEPH DRISCOLL ? Note: Use all caps, otherwise you may get an answer that doesn't match up (there is also a lowercase Joseph Driscoll). </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;EmployeeName&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;JOSEPH DRISCOLL&#39;</span><span class="p">][</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>24    CAPTAIN, FIRE SUPPRESSION
+Name: JobTitle, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> How much does JOSEPH DRISCOLL make (including benefits)? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;EmployeeName&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;JOSEPH DRISCOLL&#39;</span><span class="p">][</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>24    270324.91
+Name: TotalPayBenefits, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What is the name of highest paid person (including benefits)?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">sal</span><span class="p">[</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span> <span class="c1">#[&#39;EmployeeName&#39;]</span>
+<span class="c1"># or</span>
+<span class="c1"># sal.loc[sal[&#39;TotalPayBenefits&#39;].idxmax()]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>NATHANIEL FORD</td>
+      <td>GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY</td>
+      <td>167411.18</td>
+      <td>0.0</td>
+      <td>400184.25</td>
+      <td>NaN</td>
+      <td>567595.43</td>
+      <td>567595.43</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What is the name of lowest paid person (including benefits)? Do you notice something strange about how much he or she is paid?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">sal</span><span class="p">[</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span> <span class="c1">#[&#39;EmployeeName&#39;]</span>
+<span class="c1"># or</span>
+<span class="c1"># sal.loc[sal[&#39;TotalPayBenefits&#39;].idxmax()][&#39;EmployeeName&#39;]</span>
+
+<span class="c1">## ITS NEGATIVE!! VERY STRANGE</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>148653</th>
+      <td>148654</td>
+      <td>Joe Lopez</td>
+      <td>Counselor, Log Cabin Ranch</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-618.13</td>
+      <td>0.0</td>
+      <td>-618.13</td>
+      <td>-618.13</td>
+      <td>2014</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What was the average (mean) BasePay of all employees per year? (2011-2014) ? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;BasePay&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Year
+2011    63595.956517
+2012    65436.406857
+2013    69630.030216
+2014    66564.421924
+Name: BasePay, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> How many unique job titles are there? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2159</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What are the top 5 most common jobs? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Transit Operator                7036
+Special Nurse                   4389
+Registered Nurse                3736
+Public Svc Aide-Public Works    2518
+Police Officer 3                2421
+Name: JobTitle, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> How many Job Titles were represented by only one person in 2013? (e.g. Job Titles with only one occurence in 2013?) </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">sal</span><span class="p">[</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2013</span><span class="p">][</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># pretty tricky way to do this...</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>202</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> How many people have the word Chief in their job title? (This is pretty tricky) </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chief_string</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;chief&#39;</span> <span class="ow">in</span> <span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">chief_string</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>477</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Bonus: Is there a correlation between length of the Job Title string and Salary? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[</span><span class="s1">&#39;title_len&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sal</span><span class="p">[</span><span class="s1">&#39;JobTitle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">sal</span><span class="p">[[</span><span class="s1">&#39;title_len&#39;</span><span class="p">,</span><span class="s1">&#39;TotalPayBenefits&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span> <span class="c1"># No correlation.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title_len</th>
+      <th>TotalPayBenefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>title_len</th>
+      <td>1.000000</td>
+      <td>-0.036878</td>
+    </tr>
+    <tr>
+      <th>TotalPayBenefits</th>
+      <td>-0.036878</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+</div>
+     </div>
+</div>
+    </section>
+
+
+     {% endblock %}

@@ -1,0 +1,1521 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+{% raw %}
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+       <div class="row">
+          <div class="header-section">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                    Flask Templates with Jinja2
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-12">
+
+	<div class="col-md-3">
+    <div class="text-center panel-head">Table of Contents</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Introduction to Templates</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Rendering Templates</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Variables</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">Filters</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Conditional: if..else</a></li>
+          <li class=""><a href="#tab6" data-toggle="tab">Control Structures: for..in</a></li>
+          <li class=""><a href="#tab8" data-toggle="tab">Template Inheritance</a></li>
+          <li class=""><a href="#tab9" data-toggle="tab">Include</a></li>
+          <li class=""><a href="#tab10" data-toggle="tab">With Statements</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+  <div class="material">
+     <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Jijna2-Templates">Jijna2 Templates<a class="anchor-link" href="#Jijna2-Templates"></a></h2>
+</div>
+</div>
+<br/>
+    <p>Documentation : <a href="http://jinja.pocoo.org/docs/dev/templates/">http://jinja.pocoo.org/docs/dev/templates/</a></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-Templates-?">What is Templates ?<a class="anchor-link" href="#What-is-Templates-?"></a></h3><p>A template is typically a text file (in our case we will be using HTML files) that contain text which is going to be the response we will be sending to our users.</p>
+<p>These Templates contain placeholder variables which allow us to have dynamic parts in our file, which are then filled with the Jinja2 Template Engine. The process of these variables getting filled in with actual values is called rendering. After the html file is rendered, it will then be sent as a response to the client. We can remember that Jinja2’s role in this process is to render our templates.</p>
+<p>Flask configures the <code>Jinja2</code> template engine for you automatically.</p>
+<h3 id="What-is-Jinja2-?">What is Jinja2 ?<a class="anchor-link" href="#What-is-Jinja2-?"></a></h3><p>Jinja2 is a modern and designer-friendly templating language for Python. Jinja2 is a library for Python that is designed to be flexible, fast and secure.</p>
+<p>A common goal among experienced web developers is to develop and deploy applications that are flexible and easily maintainable. An important consideration in reaching this goal is the separation of business logic from presentation logic. Developers use web template systems (with varying degrees of success) to maintain this separation.</p>
+<p>The following picture will explain how Python, Flask and Jinja2 fits together:</p>
+<center>
+     <p><img src="../static/img/materials/flask-architechture.png" alt="title" class="img-responsive" ></p>
+</center><p>mypython.py is the source Python file. In there we import Flask the same way we import every library in python. We use python to create our data in the same way we are used to do so. The data is send to Jinja2 and rendered based on the template “mytemplate.html”. The output is a dynamically generated html page, which can be shown in your browser.</p>
+<p>Jinja2 is autometically installed while installing flask . Please make sure that jijna2 is already installed by
+executing this command from your terminal.</p>
+
+<pre><code>pip install jinja2
+</code></pre>
+<p>You will be able to see this in your terminal....</p>
+
+<pre><code>Requirement already satisfied: jinja2 in ./.local/lib/python2.7/site-packages
+Requirement already satisfied: MarkupSafe&gt;=0.23 in ./.local/lib/python2.7/site-packages (from jinja2)
+</code></pre>
+<p>While Flask doesn’t force us to use any particular templating language, it assumes that we’re going to use Jinja.
+Almost all resources imply Jinja2 when they refer to "Jinja."  <a href="http://jinja.pocoo.org/">http://jinja.pocoo.org/</a></p>
+<p>A Jinja template is simply a text file. Jinja can generate any text-based format (HTML, XML, CSV, LaTeX, etc.). A Jinja template doesn’t need to have a specific extension: .html, .xml, or any other extension is just fine.</p>
+<p>I will highly recommend you to go through the official documentation of Jinja2 - <a href="http://jinja.pocoo.org/docs/dev/templates/">http://jinja.pocoo.org/docs/dev/templates/</a> for more details.</p>
+<p>Some of the mostly used components are discussed in this tutorial.</p>
+<h3 id="Delimiters">Delimiters<a class="anchor-link" href="#Delimiters"></a></h3><p>There are a few kinds of delimiters. The default Jinja delimiters are configured as follows:</p>
+<table>
+<thead><tr>
+<th>Delimiters</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{% … %}</td>
+<td>Statements</td>
+</tr>
+<tr>
+<td>{{ … }}</td>
+<td>Expressions to print to the template output</td>
+</tr>
+<tr>
+<td>{# … #}</td>
+<td>Comments not included in the template output</td>
+</tr>
+<tr>
+<td>#....##</td>
+<td>Line Statements</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Comments">Comments<a class="anchor-link" href="#Comments"></a></h3><p>To be able to provide a comment in your template file or just to comment out a code block you should surround it with-</p>
+
+<pre><code>    {# your comment or code goes here #}
+        comments......
+    {# Checks if book is marked as hidden #}
+
+                    or
+
+    {#
+      {% for title, data in books.iteritems() %}
+            {{title}}
+      {% endfor %}
+    #}</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab2">
+  <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Rendering-Templates">Rendering Templates<a class="anchor-link" href="#Rendering-Templates"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To render a template you can use the <code>render_template()</code> method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here’s a simple example of how to render a template:</p>
+<h3 id="How-Flask-Templates-are-Rendered-using-the-render_template()-Function">How Flask Templates are Rendered using the render_template() Function<a class="anchor-link" href="#How-Flask-Templates-are-Rendered-using-the-render_template()-Function"></a></h3><p>By default, Flask looks for templates in a "Templates" subfolder in your application’s root directory. Let’s do a very simple example using our Hello World application, and modify it a little bit. Make sure you do create a “Templates” folder in your application’s root directory for your index.html file.</p>
+<p><strong>Project Structure :</strong></p>
+
+<pre><code>MyApp
+    |__/application.py
+    |__/templates
+        --/index.html
+</code></pre>
+<p>Lets start with a "hello world" example template:</p>
+<p><strong>application.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>index.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="kn">from</span> <span class="nn">Flask</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="n">World</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The content of index.html will be rendered while hitting through the url : http:/localhost:5000/hello
+You will be able to see "Hello World" in the browser.</p>
+<p>You can also add additional arguments to this function which will then be used as values for placeholder variables in our templates. Here’s another example where you can see us passing in additional arguments.</p>
+<h3 id="How-to-pass-parameter-to-the-template">How to pass parameter to the template<a class="anchor-link" href="#How-to-pass-parameter-to-the-template"></a></h3><p>Lets see the example bellow code by adding name in your template.</p>
+<p>You said {{ text }}!</p>
+<p>This syntax tells Jinja to put the content of the text variable instead of the {{ text }} snippet.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;echo.html&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/echo&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">echo</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;echo.html&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>echo.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/echo&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Echo&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">text</span> <span class="o">%</span><span class="p">}</span>
+  <span class="n">You</span> <span class="n">said</span><span class="p">:</span> <span class="p">{{</span> <span class="n">text</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You will be able to see this in your browser .</p>
+<p><input type="text" value="hello"></input><input type="submit" value="Echo"></p>
+<p>You said hello !</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+
+<div class="tab-pane  text-style" id="tab3">
+  <div class="material">
+ <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variables">Variables<a class="anchor-link" href="#Variables"></a></h2><p>Variables are passed to the template via the context dictionary. In Jinja2 the double curly braces are used as a print statement. So if you want to print the value of the title variable, you should use the following code snippet:</p>
+<p><code>{{title}}</code></p>
+<p>if you want to access variable’s attributes you have two approaches to achieve that goal:</p>
+<p><code>{{book.title}} or {{book['title']}}</code></p>
+<p>In case of non-existent variable or attribute, an undefined value will be returned.</p>
+<h3 id="Jinja2-recognizes-variables-of-any-type-such-as-lists,-dictionaries-and-objects-:">Jinja2 recognizes variables of any type such as lists, dictionaries and objects :<a class="anchor-link" href="#Jinja2-recognizes-variables-of-any-type-such-as-lists,-dictionaries-and-objects-:"></a></h3><p><strong>template1.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span>    <span class="o">&lt;!</span>DOCTYPE html&gt;
+    <span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Variable</span> <span class="n">Example</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mydict</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]:</span> <span class="p">{{</span> <span class="n">mydict</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span><span class="p">[</span><span class="n">myintvar</span><span class="p">]:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="p">[</span><span class="n">myintvar</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">instance</span><span class="o">.</span><span class="n">method1</span><span class="p">():</span> <span class="p">{{</span> <span class="n">instance</span><span class="o">.</span><span class="n">method1</span><span class="p">()</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">instance</span><span class="o">.</span><span class="n">method2</span><span class="p">():</span> <span class="p">{{</span> <span class="n">instance</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">instance</span><span class="o">.</span><span class="n">method3</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="p">{{</span> <span class="n">instance</span><span class="o">.</span><span class="n">method3</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">class</span><span class="o">.</span><span class="n">method2</span><span class="p">():</span> <span class="p">{{</span> <span class="n">class</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">class</span><span class="o">.</span><span class="n">method3</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="p">{{</span> <span class="n">class</span><span class="o">.</span><span class="n">method3</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/template1&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">template1</span><span class="p">():</span>
+    <span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a secret&quot;</span><span class="p">}</span>
+    <span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">myintvar</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">class</span> <span class="nc">Myobj</span><span class="p">():</span>
+        <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;I&#39;m a instance method.&quot;</span>
+
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span> <span class="nf">method2</span><span class="p">():</span>
+            <span class="k">return</span> <span class="s2">&quot;I&#39;m a static method.&quot;</span>
+
+        <span class="nd">@classmethod</span>
+        <span class="k">def</span> <span class="nf">method3</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;I&#39;m a class method, get value </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;mydict&quot;</span><span class="p">:</span> <span class="n">mydict</span><span class="p">,</span>
+        <span class="s2">&quot;mylist&quot;</span><span class="p">:</span> <span class="n">mylist</span><span class="p">,</span>
+        <span class="s2">&quot;myintvar&quot;</span><span class="p">:</span> <span class="n">myintvar</span><span class="p">,</span>
+        <span class="s2">&quot;instance&quot;</span><span class="p">:</span> <span class="n">Myobj</span><span class="p">(),</span>
+        <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">Myobj</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;template1.html&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://127.0.0.1:5000/template1">http://127.0.0.1:5000/template1</a> will show the following</p>
+<h2>Variable Example:</h2><p>mydict["key"]: This is a secret</p>
+<p>mylist[3]: 3</p>
+<p>mylist[myintvar]: 0</p>
+<p>instance.method1(): I'm a instance method.</p>
+<p>instance.method2(): I'm a static method.</p>
+<p>instance.method3(5): I'm a class method, get value 5</p>
+<p>class.method2(): I'm a static method.</p>
+<p>class.method3(10): I'm a class method, get value 10</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="tab-pane  text-style" id="tab4">
+  <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filters">Filters<a class="anchor-link" href="#Filters"></a></h2><p>Variables can be modified with filters (pipe character as separator).</p>
+<h3 id="Common-filters">Common filters<a class="anchor-link" href="#Common-filters"></a></h3><ul>
+<li>safe: Renders the value without applying escaping</li>
+<li>capitalize: Converts the first character of the value to uppercase and the rest to lowercase</li>
+<li>lower: Converts the value to lowercase characters</li>
+<li>upper: Converts the value to uppercase characters</li>
+<li>title: Capitalizes each word in the value</li>
+<li>trim: Removes leading and trailing whitespace from the value</li>
+<li>striptags: Removes any HTML tags from the value before rendering</li>
+<li>sort : Sort an iterable. Per default it sorts ascending, if you pass it true as first argument it will reverse the sorting.</li>
+<li>join : Return a string which is the concatenation of the strings in the sequence. The separator between elements is an empty string per default, you can define it with the optional parameter .</li>
+<li>select : Filters a sequence of objects by applying a test to each object, and only selecting the objects with the test succeeding.</li>
+<li>reject : Filters a sequence of objects by applying a test to each object, and rejecting the objects with the test succeeding.</li>
+<li>replace : Return a copy of the value with all occurrences of a substring replaced with a new one. </li>
+</ul>
+<h3 id="Multiple-filters-can-be-chained.-The-output-of-one-filter-is-applied-to-the-next">Multiple filters can be chained. The output of one filter is applied to the next<a class="anchor-link" href="#Multiple-filters-can-be-chained.-The-output-of-one-filter-is-applied-to-the-next"></a></h3><p>Example : {{ name|striptags|title }}</p>
+<h3 id="Custom-filters-can-be-implemented-and-used-in-the-templates">Custom filters can be implemented and used in the templates<a class="anchor-link" href="#Custom-filters-can-be-implemented-and-used-in-the-templates"></a></h3><p><strong>template2.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;!</span>DOCTYPE html&gt;
+<span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Filter</span> <span class="n">Example</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">length</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">length</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">sort</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">sort</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">join</span> <span class="n">by</span> <span class="s2">&quot;|&quot;</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">select</span> <span class="n">odd</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">list</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">reject</span> <span class="n">odd</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">reject</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">list</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">mylist</span> <span class="n">divisibleby</span> <span class="mi">3</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">mylist</span><span class="o">|</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;divisibleby&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="o">|</span> <span class="nb">list</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Capitalize</span> <span class="n">variable</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">myvar</span> <span class="o">|</span><span class="n">capitalize</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Title</span>  <span class="p">:</span> <span class="p">{{</span> <span class="n">myvar</span> <span class="o">|</span> <span class="n">title</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Upper</span>  <span class="p">:</span> <span class="p">{{</span> <span class="n">myvar</span> <span class="o">|</span> <span class="n">upper</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Without</span> <span class="n">safe</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">htmltag</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">With</span> <span class="n">Safe</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">htmltag</span><span class="o">|</span><span class="n">safe</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">With</span> <span class="n">Striptags</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">htmltag</span><span class="o">|</span><span class="n">striptags</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Repalce</span> <span class="n">variable</span> <span class="p">:</span> <span class="p">{{</span> <span class="n">myvar</span> <span class="o">|</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Goodbye&quot;</span><span class="p">)</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Filter</span> <span class="n">Chain</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="p">{{</span> <span class="n">htmltag</span> <span class="o">|</span> <span class="n">safe</span> <span class="o">|</span> <span class="n">upper</span>  <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Custom</span> <span class="n">Filter</span> <span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="p">{{</span> <span class="n">myvar</span> <span class="o">|</span> <span class="n">trim_upper</span>  <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="c1">#### Custom Filters</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">template_filter</span><span class="p">(</span><span class="s1">&#39;trim_upper&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">string_trim_upper</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/template2&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a secret&quot;</span><span class="p">}</span>
+    <span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">myvar</span> <span class="o">=</span> <span class="s2">&quot;hello World , this is variable&quot;</span>
+    <span class="n">htmltag</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;&lt;i&gt;This is a html tag&lt;/b&gt;&lt;/i&gt;&quot;</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;mydict&quot;</span><span class="p">:</span> <span class="n">mydict</span><span class="p">,</span>
+        <span class="s2">&quot;mylist&quot;</span><span class="p">:</span> <span class="n">mylist</span><span class="p">,</span>
+        <span class="s2">&quot;myvar&quot;</span><span class="p">:</span> <span class="n">myvar</span><span class="p">,</span>
+        <span class="s2">&quot;htmltag&quot;</span> <span class="p">:</span> <span class="n">htmltag</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;template2.html&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following code will lead this output as bellow if you restart your server to <a href="http://localhost:5000/template2">http://localhost:5000/template2</a></p>
+<h2> Filter Example:</h2><p>mylist length : 7</p>
+<p>mylist sort : [2, 3, 5, 7, 9, 10, 15]</p>
+<p>mylist join by "|" : 5|7|9|3|10|15|2</p>
+<p>mylist select odd : [5, 7, 9, 3, 15]</p>
+<p>mylist reject odd : [10, 2]</p>
+<p>mylist divisibleby 3 : [9, 3, 15]</p>
+<p>Capitalize variable : Hello world , this is variable</p>
+<p>Title : Hello World , This Is Variable</p>
+<p>Upper : HELLO WORLD , THIS IS VARIABLE</p>
+<p>Without safe : &lt; b &gt;&lt; i &gt;This is a html tag&lt;/ b &gt;&lt;/ i &gt;</p>
+<p>With Safe : <b><i>This is a html tag</i></b></p>
+<p>With Striptags : This is a html tag</p>
+<p>Repalce variable : Goodbye World , this is variable</p>
+<h3>Filter Chain</h3><p><b><i>THIS IS A HTML TAG</i></b></p>
+<h3>Custom Filter</h3><p>HELLO WORLD , THIS IS VARIABLE</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab5">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conditional-Statements:-if.....-else">Conditional Statements: if..... else<a class="anchor-link" href="#Conditional-Statements:-if.....-else"></a></h2><p>templates also support control statements, given inside {% ... %} blocks.
+if statement is used for branching a logic internally in the template:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;!</span>-- templates/users.html --&gt;
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">name</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="p">{{</span> <span class="n">name</span><span class="o">|</span><span class="n">title</span> <span class="p">}}</span><span class="o">!</span>&lt;/h1&gt;
+<span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">Stranger</span><span class="o">!</span>&lt;/h1&gt;
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">userList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Dick&#39;</span><span class="p">,</span> <span class="s1">&#39;Harry&#39;</span><span class="p">,</span><span class="s1">&#39;Mark&#39;</span><span class="p">]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/user/&lt;name&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">userList</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;users.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://127.0.0.1:5000/user">http://127.0.0.1:5000/user</a> - will show this <h2>Hello, Stranger!</h2></p>
+<p><a href="http://127.0.0.1:5000/user/Tom">http://127.0.0.1:5000/user/Tom</a> - will show this <h2>Hello, Tom!</h2></p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab6">
+  <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Control-Structures:-for....-in">Control Structures: for.... in<a class="anchor-link" href="#Control-Structures:-for....-in"></a></h2><h3 id="Iterating-over-a-list">Iterating over a list<a class="anchor-link" href="#Iterating-over-a-list"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;!</span>-- templates/index.html --&gt;
+
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">User</span> <span class="n">List</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span> <span class="o">%</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">user</span> <span class="o">|</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">userList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Dick&#39;</span><span class="p">,</span> <span class="s1">&#39;Harry&#39;</span><span class="p">,</span><span class="s1">&#39;Mark&#39;</span><span class="p">]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/userlist&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">users</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">userList</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://127.0.0.1:5000/userlist">http://127.0.0.1:5000/userlist</a> will show the following</p>
+<p><h1>User List</h1></p>
+<ul>
+<li>Tom</li>
+<li>Dick</li>
+<li>Harry</li>
+<li>Mark</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Iterating-over-a-dictionary">Iterating over a dictionary<a class="anchor-link" href="#Iterating-over-a-dictionary"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">dict_item</span> <span class="ow">in</span> <span class="n">mydict</span> <span class="o">%</span><span class="p">}</span>
+   <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_item</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Key</span><span class="p">:</span> <span class="p">{{</span><span class="n">key</span><span class="p">}}</span>   <span class="o">----&gt;</span> <span class="n">Value</span><span class="p">:</span> <span class="p">{{</span><span class="n">value</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+   <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">mydict</span> <span class="o">=</span> <span class="p">[</span>
+              <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="s1">&#39;val1&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="s1">&#39;val2&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="s1">&#39;val3&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="s1">&#39;val4&#39;</span><span class="p">}</span>
+         <span class="p">]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/mydict&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">title</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span><span class="n">mydict</span><span class="o">=</span><span class="n">mydict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://127.0.0.1:5000/mydict">http://127.0.0.1:5000/mydict</a> will show the following</p>
+<p>Key: A ----&gt; Value: val1</p>
+<p>Key: B ----&gt; Value: val2</p>
+<p>Key: C ----&gt; Value: val3</p>
+<p>Key: D ----&gt; Value: val4</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Iterating-over-a-Json">Iterating over a Json<a class="anchor-link" href="#Iterating-over-a-Json"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">table</span> <span class="n">border</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span>
+   <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span> <span class="o">%</span><span class="p">}</span>
+   <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+   <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">render_template</span><span class="p">,</span><span class="n">json</span><span class="p">,</span><span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">json_str</span> <span class="o">=</span> <span class="p">[</span>   
+                <span class="p">{</span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span> 
+                <span class="p">},</span> 
+                <span class="p">{</span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane&quot;</span><span class="p">,</span> 
+                 <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Heart&quot;</span><span class="p">,</span>
+                <span class="p">},</span> 
+                <span class="p">{</span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dom&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Robinsons&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pete&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Hand&quot;</span>
+                <span class="p">}</span>
+           <span class="p">]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/userjson&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">title</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span><span class="n">users</span><span class="o">=</span><span class="n">json_str</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://127.0.0.1:5000/userjson">http://127.0.0.1:5000/userjson</a> will show the following</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table border="1">
+
+   <tr>
+       <td>John</td>
+        <td>Smith</td>
+   </tr>
+
+   <tr>
+       <td>Jane</td>
+        <td>Heart</td>
+   </tr>
+
+   <tr>
+       <td>Dom</td>
+        <td>Robinsons</td>
+   </tr>
+
+   <tr>
+       <td>Pete</td>
+        <td>Hand</td>
+   </tr>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Loop-Controls">Loop Controls<a class="anchor-link" href="#Loop-Controls"></a></h3><p>If the application enables the Loop Controls, it’s possible to use break and continue in loops. When break is reached, the loop is terminated; if continue is reached, the processing is stopped and continues with the next iteration.</p>
+<p>Here’s a loop that skips every second item:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="o">%-</span> <span class="k">if</span> <span class="n">loop</span><span class="o">.</span><span class="n">index</span> <span class="ow">is</span> <span class="n">even</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="k">continue</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">...</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Likewise, a loop that stops processing after the 10th iteration:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="o">%-</span> <span class="k">if</span> <span class="n">loop</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="k">break</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%-</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that loop.index starts with 1, and loop.index0 starts with 0</p>
+<p>Check here for more in loops : <a href="http://jinja.pocoo.org/docs/dev/templates/#for">http://jinja.pocoo.org/docs/dev/templates/#for</a></p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab8">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Template-Inheritance">Template Inheritance<a class="anchor-link" href="#Template-Inheritance"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the more powerful features of Jinja is the ability to use template inheritance, which means that one template can inherit from another. Let's see an example! First, let's create a file called base.html:</p>
+<p><strong>base.html :</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;!</span>DOCTYPE html&gt;
+<span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Document</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+     <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>   <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">base</span>  <span class="n">template</span> <span class="n">header</span> <span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+
+         <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+     <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>    <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">base</span> <span class="n">template</span> <span class="n">footer</span> <span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+
+
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Did you notice the {% block %} tags? This defines a block (or area) that child templates can fill in. Further, this just informs the templating engine that a child template may override the block of the template.</p>
+<p>Think of these as placeholders to be filled in by code from the child template(s).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In another template (in the same directory), create a file called index.html:</p>
+<p><strong>index.html :</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="o">%</span><span class="p">}</span>
+
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="n">index</span> <span class="n">template</span><span class="o">!</span>&lt;/p&gt;
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, the {% extends %} informs the templating engine that this template “extends” another template, layout.html. This establishes the link between the templates, in other words.</p>
+<p><strong>app.py:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">title</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Run it. You should see: <a href="http://127.0.0.1:5000/index">http://127.0.0.1:5000/index</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+
+<h1> this is the base template header </h1><p><br/></p>
+<p>This is index template!</p>
+<p><br/></p>
+<h1>this is the base template footer</h1><hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note:</strong> You should always add as much recurring code as possible to your base template to save yourself time in the future, which will far outweigh the initial time investment.</p>
+<p>One common use case is to add a navigation bar.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Super-Blocks">Super Blocks<a class="anchor-link" href="#Super-Blocks"></a></h3><p>If you need to render a block from the base template, use a super block:</p>
+<p>Add a footer to the base template:</p>
+<p><strong>base.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;!</span>DOCTYPE html&gt;
+<span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Document</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+     <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>   <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">base</span>  <span class="n">template</span> <span class="n">header</span> <span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+
+     <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+     <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>    <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">base</span> <span class="n">template</span> <span class="n">footer</span> <span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+     
+     <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">footer</span> <span class="o">%</span><span class="p">}</span>
+          <span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">my</span> <span class="n">base</span> <span class="ow">and</span> <span class="n">child</span> <span class="n">templates</span> <span class="n">using</span> <span class="n">the</span> <span class="nb">super</span> <span class="n">powerful</span> <span class="nb">super</span> <span class="n">block</span><span class="err">!</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+     <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Run the app. You should see that the footer is just part of the base:</p>
+<p>Now, add the super block to <strong>index.html</strong>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="n">index</span> <span class="n">template</span><span class="o">!</span>&lt;/p&gt;
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">footer</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">{{</span><span class="nb">super</span><span class="p">()}}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Check it out in your browser:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+
+
+<h1>   this is the base  template header </h1><p>This is index template!</p><p>This will be added to my base and child templates using the super powerful super block!
+<br>
+<br></p>
+<h1>   this is the base template footer </h1><p>This will be added to my base and child templates using the super powerful super block!</p>
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Named-Block-End-Tags">Named Block End-Tags<a class="anchor-link" href="#Named-Block-End-Tags"></a></h3><p>Jinja2 allows you to put the name of the block after the end tag for better readability:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">sidebar</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">inner_sidebar</span> <span class="o">%</span><span class="p">}</span>
+        <span class="o">...</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">inner_sidebar</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">sidebar</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, the name after the endblock word must match the block name.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab9">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Include">Include<a class="anchor-link" href="#Include"></a></h2><p>The include statement is useful to include a template and return the rendered contents of that file into the current namespace:</p>
+
+<pre><code>{% include 'header.html' %}
+    Body
+{% include 'footer.html' %}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>header.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span> <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">header</span> <span class="kn">from</span> <span class="nn">header.html</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+ 
+ <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>footer.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span> <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">footer</span> <span class="kn">from</span> <span class="nn">footer.html</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+ <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>index.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;header.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="n">index</span> <span class="n">page</span><span class="o">!</span>&lt;/p&gt;
+
+<span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;footer.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you run this code you will see both the content of included html are available in the index page :</p>
+<p><a href="http://127.0.0.1:5000/index">http://127.0.0.1:5000/index</a></p>
+<hr/>
+
+<p> This is header from header.html </p><p>This is index page!</p><p> This is footer from footer.html </p><p>&lt;/hr&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Included templates have access to the variables of the active context by default.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From Jinja 2.2 onwards, you can mark an include with ignore missing; in which case Jinja will ignore the statement if the template to be included does not exist. When combined with or without context, it must be placed before the context visibility statement. Here are some valid examples:</p>
+
+<pre><code>{% include "sidebar.html" ignore missing %}
+{% include "sidebar.html" ignore missing with context %}
+{% include "sidebar.html" ignore missing without context %}
+
+</code></pre>
+<p>New in version 2.2.</p>
+<p>You can also provide a list of templates that are checked for existence before inclusion. The first template that exists will be included. If ignore missing is given, it will fall back to rendering nothing if none of the templates exist, otherwise it will raise an exception.</p>
+<p>Example:</p>
+
+<pre><code>{% include ['page_detailed.html', 'page.html'] %}
+{% include ['special_sidebar.html', 'sidebar.html'] ignore missing %}</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane  text-style" id="tab10">
+  <div class="material">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div >
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="With-Statements">With Statements<a class="anchor-link" href="#With-Statements"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>New in version 2.3.</p>
+<p>The with statement makes it possible to create a new inner scope. Variables set within this scope are not visible outside of the scope.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>{% with %}
+    {% set foo = 42 %}
+    {{ foo }}           foo is 42 here
+{% endwith %}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With in a nutshell:</p>
+<p>foo is not visible here any longer
+Because it is common to set variables at the beginning of the scope, you can do that within the with statement. The following two examples are equivalent:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>{% with foo = 42 %}
+    {{ foo }}
+{% endwith %}
+
+{% with %}
+    {% set foo = 42 %}
+    {{ foo }}
+{% endwith %}</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+</div>
+</div>
+    </div>
+</div>
+ </section>
+
+
+{% endraw %}
+{% endblock %}

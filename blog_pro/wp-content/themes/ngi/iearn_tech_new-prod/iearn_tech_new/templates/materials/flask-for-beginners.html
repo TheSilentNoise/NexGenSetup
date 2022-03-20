@@ -1,0 +1,2038 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+       <div class="row">
+          <div class="header-section">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                    Flask for Beginners
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3">
+    <div class="text-center panel-head">Table of Contents</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel" style="overflow: auto;height: 440;">
+          <li class=""><a href="#tab1" data-toggle="tab">Introduction to Flask</a></li>
+          <li class=""><a href="#tab8" data-toggle="tab">Exploring Flask</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Say "hello world" with Flask</a></li>
+          <li class=""><a >Flask Environment Setup</a></li>
+          <li class=""><a >Flask App Organization</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Flask Routing</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">HTTP Methods</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Redirect & Errors</a></li>
+          <li class=""><a href="#tab6" data-toggle="tab">The Request Object</a></li>
+          <li class=""><a href="#tab6" data-toggle="tab">Flask Request Decorators</a></li>
+          <li class=""><a href="#" data-toggle="tab">Flask Session & Cookies</a></li>
+          <li class=""><a href="#" data-toggle="tab">Flask with Jquery-Ajax</a></li>
+          <li class=""><a href="#" data-toggle="tab">Deployment of Flask App</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+ <div class="material">
+     <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Introduction-to-Flask">Introduction to Flask<a class="anchor-link" href="#Introduction-to-Flask"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-Flask-?">What is Flask ?<a class="anchor-link" href="#What-is-Flask-?"></a></h3><p>Flask is a micro web framework written in Python and based on the Werkzeug toolkit and Jinja2 template engine. It is BSD licensed. The latest stable version of Flask is 0.12.2 as of May 2017.</p>
+
+</div>
+</div>
+</div>
+<center>
+     <p><img src="../static/img/materials/flask.png" alt="title" class="img-responsive" ></p>
+</center>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Why-Flask-is-Microframework-?">Why Flask is Microframework ?<a class="anchor-link" href="#Why-Flask-is-Microframework-?"></a></h3><p>“Micro” does not mean that your whole web application has to fit into a single Python file, although it certainly can. Nor does it mean that Flask is lacking in functionality. The “micro” in microframework means Flask aims to keep the core simple but extensible.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to explain Flask at a very very basic level. This tutorial only explains some basic concepts which you should know before you dive into Flask itself.
+After completing this tutorial, you will find yourself at a moderate level of expertise in developing API/websites
+using Flask.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-Version">Python Version<a class="anchor-link" href="#Python-Version"></a></h3><p>We recommend using the latest version of Python 3. Flask supports Python 3.3 and
+newer, Python 2.6 and newer, and PyPy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Flask">Install Flask<a class="anchor-link" href="#Install-Flask"></a></h3><p>Installing Flask through pip could not be more straightforward. Simply run
+the following from the terminal:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>$pip install flask</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You should also see Successfully installed Flask. Now, you can import Flask into a Python program just
+as with any other library.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Flask-version-check">Flask version check<a class="anchor-link" href="#Flask-version-check"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">flask</span>
+<span class="n">flask</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;0.12.2&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Installing Flask also installs a few other dependencies, which you will see when you run the following command:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>$ pip freeze
+click==6.6
+Flask==0.11.1
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+Werkzeug==0.11.11</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can save the output above in a file. This is good practice because anyone who wants to work on or run your project will need to know the dependencies to install. The following command will save the dependencies in a requirements.txt file:</p>
+
+</div>
+</div>
+</div>$pip freeze > requirements.txt
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Further-Reading">Further Reading<a class="anchor-link" href="#Further-Reading"></a></h4><p>I will recommend you to go through the flask official documentation for more details .</p>
+<p><a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a><br/>
+<a href="http://flask.pocoo.org/docs/0.12/quickstart/">http://flask.pocoo.org/docs/0.12/quickstart/</a></p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Say-&quot;Hello-World!&quot;-with-Flask">Say "Hello World!" with Flask</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we'll create a basic web page and serve it using Flask's built-in server to localhost . This means that we'll run a web server on our local machine to which we can easily make request and fetch responses. This is very useful for development.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Writing-the-code">Writing the code</h3><p>Our application will be a single Python file. Create a directory in your home directory called Myfirstapp and a file inside this called hello.py .
+In the hello.py file, we'll write code to serve a web page comprising the static string "Hello, World!".</p>
+<p>The code looksas follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, World!&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All parameters are optional in  app.run(host, port, debug, options)</p>
+<p><strong>host</strong> - Hostname to listen on. Defaults to 127.0.0.1 (localhost). Set to ‘0.0.0.0’ to have server available externally (you can make a call with ip or hostname)</p>
+<p><strong>port</strong> - Default: 5000 . You can modify the number as you want.</p>
+<p><strong>debug</strong> - Defaults to false. If set to true, provides a debug information</p>
+<p>True: show the detail debugging information<br/>
+False: just show "internal server error" msg (default)</p>
+<p><strong>threaded</strong> - True: multi thread  . False: single thread (default) </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Let's-break-down-what-this-does.">Let's break down what this does.</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.First we imported the Flask class. An instance of this class will be our WSGI application.</p>
+<p>2.Next we create an instance of this class. The first argument is the name of the application’s module or package. If you are using a single module (as in this example), you should use <strong>name</strong> because depending on if it’s started as ap-plication or imported as module the name will be different ('<strong>main</strong>' versus the actual import name). This is needed so that Flask knows where to look for templates, static files, and so on. For more information have a look at the Flaskdocumentation.</p>
+<p>3.We then use the route() decorator to tell Flask what URL should trigger our function.</p>
+<p>4.The function is given a name which is also used to generate URLs for that partic-ular function, and returns the message we want to display in the user’s browser.</p>
+<p>5.The final line kicks off Flask's development server on our local machine. We set it to run on port 5000 and set debug to True.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Running-the-code">Running the code</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To run our development web server, simply fire up a terminal and run the hello.py file.
+If you used the same structure outlined in the previous section, the commands will be as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>cd Myfirstapp
+python hello.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Fire up a web browser navigate to <a href="http://localhost:5000">http://localhost:5000</a> .</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You should see the "Hello, World!" string displayed in your browser .
+<strong>Congratulations</strong>, you've built your first web application using Flask!</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+  <div class="material">
+       <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Routing">Flask Routing</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back if the page uses a meaningful URL they can remember and use to directly visit a page.Use the route() decorator to bind a function to a URL.</p>
+<p>Use the route() decorator to bind a function to a URL.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Index Page&#39;</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, World&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can do more! You can make parts of the URL dynamic and attach multiple rules to a function.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Enter the following URL in the browser -</p>
+<p><a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a></p>
+<p><a href="http://127.0.0.1:5000/hello">http://127.0.0.1:5000/hello</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variable-Rules">Variable Rules</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can add variable sections to a URL by marking sections with <variable_name>.
+Your function then receives the <variable_name> as a keyword argument. Optionally, you can use a converter to specify the type of the argument like <a href="converter:variable_name">converter:variable_name</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="You-can-defines-URL-with-parameters">You can defines URL with parameters</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user/&lt;username&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_user_profile</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="c1"># show the user profile for that user</span>
+    <span class="k">return</span> <span class="s1">&#39;User </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">username</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It gives a nice way, intuitive way to define ressources on a website.</p>
+<p>Enter the following URL in the browser -</p>
+<p><a href="http://127.0.0.1:5000/user/nivedita">http://127.0.0.1:5000/user/nivedita</a>  - It will show "User nivedita" in the browser.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="You-can-make-URL-parameters-optional">You can make URL parameters optional</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello/&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;This url has no name&#39;</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello  </span><span class="si">%s</span><span class="s1"> &#39;</span> <span class="o">%</span> <span class="n">name</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="You-can-enforce-the-type-of-a-parameter">You can enforce the type of a parameter</h4><p>Flask will check the type for you, If no types are mentioned in the url it accepts the parameter as String ny default.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user/&lt;int:user_id&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_post</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="c1"># show the user with the given id, the id is an integer</span>
+    <span class="k">return</span> <span class="s1">&#39;User id </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">user_id</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/members/&lt;string:name&gt;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">getMember</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">name</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/path/&lt;path:subpath&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_subpath</span><span class="p">(</span><span class="n">subpath</span><span class="p">):</span>
+    <span class="c1"># show the subpath after /path/</span>
+    <span class="k">return</span> <span class="s1">&#39;Subpath </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subpath</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Enter the following URL in the browser -</p>
+
+<pre><code>http://127.0.0.1:5000/user_id/3
+
+http://127.0.0.1:5000/members/nivedita/
+
+http://127.0.0.1:5000/path/admin        </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Converter types:</strong></p>
+<p><strong>string</strong> - (default) accepts any text without a slash</p>
+<p><strong>int</strong> - accepts positive integers</p>
+<p><strong>float</strong> - accepts positive floating point values</p>
+<p><strong>path</strong> - like string but also accepts slashes</p>
+<p><strong>uuid</strong> - accepts UUID strings</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unique-URLs-/-Redirection-Behavior">Unique URLs / Redirection Behavior</h3><p>Take these two rules:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/projects/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">projects</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;The project page&#39;</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/about&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">about</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;The about page&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note :</strong></p>
+<p>Though they look similar, they differ in their use of the trailing slash in the URL. In the first case, the canonical URL for the projects endpoint uses a trailing slash. It’s similar to a folder in a file system; if you access the URL without a trailing slash, Flask redirects you to the canonical URL with the trailing slash.</p>
+<p>In the second case, however, the URL definition lacks a trailing slash, like the path-name of a file on UNIX-like systems. Accessing the URL with a trailing slash producesa 404 “Not Found” error.</p>
+<p>This behavior allows relative URLs to continue working even if the trailing slash is omitted, consistent with how Apache and other servers work. Also, the URLs will stay unique, which helps search engines avoid indexing the same page twice.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="URL-Building">URL Building</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To build a URL to a specific function, use the <strong>url_for()</strong> function. It accepts the name of the function as its first argument and any number of keyword arguments, each cor-
+responding to a variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters.</p>
+<p>Why would you want to build URLs using the URL reversing function url_for() in-stead of hard-coding them
+into your templates?</p>
+<ol>
+<li>Reversing is often more descriptive than hard-coding the URLs.</li>
+<li>You can change your URLs in one go instead of needing to remember to
+manually change hard-coded URLs.</li>
+<li>URL building handles escaping of special characters and Unicode data
+transparently.</li>
+<li>If your application is placed outside the URL root, for example, in /
+myapplication instead of /, url_for() properly handles that for you.</li>
+</ol>
+<p><strong>You can translate function names to URL with url for()</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span><span class="n">url_for</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/admin&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">admin</span><span class="p">():</span>
+   <span class="k">return</span> <span class="s1">&#39;Hello Admin&#39;</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/student/&lt;student&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="n">guest</span><span class="p">):</span>
+   <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1"> as Student&#39;</span> <span class="o">%</span> <span class="n">student</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">name</span> <span class="o">==</span><span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">,</span><span class="n">student</span> <span class="o">=</span> <span class="n">name</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Enter the following URL in the browser - <a href="http://127.0.0.1:5000/user/admin">http://127.0.0.1:5000/user/admin</a></p>
+<p>Application Response in browser : Hello Admin</p>
+<p>Enter the following URL in the browser -  <a href="http://127.0.0.1:5000/user/nivedita">http://127.0.0.1:5000/user/nivedita</a></p>
+<p>Application Response in browser : Hello Nivedita as Student</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="tab-pane text-style" id="tab4">
+  <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="HTTP-Methods">HTTP Methods</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Web applications use different HTTP methods when accessing URLs. You should familiarize yourself with
+the HTTP methods as you work with Flask. By default, a route only answers to GET requests. You can use the methods argument of the route() decorator to handle different HTTP methods.</p>
+<p>Example :</p>
+
+</div>
+</div>
+</div>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets start with what is HTTP :</p>
+<p><strong>HTTP</strong> - Hiper Text Transfer Protocol. The protocol that clients and servers use to communicate.</p>
+<ul>
+<li><p><code>Idempotent</code>: An operation is idempotent if calling it multiple times yields the same result. For example, GET requests should be idempotent.</p>
+</li>
+<li><p><code>CRUD</code>- Shorthand for Create, Read, Update, and Delete. We often talk about implementing CRUD on a resource when building web applications.</p>
+</li>
+<li><p><code>Resource</code>- A noun that we operate on. An application can have many resources, but each resource will have its own set of routes and CRUD operations. For example, users and tweets are two examples of resources for Twitter.</p>
+</li>
+</ul>
+<p>Structure of HTTP conversation can be divided in two types, <strong>HTTP Request</strong> or <strong>HTTP Response</strong>.</p>
+<p><code>HTTP Request</code>
+When ever end User clicks any link or submit any form browser send HTTP Request to Server so that server can process it and provide the HTTP Response.</p>
+<p>HTTP Request’s are of different kind. HTTP has several methods which inform the server about the kind of Request is being made by browser.</p>
+<p>Methods in HTTP Protocol</p>
+<ul>
+<li>GET - for retrieving information or sending information via the query string</li>
+<li>POST - for sending information via the body of the request</li>
+<li>PUT - for updating an entire resource</li>
+<li>PATCH - for updating a part of a resource</li>
+<li>DELETE - for removing a resource</li>
+</ul>
+<p>GET and POST are the method which is used mostly in web environment and we will discuss only those.
+GET method is the default method which will be used by Browser(If not specified explicitly). GET method is used by browser to ask(Not submitting any data) for some kind of resources on server(HTML, Image, PDF  etc..).</p>
+<p>POST method is used by browser to send some information to server for processing. Eg.  Form Submission..</p>
+<p><code>HTTP Response</code>
+This is what server send to user client(Browser) when user ask for something from Server(GET / POST Request). HTTP Response contains Header and a Body part.</p>
+<p>HTTP Response, Body part contains the HTML or other content that needs to be rendered by Browser on client side.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+<div class="cell border-box-sizing text_cell rendered">
+    <center>
+     <p><img src="../static/img/materials/http.png" alt="title" class="img-responsive" ></p>
+</center>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets begin by making a complete app that responds to requests at /hello and handles an optional <strong>GET</strong> parameter</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">request</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">api_hello</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;name&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello User&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the server will reply in the following manner:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>GET : localhost/hello<br/>
+Hello User</p>
+<p>GET : localhost/hello?name=Luis<br/>
+Hello Luis</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets modify this to handle different HTTP verbs:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/echo&#39;</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;PATCH&#39;</span><span class="p">,</span> <span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">api_echo</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ECHO: GET</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ECHO: POST</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;PATCH&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ECHO: PACTH</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;PUT&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ECHO: PUT</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ECHO: DELETE&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To test the above api use a <strong><em>Rest Client like </em></strong> <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>  and use different http methods to see the results.</p>
+<p><img src="../static/img/materials/echo.png" alt="title" class="img-responsive" ></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>else you can use curl to get the result -
+
+curl -X PUT http://127.0.0.1:5000/echo </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the the HTTP RFC. Likewise, OPTIONS is automatically implemented for you.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>@app.route('/test') #default. only allows GET requests
+@app.route('/test', methods=['GET', 'POST']) #allows only GET and POST.
+@app.route('/test', methods=['PUT']) #allows only PUT
+@app.route('/test', methods=['DELETE']) #allows only DELETE</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="A-simple-example-using-Get-and-Post">A simple example using Get and Post</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+      <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span><span class="n">name</span> <span class="o">=</span> <span class="n">user</span><span class="p">))</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span><span class="n">name</span> <span class="o">=</span> <span class="n">user</span><span class="p">))</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/success/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">success</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+   <span class="k">return</span> <span class="s1">&#39;welcome </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>index.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:5000/login&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="n">Enter</span> <span class="n">Name</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+      
+  </div>
+</div>
+  <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After the server starts running, open index.html in the browser by using <a href="http://localhost:5000">http://localhost:5000</a>, enter name in the text field and click Submit.</p>
+<p>Form data is POSTed to the URL in action clause of form tag.</p>
+<p><a href="http://localhost:5000/login">http://localhost:5000/login</a> is mapped to the login() function. Since the server has received data by POST method, value of ‘name’ parameter obtained from the form data is obtained by −</p>
+<p>user = request.form['name']</p>
+<p>It is passed to ‘/success’ URL as variable part. You will see the browser displays a welcome message in the window.</p>
+<p>Change the method parameter to ‘GET’ in index.html and open it again in the browser. The data received on server is by the GET method. The value of ‘name’ parameter is now obtained by −</p>
+<p>User = request.args.get(‘name’)</p>
+<p>Here, args is dictionary object containing a list of pairs of form parameter and its corresponding value. The value corresponding to ‘name’ parameter is passed on to ‘/success’ URL as before.</p>
+<p><strong>Note :</strong> Unfortunately,the only methods a form in HTML can submit to the server are GET and POST. <strong>GET</strong> and <strong>POST</strong> .It does not allow you to use DELETE or PUT in the form method in Html.</p>
+
+</div>
+</div>
+</div>
+
+
+  </div>
+</div>
+
+<div class="tab-pane text-style" id="tab5">
+  <div class="material">
+ <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Redirects-and-Errors">Redirect and Errors</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Redirect">Redirect</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Flask class has a redirect() function. When called, it returns a response object and redirects the user to another target location with specified status code.<br/>
+To redirect a user to another endpoint, use the redirect() function .</p>
+<p>Prototype of redirect() function is as below −</p>
+
+<pre><code>Flask.redirect(location, statuscode, response)
+</code></pre>
+<p>In the above function −</p>
+<p><strong>location</strong> -&gt; parameter is the URL where response should be redirected.</p>
+<p><strong>statuscode</strong> -&gt; sent to browser’s header, defaults to 302.</p>
+<p><strong>response</strong> -&gt; parameter is used to instantiate response.</p>
+<p>standardized status code−</p>
+
+<pre><code>HTTP_300_MULTIPLE_CHOICES
+HTTP_301_MOVED_PERMANENTLY
+HTTP_302_FOUND
+HTTP_303_SEE_OTHER
+HTTP_304_NOT_MODIFIED
+HTTP_305_USE_PROXY
+HTTP_306_RESERVED
+HTTP_307_TEMPORARY_REDIRECT
+
+</code></pre>
+<p>The default status code is <strong>302</strong>, which is for ‘found’.</p>
+<p>In the following example, the redirect() function is used to display the login page again when a login attempt fails.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">))</span>
+   <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">),</span><span class="mi">301</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/success&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">success</span><span class="p">():</span>
+   <span class="k">return</span> <span class="s1">&#39;logged in successfully&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>index.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+    &lt;form action = "/login" method="POST"&gt;
+     &lt;p&gt; Enter Name:&lt;/p&gt;
+     &lt;p&gt; &lt;input type="text" name="name"&gt;&lt;/p&gt;
+     &lt;p&gt; &lt;input type="submit" name="submit"&gt;&lt;/p&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Passing arguments into redirect(url_for())</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Redirection should provide request parameters, not template parameters:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">abort</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/found/&lt;email&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">foundGet</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;found.html&quot;</span><span class="p">,</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/found&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">foundPost</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;found.html&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">),</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;abc@test.com&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;foundPost&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;foundGet&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>found.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;body&gt;
+  {% raw %}  Found {{email}} using {{method}} {% endraw %}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To check the results use postman with the following url - <a href="http://localhost:5000/foo">http://localhost:5000/foo</a> and use GET/POST .</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Errors-/-Abort">Errors / Abort</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To abort a request early with an error code, use the abort() function .</p>
+
+<pre><code>Flask.abort(code)
+
+</code></pre>
+<p>The Code parameter takes one of following values −</p>
+
+<pre><code>400 − for Bad Request
+401 − for Unauthenticated
+403 − for Forbidden
+404 − for Not Found
+406 − for Not Acceptable
+415 − for Unsupported Media Type
+429 − Too Many Requests
+
+
+</code></pre>
+<p>Let us make a slight change in the login() function in the above code. Instead of re-displaying the login page, if ‘Unauthourized’ page is to be displayed, replace it with call to abort(401).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span> <span class="p">:</span>
+         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">))</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now , restart the browser again and use some name other than "admin" . This will redirect you to the "Unauthorized" page .</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>It is also possible to throw HTTP errors with abort</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Add this method in your code and create a custom error page "page_not_found.html" , So whenever a 404 request occur in your code , you will be redirect to the custom error pages.</p>
+<p>For instance, an error 404 to deny access to ressources</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;page_not_found.html&#39;</span><span class="p">),</span> <span class="mi">404</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>page_not_found.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="mi">404</span> <span class="o">!</span>! Page Not Found .
+    <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Again restart the server you will going to see your custom error page instead of default Unauthorized page.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="tab-pane text-style" id="tab6">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Request-Object-:-Processing-Incoming-Request-Data-in-Flask">The Request Object : Processing Incoming Request Data in Flask</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section, we'll go through how to process incoming data for the most common use cases. The forms of incoming data we'll cover are:</p>
+<ul>
+<li>Query Strings</li>
+<li>Form Data</li>
+<li>JSON Data</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To access the incoming data in Flask, you have to use the request object. The request object holds all incoming data from the request, which includes the mimetype, referrer, IP address, raw data, HTTP method, and headers, among other things.</p>
+<p>To gain access to the request object in Flask, you simply import it from the Flask library.</p>
+
+<pre><code>from flask import request</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Query-String">Query String</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>URL arguments that you add to a query string are the simpliest way to pass data to a web app, so let's start with them.</p>
+<p>A query string looks like the following:</p>
+<p>Ex :  example.com?arg1=value1&amp;arg2=value2</p>
+<p>The query string begins after the question mark (?) and has two key-value pairs separated by an ampersand (&amp;). For each pair, the key is followed by an equals sign (=) and then the value. Even if you've never heard of a query string until now, you have definitely seen them all over the web.</p>
+<p>So in that example, the app receives:</p>
+
+<pre><code>arg1 : value1
+arg2 : value2</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To create our own query string on the query-example route, we'll start with this simple one:</p>
+<p><a href="http://127.0.0.1:5000/query-example?language=Python">http://127.0.0.1:5000/query-example?language=Python</a></p>
+<p>To do so, we'll need to read in the language key by using either<br/></p>
+<p><strong>request.args.get('language')</strong> - if key doesn't exist, returns None<br/>
+    or <br/>
+   <strong>request.args['language']</strong> - if key doesn't exist, returns a 400, bad request error <br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/query-example&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">query_example</span><span class="p">():</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">)</span> <span class="c1">#if key doesn&#39;t exist, returns None</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;&#39;&lt;h1&gt;The language value is: </span><span class="si">{}</span><span class="s1">&lt;/h1&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When you run that, you should see:</p>
+<p>The language is: Python</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To add more query string parameters, we just append ampersands and the new key-value pairs to the end of the URL. So an additional pair would look like this:</p>
+<p><a href="http://127.0.0.1:5000/query-example?language=Python&amp;framework=Flask&amp;topic=requestObject">http://127.0.0.1:5000/query-example?language=Python&amp;framework=Flask&amp;topic=requestObject</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/query-example&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">query_example</span><span class="p">():</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">)</span> <span class="c1">#if key doesn&#39;t exist, returns None</span>
+    <span class="n">framework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;framework&#39;</span><span class="p">]</span> <span class="c1">#if key doesn&#39;t exist, returns a 400, bad request error</span>
+    <span class="n">website</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;topic&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s1">&#39;&#39;&#39;&lt;h1&gt;The language is: </span><span class="si">{}</span><span class="s1">&lt;/h1&gt;</span>
+<span class="s1">              &lt;h1&gt;The framework  is: </span><span class="si">{}</span><span class="s1">&lt;/h1&gt;</span>
+<span class="s1">              &lt;h1&gt;The topic is: </span><span class="si">{}</span><span class="s1">&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">framework</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When you run that, you should see:</p>
+<p>The language is: Python<br/>
+The framework is: Flask<br/>
+The topic is: requestObject</p>
+<ul>
+<li>If you remove the language from the URL,(<a href="http://127.0.0.1:5000/query-example?framework=Flask&amp;topic=requestObject">http://127.0.0.1:5000/query-example?framework=Flask&amp;topic=requestObject</a>) then you'll see that the value ends up as <strong>None</strong>.<br/></li>
+<li>If you remove the framework key from the URL(<a href="http://127.0.0.1:5000/query-example?language=Python&amp;topic=requestObject">http://127.0.0.1:5000/query-example?language=Python&amp;topic=requestObject</a>), you get an error.- "Bad Request"</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Form-Data">Form Data</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Form data comes from a form that has been sent as a POST request to a route. So instead of seeing the data in the URL (except for cases when the form is submitted with a GET request), the form data will be passed to the app behind the scenes.</p>
+<p>To demonstrate this, lets create a route to accept both GET and POST requests and to return a simple form.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/form-example&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span> <span class="c1">#allow both GET and POST requests</span>
+<span class="k">def</span> <span class="nf">form_example</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>  <span class="c1">#this block is only entered when the form is submitted</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">)</span>
+        <span class="n">framework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;framework&#39;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="s1">&#39;&#39;&#39;&lt;h1&gt;The language value is: </span><span class="si">{}</span><span class="s1">&lt;/h1&gt;</span>
+<span class="s1">                  &lt;h1&gt;The framework value is: </span><span class="si">{}</span><span class="s1">&lt;/h1&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">framework</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s1">&#39;&#39;&#39;&lt;form method=&quot;POST&quot;&gt;</span>
+<span class="s1">                  Language: &lt;input type=&quot;text&quot; name=&quot;language&quot;&gt;&lt;br&gt;</span>
+<span class="s1">                  Framework: &lt;input type=&quot;text&quot; name=&quot;framework&quot;&gt;&lt;br&gt;</span>
+<span class="s1">                  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;br&gt;</span>
+<span class="s1">              &lt;/form&gt;&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Try running the app and submitting the form. using - localhost:5000/form-example</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similiar to the query string example before, we can use request.form.get() instead of referencing the key directly with <strong>request.form[]</strong>. <br/>
+<strong>request.form.get()</strong> returns None instead of causing a 400 error when the key isn't found.</p>
+<p>As you can see, handling submitted form data is just as easy as handling query string arguments.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="JSON-Data">JSON Data</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can pass much more complicated data that you could with query strings or form data. In the example, you see nested JSON objects and an array of items.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, to send a JSON object, we'll need a program capable of sending custom requests to URLs. For this, we need a Rest Client like <strong>Postman</strong> , else you need to use <strong>curl</strong> .</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To read the data, first you must understand how Flask translates JSON data into Python data structures.</p>
+<p>Anything that is an object gets converted to a Python dict. {"key" : "value"} in JSON corresponds to somedict['key'], which returns a value in Python.</p>
+<p>An array in JSON gets converted to a list in Python. Since the syntax is the same, here's an example list: [1,2,3,4,5] .</p>
+<p>Then the values inside of quotes in the JSON object become strings in Python. true and false become True and False in Python. Finally, numbers without quotes around them become numbers in Python.</p>
+<p>Now let's get on to reading the incoming JSON data.</p>
+<p>First, let's assign everything from the JSON object into a variable using <strong>request.get_json()</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets consider this json -</p>
+
+<pre><code>{
+    "language" : "Python",
+    "framework" : "Flask",
+    "ide" : ["anaconda" , "pycharm" ,"jupyter"],
+    "version" :
+            {
+                "python" : 3.6,
+                "flask" : 0.12
+            }
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/json-example&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span> <span class="c1">#GET requests will be blocked</span>
+<span class="k">def</span> <span class="nf">json_example</span><span class="p">():</span>
+    <span class="n">req_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+
+    <span class="n">language</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span>
+    <span class="n">framework</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s1">&#39;framework&#39;</span><span class="p">]</span>
+    <span class="n">ide</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s1">&#39;ide&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#an index is needed because of the array</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">][</span><span class="s1">&#39;python&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">           The language value is: </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">           The framework value is: </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">           The ide is: </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">           The version for python is </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">           &#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">framework</span><span class="p">,</span> <span class="n">ide</span><span class="p">,</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>View the output using curl from your terminal.</p>
+
+<pre><code>curl -X POST http://127.0.0.1:5000/json-example -H 'content-type: application/json' -d '{ "language" : "Python", "framework" : "Flask", "ide" : ["anaconda" , "pycharm" ,"jupyter"],"version_info" : { "python" : 3.6, "flask" : 0.12 } }'
+
+</code></pre>
+<p>this gives the following results:</p>
+
+<pre><code>       The language value is: Python
+       The framework value is: Flask
+       The ide is: anaconda
+       The version for python is 3.6</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we run our app and submit the same request using Postman, we will get this:</p>
+<p><img src="../static/img/materials/request.png" alt="title" class="img-responsive"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>How to  Create and Return JSON Objects in Flask</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A json object can be created using a python dictionary .</p>
+<p>There are two ways we can return json , either by using json.dump or by jsonify .</p>
+<p><strong>json.dumps vs flask.jsonify</strong></p>
+<p>The jsonify() function in flask returns the object that already has the appropriate content-type header 'application/json' for use with json responses, whereas the json.dumps() returns the JSON string representation of the python dict.</p>
+<p>The following example will give you the idea about this.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span><span class="n">request</span> ,</span><span class="n">jsonify</span>
+<span class="kn">import</span> <span class="nn">json</span><span class="o">
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/json-dump&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">do_jsondump</span><span class="p">():</span>
+    <span class="n">empDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="s1">&#39;Scott&#39;</span><span class="p">,</span><span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="s1">&#39;Tiger&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">empDict</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/jsonify&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">do_jsonify</span><span class="p">():</span>
+    <span class="n">empDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="s1">&#39;Scott&#39;</span><span class="p">,</span><span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="s1">&#39;Tiger&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">empDict</span><span class="p">)</span>  
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the following url to view the results -----</p>
+<p><a href="http://127.0.0.1:5000/json-dump">http://127.0.0.1:5000/json-dump</a>  will give - <br></p>
+
+<pre><code>{"firstName": "Scott", "lastName": "Tiger"}
+
+</code></pre>
+<p>where as <a href="http://127.0.0.1:5000/jsonify">http://127.0.0.1:5000/jsonify</a> will give</p>
+
+<pre><code>{
+     "firstName": "Scott", 
+     "lastName": "Tiger"
+}</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="tab-pane text-style" id="tab7">
+  <div class="material">
+        <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Rendering-Templates">Rendering Templates</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>What is Templates ?</strong></p>
+<p>A template is typically a text file (in our case we will be using HTML files) that contain text which is going to be the response we will be sending to our users. These Templates contain placeholder variables which allow us to have dynamic parts in our file, which are then filled with the Jinja2 Template Engine. The process of these variables getting filled in with actual values is called rendering. After the html file is rendered, it will then be sent as a response to the client. We can remember that Jinja2’s role in this process is to render our templates.</p>
+<p>Flask configures the <strong>Jinja2</strong> template engine for you automatically.</p>
+<p>Jinja2 is autometically installed while installing flask . Please make sure that jijna2 is already installed by
+executing this command from your terminal.</p>
+
+<pre><code>pip install jinja2
+</code></pre>
+<p>You will be able to see this in your terminal....</p>
+
+<pre><code>Requirement already satisfied: jinja2 in ./.local/lib/python2.7/site-packages
+Requirement already satisfied: MarkupSafe&gt;=0.23 in ./.local/lib/python2.7/site-packages (from jinja2)
+</code></pre>
+<p>To render a template you can use the <strong>render_template()</strong> method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here’s a simple example of how to render a template:</p>
+<p><strong>How Flask Templates are Rendered using the render_template() Function</strong></p>
+<p>By default, Flask looks for templates in a "Templates" subfolder in your application’s root directory. Let’s do a very simple example using our Hello World application, and modify it a little bit. Make sure you do create a “Templates” folder in your application’s root directory for your index.html file.</p>
+<p><strong>Project Structure :</strong></p>
+
+<pre><code>MyApp
+    |__/application.py
+    |__/templates
+        --/index.html
+
+</code></pre>
+<p>Lets start with a "hello world" example template:</p>
+<p><strong>application.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>index.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="kn">from</span> <span class="nn">Flask</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="n">World</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The content of index.html will be rendered while hitting through the url : http:/localhost:5000/hello
+You will be able to see "Hello World" in the browser.</p>
+<p>You can also add additional arguments to this function which will then be used as values for placeholder variables in our templates. Here’s another example where you can see us passing in additional arguments.</p>
+<p><strong>How to pass parameter to the template</strong></p>
+<p>Lets see the example bellow code by adding name in your template.</p>
+<p>{% raw %}You said {{ text }}! </p>
+<p>This syntax tells Jinja to put the content of the text variable instead of the {{ text }} snippet.</p>
+{% endraw %}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>app.py</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;echo.html&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/echo&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">echo</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;echo.html&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>echo.html</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/echo&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Echo&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">text</span> <span class="o">%</span><span class="p">}</span>
+  <span class="n">You</span> <span class="n">said</span><span class="p">:</span> <span class="p">{% raw %} {{ text }} {% endraw %}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Restart the server hit through this url http://localhost:5000/echo.html . Enter anything in the inout box , this will echo your input.
+    You will be able to see this in your browser .</p><br/><br/>
+<p><input type="text" value="hello" disabled></input><input type="submit" value="Echo"></p>
+<p>You said hello !</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+<div class="tab-pane text-style" id="tab8">
+  <div class="material">
+      <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exploring-Flask">Exploring Flask<a class="anchor-link" href="#Exploring-Flask"></a></h2><p>Flask has two main dependencies. The routing, debugging, and Web Server Gateway Interface (WSGI) subsystems come from <strong>Werkzeug</strong>, while template support is provided by <strong>Jinja2</strong>. Werkzeug and Jinja2 are authored by the core developer of Flask.</p>
+<p>These distributions will be installed automatically when installing Flask.</p>
+<h3 id="What-is-Werkzeug?">What is Werkzeug?<a class="anchor-link" href="#What-is-Werkzeug?"></a></h3><p>Werkzeug is a WSGI utility library for Python.</p>
+<h3 id="What-is-WSGI?">What is WSGI?<a class="anchor-link" href="#What-is-WSGI?"></a></h3><p>The Web Server Gateway Interface (WSGI) is a specification for simple and universal interface between web servers and web applications or frameworks for the Python programming language.</p>
+<h3 id="What-is-Jinja2-?">What is Jinja2 ?<a class="anchor-link" href="#What-is-Jinja2-?"></a></h3><p>Jinja2 is a modern and designer-friendly templating language for Python. Jinja2 is a library for Python that is designed to be flexible, fast and secure.</p>
+
+<h3>How a Flask Web works</h3>
+
+<center>
+     <p><img src="../static/img/materials/flask-web.png" alt="title" class="img-responsive" ></p>
+</center>
+
+<h3 id="MVC-pattern">MVC-pattern<a class="anchor-link" href="#MVC-pattern"></a></h3>
+
+<center>
+     <p><img src="../static/img/materials/mvc.png" alt="title" class="img-responsive" ></p>
+</center>
+
+<p>With Flask we are able to introduce the MVC-pattern into the Python world.A simple concept of MVC is explained here.</p>
+<center>
+     <p><img src="../static/img/materials/flask-mvc.png" alt="title" class="img-responsive" ></p>
+</center>
+<p>MVC looks like this and I include the mapping to Flask.</p>
+<p>Flask is the Controller, the decision maker and the glue between Model and View. As explained earlier we use Python with Flask to program this.</p>
+<p>With Jinja we create the View which is HTML5. The view is created from the Controller by explicit calling the render_template() Flask method.</p>
+<p>The Model is the persistent store. Usually it is a SQL type of database. As you probably know you should use an ORM layer to make the mapping from objects to the database relational model more easier. As you can see we introduce something new here: Flask for SQLAlchemy ,which is an extension to Flask and does the ORM job for you.</p>
+<h3 id="Flask-annotation">Flask annotation<a class="anchor-link" href="#Flask-annotation"></a></h3><p>Python and many other programming languages have the concept of decorators -- also called annotations.</p>
+<p>By definition, a decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it.</p>
+<p>Flask uses annotation with the @-symbol just like any other languages.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

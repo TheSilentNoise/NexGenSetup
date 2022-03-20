@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+
+         <div class="row">
+          <div class="header-section text-center">
+            <h2 class="page-heading">Data Engineering Fundamentals</h2><br/>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3 panel-tutorial">
+    <nav class="nav-sidebar">
+		<ul class="nav tabs">
+          <h4>Activities</h4><hr>
+          <li class="active"><a href="#tab1" data-toggle="tab">Course Schedule</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Study Materials</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Assignment & Projects</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">View Report</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Submit Feedback</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+<div class="tab-pane active text-style" id="tab1">
+
+    <div class="row"><h4>Course Schedule</h4><hr/></div>
+
+
+<div class="col-sm-12" style="overflow-x: auto">
+<table class="table table-striped" style="border: 1px solid #73B6EF overflow-x: auto;">
+    <thead style="background:#73B6EF;color:white">
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Duration</th>
+        <th>Topic</th>
+        <th>Meeting Link</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12/12/2017</td>
+        <td>10.20 am</td>
+        <td>2 hr</td>
+        <td>SQL</td>
+        <td>https://zoom.us/meetings</td>
+        <td>Done</td>
+      </tr>
+      <tr>
+        <td>12/12/2017</td>
+        <td>10.20 am</td>
+        <td>2 hr</td>
+        <td>Unix</td>
+        <td>https://zoom.us/meetings</td>
+        <td>Pending</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+
+<div class="row"><h4>Study Materials</h4><hr/></div>
+
+
+<div class="col-sm-3 sub-div-pad">
+	<div class=" subject-div">
+	<h5 class="black">JAVA</h5>
+	<a href="#/java">Read &rarr;</a>
+	</div>
+</div>
+
+<div class="col-sm-3 sub-div-pad">
+	<div class="subject-div">
+	<h5 class="black">UNIX</h5>
+	<a href="">Read &rarr;</a>
+	</div>
+</div>
+
+<div class="col-sm-3 sub-div-pad">
+	<div class=" subject-div">
+	<h5 class="black">SQL</h5>
+	<a href="#/sql">Read &rarr;</a>
+	</div>
+</div>
+
+
+<div class="col-sm-3 sub-div-pad">
+	<div class=" subject-div">
+	<h5 class="black">DATA WAREHOUSE</h5>
+	<a href="">Read &rarr;</a>
+	</div>
+</div>
+
+
+<div class="col-sm-3 sub-div-pad">
+	<div class=" subject-div">
+	<h5 class="black">ETL - TALEND</h5>
+	<a href="">Read &rarr;</a>
+	</div>
+</div>
+
+<div class="col-sm-3 sub-div-pad">
+	<div class=" subject-div">
+	<h5 class="black">Big Data & Hadoop</h5>
+	<a href="">Read &rarr;</a>
+	</div>
+</div>
+
+
+
+
+
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+<div class="row"><h4>Assignment & Projects</h4><hr/></div>
+</div>
+
+<div class="tab-pane text-style" id="tab4">
+<div class="row"><h4>View Report</h4><hr/></div>
+</div>
+
+<div class="tab-pane text-style" id="tab5">
+<div class="row"><h4>Submit Feedback</h4><hr/></div>
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

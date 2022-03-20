@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+
+
+<html>
+<head>
+    <style>
+        div.area {
+    width: 300px;
+    height: 100px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+.bold{
+  font-weight:bold;
+}
+.italic{
+  font-style :italic;
+}
+.underline{
+ text-decoration: underline;
+}
+    </style>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+    </head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<div class="area" contentEditable></div><br/>
+    <a href="javascript:void(0)" class="btn btn-default boldText" title="Bold" style="cursor: pointer;"><i class="fa fa-bold"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Italics" style="cursor: pointer;"><i class="fa fa-italic"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Underline" style="cursor: pointer;"><i class="fa fa-underline"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Text/Background Color" style="cursor: pointer;"><i class="fa fa-font"></i></a>
+
+
+
+<input type="button" class="boldText" value="Bold">
+<input type="button" class="italicText" value="Italic">
+<input type="button" class="underlineText" value="Underline">
+    <script type="text/javascript">
+        $(document).ready(function(){
+$('.boldText').click(function(){
+   $('.area').toggleClass("bold");
+});
+$('.italicText').click(function(){
+  $('.area').toggleClass("italic");
+});
+$('.underlineText').click(function(){
+  $('.area').toggleClass("underline");
+});
+
+
+
+});
+    </script>
+</body>
+</html>
+
+{% endblock %}
+
+
+
+<div class="btn-group">
+    <a href="javascript:void(0)" class="btn btn-default" title="Bold" style="cursor: pointer;"><i class="fa fa-bold"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Italics" style="cursor: pointer;"><i class="fa fa-italic"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Underline" style="cursor: pointer;"><i class="fa fa-underline"></i></a>
+    <a href="javascript:void(0)" class="btn btn-default" title="Text/Background Color" style="cursor: pointer;"><i class="fa fa-font"></i></a>
+</div>
+
+
+
+
+

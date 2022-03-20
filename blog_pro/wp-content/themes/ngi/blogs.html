@@ -1,0 +1,270 @@
+<!--header part-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IEarn.Tech</title>
+    <meta name="description" content="Learn Today...Earn Tomorrow">
+
+
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/editor.css">
+    <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  	<link rel="stylesheet" type="text/css" href="css/custom.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+
+
+                       <!--Start of Tawk.to Script-->
+            <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/5b1abe2010b99c7b36d4c236/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+            </script>
+            <!--End of Tawk.to Script-->
+
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117491687-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-117491687-1');
+        </script>
+
+
+</head>
+<!--header part-->
+
+<!--menu-->
+  <body>
+
+	 <!-- header-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+         <a class="navbar-brand" style="padding: 0px 0px 0px 9px;"><i class="fa fa-exclamation"></i>earn</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="padding: 8px 70px 0px 0px;">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+             <!--{% if not current_user.is_authenticated %}-->
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/internships">Internships</a></li>
+             <!--{% endif %}-->
+
+             <!--{% if current_user.is_authenticated %}
+                    {% if current_user.has_role() == 1 %}
+                    <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/mycourses">My Courses</a></li>
+                                <li><a href="/courses">All Courses</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">Internships <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/myinternships">My Applications</a></li>
+                                        <li><a href="/internships">All Internships</a></li>
+                                    </ul>
+                     </li>
+                    {% endif %}
+
+                    {% if current_user.has_role() == 2 %}
+                             <li><a href="/courses">Courses</a></li>
+                             <li><a href="/internships">Internships</a></li>
+                    {% endif %}
+            {% endif %}
+
+
+
+            <li><a href="/freelancer">Freelancer</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+<!--            <li><a href="/forums">Forums</a></li> <->
+
+
+            <li><a href="/blogs">Blogs</a></li>
+
+            <li><a href="/videos">Videos</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+            {% if not current_user.is_authenticated %}-->
+                <li><a href="{{ url_for('login') }}" >Login</a></li>
+                <li class="btn-trial"><a href="{{ url_for('signup') }}">Sign up</a></li>
+            <!--{% endif %}
+
+
+
+            {% if current_user.is_authenticated %}
+              <li class="dropdown" >
+                  <a class="dropdown-toggle" data-toggle="dropdown">
+                      <span>{{ current_user.user_fname}}</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                {% if current_user.has_role() == 1 %}
+                                <li><a href="/student-profile">My Profile</a></li>
+                                {% endif %}
+                                {% if current_user.has_role() == 2 %}
+                                <li><a href="/employers-profile">My Profile</a></li>
+                                <li><a href="/employers-offers">Post Offers</a></li>
+                                <li><a href="/myoffers">My Offers</a></li>
+                                <li><a href="/applicants">My Applicants</a></li>
+                                {% endif %}
+                                <li><a href="/change-password">Change Password</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+              </li>
+            {% endif %}-->
+
+        </ul>
+        </div>
+      </div>
+    </nav>
+<!--/ header-->
+<br/><br/>
+
+<body>
+    <div class="body">
+<!--menu-->
+
+
+<header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12">Blogs</div>
+              <br/>
+              <hr class="bottom-line">
+          </div>
+</header>
+
+
+<section id ="pricing" class="section-padding">
+  <div class="container">
+
+	   <div class ="col-md-3">
+
+		<div class="">
+
+				<div class="blog-category">
+					<div class="text-center panel-head">Blog Categories</div>
+						<nav id="filter">
+							<ul class="nav tabs panel">
+								<li class="active"><a href="#" onclick="filterSelection('all')">All</a></li>
+								<!--start loop-->
+								<li><a href="#" onclick="cat(1)">Cat1</a></li>
+								<!--end loop-->
+							</ul>
+						</nav>
+					</div>
+
+					 <div class="blog-recent"><br/>
+						<h4>Recently added ...</h4><hr/>
+						  <!--start loop-->
+							<a href="#" >titte</a><br/>
+						  <!--end loop-->
+
+					 </div>
+
+					<br/>
+
+
+				</div>
+
+		</div>
+
+
+
+	  <div class="col-md-9">
+
+		   <!--start loop-->
+
+		  <div class="filterDiv {{blogs[4]}}">
+			  <div class="portfolio-item">
+				  <div class="portfolio-desc align-center">
+					  <div class="inner blog-border">
+						  <a href="#">
+							  <h3>Blog Title</h3>
+						  </a> <i>Posted</i>&nbsp;&nbsp;
+						  <span class="inline-block mb16">
+							   </span>
+						  </a>
+						  <hr>
+						  <p> &#8230;</p>
+						  <div class="pull-right">
+						  <a class="btn btn-success" href="#">ReadMore&rarr;</a> <br /> <br />
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+
+			   <!--end loop-->
+
+	  </div>
+
+	</div>
+
+  </div>
+</section>
+
+
+	</div>
+</body>
+
+<!--Footer-->
+    <footer id="footer" class="footer">
+      <div class="container text-center">
+          <a href="">About Us </a>|
+          <a href="/contact">Contact Us</a> |
+          <a href="">FAQs</a>
+
+      <ul class="social-links">
+        <li><a ><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="https://www.facebook.com/iearn.tech/" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+        Copyright © 2018 | www.iearn.tech , All rights reserved
+      </div>
+        <a href="#" class ="scrollToTop"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
+    </footer>
+    <!--/ Footer-->
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/app-script.js"></script>
+
+
+    <SCRIPT LANGUAGE="javascript">
+    function ClearHistory()
+    {
+     var backlen = history.length;
+     history.go(-backlen);
+     window.location.href = "/#"
+    }
+    </SCRIPT>
+
+
+
+  </body>
+</html>
+
+

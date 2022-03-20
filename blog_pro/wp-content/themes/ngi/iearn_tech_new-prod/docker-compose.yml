@@ -1,0 +1,7 @@
+iearn_tech_prod:
+  build : ./iearn_tech_new
+  ports :
+    - "8000:8000"
+  volumes :
+    - .:/code
+  container_name : prod_iearn_tech_ui

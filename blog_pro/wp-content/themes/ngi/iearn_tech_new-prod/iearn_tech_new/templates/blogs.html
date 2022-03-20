@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12">Blogs</div>
+              <br/>
+              <hr class="bottom-line">
+          </div>
+</header>
+
+
+    <section id ="pricing" class="section-padding">
+      <div class="container">
+
+           <div class ="col-md-3">
+
+               <div class="">
+
+                   <div class="blog-category">
+                       <div class="text-center panel-head">Blog Categories</div>
+			                <nav id="filter">
+							<ul class="nav tabs panel">
+								<li class="active"><a href="#" onclick="filterSelection('all')">All</a></li>
+								 {% for cat in categorylist %}
+                                <li><a href="#" onclick="filterSelection('{{cat[0]}}')">{{cat[1]}}</a></li>
+                                 {% endfor %}
+                            </ul>
+						</nav>
+			            </div>
+
+			        	 <div class="blog-recent"><br/>
+			        		<h4>Recently added ...</h4><hr/>
+                              {% for recentblogs in recentblogs %}
+                                <a href="{{recentblogs[2]}}" >{{recentblogs[1]}}</a><br/>
+                              {% endfor %}
+
+			            </div>
+
+                        <br/>
+
+
+               </div>
+
+           </div>
+
+
+
+          <div class="col-md-9">
+
+               {% for blogs in blog_lists %}
+
+              <div class="filterDiv {{blogs[4]}}">
+                  <div class="portfolio-item">
+                      <div class="portfolio-desc align-center">
+                          <div class="inner blog-border">
+                              <a href="{{blogs[2]}}">
+                                  <h3>{{blogs[1]}}</h3>
+                              </a> <i>Posted</i>&nbsp;&nbsp;
+                              <span class="inline-block mb16">
+                                  {{blogs[6]}} </span>
+                              </a>
+                              <hr>
+                              <p>{{blogs[3]}} &#8230;</p>
+                              <div class="pull-right">
+                              <a class="btn btn-success" href="{{blogs[2]}}">ReadMore&rarr;</a> <br /> <br />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+                   {% endfor %}
+
+          </div>
+
+</div>
+
+</div>
+
+    </section>
+
+
+{% endblock %}

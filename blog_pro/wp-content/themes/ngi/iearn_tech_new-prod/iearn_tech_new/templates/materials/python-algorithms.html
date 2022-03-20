@@ -1,0 +1,2265 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+
+    <div class="col-md-12">
+       <div class="row">
+          <div class="header-section">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                   Algorithms in Python
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3">
+    <div class="panel-head text-center">Table of Contents</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Recursion</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Divide-and-Conquer Algorithms</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Greedy Algorithm</a></li>
+       
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+    <div class="material">
+ <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Recursion">Recursion<a class="anchor-link" href="#Recursion"></a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Important Note</strong></p>
+<p>For most cases, using function recursion should be avoided in Python are better be implemented using for/while loops most of the time (although, I must admit that recursive solutions do look elegant). One of the reasons is that stacking recursive calls can easily blow up memory or at least result in the popular yet nasty "RuntimeError: maximum recursion depth exceeded". Also, keep in mind that Python does not optimize tail recursion in favor of having the full tracebacks for debugging; related to that, please see Guido van Rossums blog posts "<a href="http://neopythonic.blogspot.com.au/2009/04/tail-recursion-elimination.html">Tail Recursion Elimination</a>" and "<a href="http://neopythonic.blogspot.com.au/2009/04/final-words-on-tail-calls.html">Final Words on Tail Calls</a>." If you do like to play around with recursion more efficiently, I highly recommend taking a look at <a href="https://www.haskell.org">Haskell</a> or other functional programming languages. That being said, below are some examples of recursive function implementations in Python for illustrative purposes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples-using-Recursion">Examples using Recursion<a class="anchor-link" href="#Examples-using-Recursion"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Factorial">Factorial<a class="anchor-link" href="#Factorial"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>5! = 5 x 4 x 3 x 2 x 1 = 120</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>120</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Length-of-an-array">Length of an array<a class="anchor-link" href="#Length-of-an-array"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">array_len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">array_len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">array_len</span><span class="p">([])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">array_len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sum-of-the-elements-in-an-array">Sum of the elements in an array<a class="anchor-link" href="#Sum-of-the-elements-in-an-array"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">array_sum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">array_sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">array_sum</span><span class="p">([])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">array_sum</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">array_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binary-search-using-recursion">Binary search using recursion<a class="anchor-link" href="#Binary-search-using-recursion"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">min_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">min_idx</span> <span class="o">==</span> <span class="n">max_idx</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">max_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">max_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="n">middle_idx</span> <span class="o">=</span> <span class="n">min_idx</span> <span class="o">+</span> <span class="p">(</span><span class="n">max_idx</span> <span class="o">-</span> <span class="n">min_idx</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">middle_idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">middle_idx</span>
+    <span class="k">elif</span> <span class="n">array</span><span class="p">[</span><span class="n">middle_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+        <span class="n">min_idx</span> <span class="o">=</span> <span class="n">middle_idx</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">max_idx</span> <span class="o">=</span> <span class="n">middle_idx</span>
+
+    <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">min_idx</span><span class="p">,</span> <span class="n">max_idx</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Quicksort">Quicksort<a class="anchor-link" href="#Quicksort"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">array</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pivot</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">smaller</span><span class="p">,</span> <span class="n">bigger</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="n">ele</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">:</span>
+                <span class="n">smaller</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">quicksort</span><span class="p">(</span><span class="n">smaller</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">quicksort</span><span class="p">(</span><span class="n">bigger</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">quicksort</span><span class="p">([])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">quicksort</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">quicksort</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[4, 5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">quicksort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 4, 5, 7]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">quicksort</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[2, 3, 4, 5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+    </div>
+ </div>
+
+<div class="tab-pane text-style" id="tab2">
+    <div class="material">
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction-to-Divide-and-Conquer-Algorithms">Introduction to Divide-and-Conquer Algorithms<a class="anchor-link" href="#Introduction-to-Divide-and-Conquer-Algorithms"></a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The subfamily of <em>Divide-and-Conquer</em> algorithms is one of the main paradigms of algorithmic problem solving next to <em>Dynamic Programming</em> and <em>Greedy Algorithms</em>. The main goal behind greedy algorithms is to implement an efficient procedure for often computationally more complex, often infeasible brute-force methods such as exhaustive search algorithms by splitting a task into subtasks that can be solved indpendently and in parallel; later, the solutions are combined to yield the final result.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-1----Binary-Search">Example 1 -- Binary Search<a class="anchor-link" href="#Example-1----Binary-Search"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's say we want to implement an algorithm that returns the index position of an item that we are looking for in an array. 
+in an array. Here, we assume that the array is alreadt sorted. The simplest (and computationally most expensive) approach would be to check each element in the array iteratively, until we find the desired match or return -1:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">item</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">linear_search</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+0
+-1
+-1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The runtime of linear search is obviously $O(n)$ since we are checking each element in the array -- remember that big-Oh is our upper bound. Now, a cleverer way of implementing a search algorithm would be <em>binary search</em>, which is a simple, yet nice example of a <em>divide-and-conquer</em> algorithm.</p>
+<p>The idea behind divide-and-conquer algorithm is to break a problem down into non-overlapping subproblems of the original problem, which we can then solve recursively. Once, we processed these recursive subproblems, we combine the solutions into the end result.</p>
+<p>Using a divide-and-conquer approach, we can implement an $O(\log n)$ search algorithm called <em>binary search</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The idea behind binary search is quite simple:</p>
+<ol>
+<li>We take the midpoint of an array and compare it to its search key</li>
+<li>If the search key is equal to the midpoint, we are done, else<ol>
+<li>search key &lt; midpoint?<ol>
+<li>Yes: repeat search (back to step 1) with subarray that ends at index position <code>midpoint - 1</code> </li>
+<li>No: repeat search (back step 1) with subarray that starts <code>midpoint + 1</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Assuming that we are looking for the search key <em>k=5</em>, the individual steps of binary search can be illustrated as follows:</p>
+<p>[ 1 , 5 , 6 , 8 , 2 , 11 , 59 , 13 , 26 ]</p>
+<p>--&gt; k = 2 ?</p>
+<p>[ 1 , 5 , 6 , 8 , 2 ]</p>
+<p>--&gt; k = 6 ?</p>
+<p>[ 1 , 5 ]</p>
+<p>--&gt; k = 5 ?</p>
+<p>return 5</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And below follows our Python implementation of this idea:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">while</span> <span class="n">first</span> <span class="o">&lt;=</span> <span class="n">last</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">last</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">midpoint</span><span class="p">]</span> <span class="o">==</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">&lt;</span> <span class="n">lst</span><span class="p">[</span><span class="n">midpoint</span><span class="p">]:</span>
+                <span class="n">last</span> <span class="o">=</span> <span class="n">midpoint</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">first</span> <span class="o">=</span> <span class="n">midpoint</span> <span class="o">+</span> <span class="mi">1</span>
+                
+    <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">midpoint</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+0
+-1
+-1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-2----Finding-the-Majority-Element">Example 2 -- Finding the Majority Element<a class="anchor-link" href="#Example-2----Finding-the-Majority-Element"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>"Finding the Majority Element" is a problem where we want to find an element in an array positive integers with length <em>n</em> that occurs more than <em>n/2</em> in that array. For example, if we have an array $a = [1, 2, 3, 3, 3]$, $3$ would be the majority element. In another array, b = [1, 2, 3, 3] there exists no majority element, since $2$ (where $2$ is the the count of element $3$) is not greater than $n / 2$.</p>
+<p>Let's start with a simple implementation where we count how often each unique element occurs in the array. Then, we return the element that meets the criterion "$\text{occurences } &gt; n / 2$", and if such an element does not exist, we return -1. Note that we return a tuple of three items: (element, number_occurences, count_dictionary), which we will use later ...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>  
+    <span class="n">cnt</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ele</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">ele</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">ele</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cnt</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">ele</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+
+<span class="c1">###################################################</span>
+
+<span class="n">lst0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst0</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst2</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst2</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">lst3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">lst4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">lst5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[] -&gt; -1
+[1, 2, 3, 4, 4, 5] -&gt; -1
+[1, 2, 4, 4, 4, 5] -&gt; -1
+[4, 2, 4, 4, 4, 5] -&gt; 4
+[5, 4, 4, 4, 2, 4] -&gt; 4
+[2, 3, 9, 2, 2] -&gt; 2
+[2, 2, 9, 3, 2] -&gt; 2
+[0, 0, 2, 2, 2] -&gt; 2
+[2, 2, 2, 0, 0] -&gt; 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, "finding the majority element" is a nice task for a Divide and Conquer algorithm. Here, we use the fact that if a list has a majority element it is also the majority element of one of its two sublists, if we split it into 2 halves.</p>
+<p>More concretely, what we do is:</p>
+<ol>
+<li>Split the array into 2 halves</li>
+<li>Run the majority element search on each of the two halves</li>
+<li>Combine the 2 subresults<ol>
+<li>Neither of the 2 sub-arrays has a majority element; thus, the combined list can't have a majority element so that we return -1</li>
+<li>The right sub-array has a majority element, whereas the left sub-array hasn't. Now, we need to take the count of this "right" majority element, add the number of times it occurs in the left sub-array, and check if the combined count satisfies the "$\text{occurences} &gt; \frac{n}{2}$" criterion.</li>
+<li>Same as above but with "left" and "right" sub-array swapped in the comparison.</li>
+<li>Both sub-arrays have an majority element. Compute the combined count of each of the elements as before and check whether one of these elements satisfies the "$\text{occurences} &gt; \frac{n}{2}$" criterion.</li>
+</ol>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>  
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[:</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:]</span>
+    
+    <span class="n">l_maj</span> <span class="o">=</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+    <span class="n">r_maj</span> <span class="o">=</span> <span class="n">majority_ele_lin</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+    
+    <span class="c1"># case 3A</span>
+    <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    
+    <span class="c1"># case 3B</span>
+    <span class="k">elif</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ 
+    <span class="c1"># case 3C</span>
+    <span class="k">elif</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+    <span class="c1"># case 3D</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">m</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1">###################################################</span>
+
+<span class="n">lst0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst0</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst0</span><span class="p">))</span>
+
+<span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst1</span><span class="p">))</span>
+
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst2</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst2</span><span class="p">))</span>
+
+<span class="n">lst3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">lst4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">lst5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[] -&gt; -1
+[1, 2, 3, 4, 4, 5] -&gt; -1
+[1, 2, 4, 4, 4, 5] -&gt; -1
+[4, 2, 4, 4, 4, 5] -&gt; 4
+[5, 4, 4, 4, 2, 4] -&gt; 4
+[2, 3, 9, 2, 2] -&gt; 2
+[2, 2, 9, 3, 2] -&gt; 2
+[0, 0, 2, 2, 2] -&gt; 3
+[2, 2, 2, 0, 0] -&gt; 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In algorithms such as binary search that we saw at the beginning of this notebook, we recursively break down our problem into smaller subproblems. Thus, we have a recurrence problem with time complexity</p>
+<p>$T(n) = T(\frac{2}{n}) + O(1) \rightarrow T(n) = O(\log n).$</p>
+<p>In this example, finding the majority element, we break our problem down into only 2 subproblems. Thus, the complexity of our algorithm is</p>
+<p>$T(n) = 2T (\frac{2}{n} + O(n) \rightarrow T(n) = O(n \log n).$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Adding-multiprocessing">Adding multiprocessing<a class="anchor-link" href="#Adding-multiprocessing"></a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our Divide and Conquer approach above is actually a good candidate for multi-processing, since we can parallelize the majority element search in the two sub-lists. So, let's make a simple modification and use Python's <code>multiprocessing</code> module for that. Here, we use the <code>apply_async</code> method from the <code>Pool</code> class, which doesn't return the results in order (in contrast to the <code>apply</code> method). Thus, the left sublist and right sublist may be swapped in the variable assignment <code>l_maj, r_maj = [p.get() for p in results]</code>. However, for our implementation, this doesn't make a difference.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
+<span class="k">def</span> <span class="nf">majority_ele_dac_mp</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>  
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[:</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:]</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">majority_ele_lin</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,))</span> 
+               <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">))</span>
+    <span class="n">l_maj</span><span class="p">,</span> <span class="n">r_maj</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    
+    <span class="k">elif</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">elif</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">l_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">r_maj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">l_maj</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">r_maj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">m</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1">###################################################</span>
+
+<span class="n">lst0</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst0</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst0</span><span class="p">))</span>
+
+<span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst1</span><span class="p">))</span>
+
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst2</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst2</span><span class="p">))</span>
+
+<span class="n">lst3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">lst4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst4</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">lst5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">majority_ele_dac</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">lst5</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[] -&gt; -1
+[1, 2, 3, 4, 4, 5] -&gt; -1
+[1, 2, 4, 4, 4, 5] -&gt; -1
+[4, 2, 4, 4, 4, 5] -&gt; 4
+[5, 4, 4, 4, 2, 4] -&gt; 4
+[2, 3, 9, 2, 2] -&gt; 2
+[2, 2, 9, 3, 2] -&gt; 2
+[0, 0, 2, 2, 2] -&gt; 3
+[2, 2, 2, 0, 0] -&gt; 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+    </div>
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+    <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction-to-Greedy-Algorithms">Introduction to Greedy Algorithms<a class="anchor-link" href="#Introduction-to-Greedy-Algorithms"></a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The subfamily of <em>Greedy Algorithms</em> is one of the main paradigms of algorithmic problem solving next to <em>Dynamic Programming</em> and <em>Divide &amp; Conquer Algorithms</em>. The main goal behind greedy algorithms is to implement an efficient procedure for often computationally more complex, often infeasible brute-force methods such as exhaustive search algorithms.</p>
+<p>The main outline of a greedy algorithms consists of 3 steps:</p>
+<ul>
+<li>make a greedy choice</li>
+<li>reduce the problem to a subproblem (a smaller problem of the similar type as the original one)</li>
+<li>repeat</li>
+</ul>
+<p>So, greedy algorithms are essentially a problem solving heuristic, an iterative process of tackling a problem in multiple stages while making an locally optimal choice at each stage. In practice, and depending on the problem task, making this series of locally optimal ("greedy") choices must not necessarily lead to a globally optimal solution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-1:-Coin-Changer">Example 1: Coin Changer<a class="anchor-link" href="#Example-1:-Coin-Changer"></a></h2><p>To look at a first, naive example of a greedy algorithm, let's implement a simple coin changing machine. Given a money value in cents, we want to return the minimum possible number of coins, whereas the possible denominations are 1, 5, 10, and 20 cents.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">coinchanger</span><span class="p">(</span><span class="n">cents</span><span class="p">,</span> <span class="n">denominations</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]):</span>
+    <span class="n">coins</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">denominations</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">coins</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">coins</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cents</span> <span class="o">//</span> <span class="n">c</span> 
+        <span class="n">cents</span> <span class="o">=</span> <span class="n">cents</span> <span class="o">%</span> <span class="n">c</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cents</span><span class="p">:</span>
+            <span class="n">total_coins</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">coins</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">coins</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">total_coins</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The funtion above creates a dictionary, <code>coins</code>, which tracks the number of coins of each denomination to be returned. Then, we iterate though the denominations in descending order of their value. Now, in a "greedy" fashion, we count the highest possible number of coins from the largest denomination in the first step. We repeat this process until we reached the smallest denomination or the number of remaining <code>cents</code> reaches 0.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">coinchanger</span><span class="p">(</span><span class="n">cents</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([(20, 5), (10, 0), (5, 0), (1, 0)], 5)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calling out <code>coinchanger</code> function with 100 cents as input, it returns 5 coins a 20 cents, the smallest, possible number of coins that can be returned in this case. Below are some more examples:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">coinchanger</span><span class="p">(</span><span class="n">cents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([(20, 0), (10, 0), (5, 1), (1, 0)], 1)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">coinchanger</span><span class="p">(</span><span class="n">cents</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([(20, 0), (10, 0), (5, 0), (1, 4)], 4)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">coinchanger</span><span class="p">(</span><span class="n">cents</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([(20, 1), (10, 0), (5, 0), (1, 3)], 4)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-2:-Knapsack">Example 2: Knapsack<a class="anchor-link" href="#Example-2:-Knapsack"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let us take a look at a classic, combinatorial optimization problem, the so-called "knapsack" problem. Here, we can think of a "knapsack" as a rucksack, and our goal is to fill it with items so that the rucksack's contents have the highest possible value. Of course, the knappsack has a certain weight capacity, and each item is associated with a certain value and a weight. In other words, we want to maximize the value of the knapsack subject to the constraint that we don't exceed its weight capacity.</p>
+<p>As trivial as it sounds, the knapsack problem is still one of the most popular algorithmic problems in the modern computer science area. There are numerous applications of knapsack problems, and to provide an intuitive real-world example: We could think of sports betting or daily fantasy soccer predictions as a knapsack problem, where we want to construct a squad of players with the highest possible points to salary ratio.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="0-1-Knapsack">0-1 Knapsack<a class="anchor-link" href="#0-1-Knapsack"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's us take a look the probably simplest variation of the knapsack problem, the 0-1 knapsack, and tackle it using a "greedy" strategy. In the 0-1 knapsack, we have a given set of items, $i_1, i_2, ..., i_m$, that we can use to fill the knapsack. Again, the knapsack has a fixed capacity, and the items are associated with weights, $w_1, w_2, ..., w_m$, and values $v_1, v_2, ..., v_m$. While our goal is still to pack the knapsack with a combination of items so that it carries the highest possible value, the 0-1 knapsack variation comes with the constraint that we can only carry 1 copy of each item. Thus, the runtime complexity of this algorithm is $O(nW)$, where $n$ is the number of items in the list and $W$ is the maximum capacity of the knapsack.</p>
+<p>For example, if we are given 3 items with weights $[w_1: 20, w_2: 50, w_3: 30]$ and values
+$[v_1: 60, v_2: 100, v_3: 120]$, a knapsack with capacity 50 may carry to 1 copy of item 1 and 1 copy of item 3 to maximize its value (180) in contrast to just carrying 1 copy of item 2 (value: 100).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's see how one "greedy" code implementation may look like:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">knapsack_01</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="n">val_by_weight</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="n">weight</span> 
+                     <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">weights</span><span class="p">)]</span>
+    <span class="n">sort_idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">val_by_weight</span><span class="p">),</span> 
+                                     <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+                                     <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+    <span class="n">knapsack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+    <span class="n">total_weight</span><span class="p">,</span> <span class="n">total_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sort_idx</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">total_weight</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">capacity</span><span class="p">:</span>
+            <span class="n">knapsack</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">total_value</span> <span class="o">+=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">total_weight</span> <span class="o">==</span> <span class="n">capacity</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">knapsack</span><span class="p">,</span> <span class="n">total_weight</span><span class="p">,</span> <span class="n">total_value</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We start by creating an array <code>val_by_weight</code>, which contains the value/weight values of the items. Next, we create an array of index positions by sorting the value/weight array; here, we can think of the item with the highest value/weight ratio as the item that gives us the "best bang for the buck." Using a for-loop, we then iterate over the <code>sort_idx</code> and check if a given items fits in our knapsack or not, that is, if we can carry it without exceeding the knapsack's capacity. After we checked all items, or if reach the capacity limit prematurely, we exit the for-loop and return the contents of the knapsack as well as its current weight and total value, which we've been tracking all along.</p>
+<p>A concrete example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> 
+<span class="n">knapsack_01</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([1, 0, 1], 50, 180)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Running the <code>knapsack_01</code> function on the example input above returns a knapsack containing item 1 and item 3, with a total weight equal to its maximum capacity and a value of 180.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us take a look at another example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span> 
+
+<span class="n">knapsack_01</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([1, 0, 0], 40, 70)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice the problem here? Our greedy algorithm suggests packing item 1 with weight 40 and a value of 70. Now, our knapsack can't pack any of the other items (weights 20 and 30), without exceeding its capacity. This is an example of where a greedy strategy leads to a globally suboptimal solution. An optimal solution would be to take 1 copy of item 2 and 1 copy of item 3, so that our knapsack carries a weight of 50 with a value of 75.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fractional-Knapsack">Fractional Knapsack<a class="anchor-link" href="#Fractional-Knapsack"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let's implement a slightly different flavor of the knapsack problem, the fractional knapsack, which is guaranteed to find the optimal solution. Here, the rules are slightly different from the 0-1 knapsack that we implemented earlier. Instead of either just <em>including</em> or <em>excluding</em> an item in the knapsack, we can also add fractions $f$ of an item, subject to the constraint $0 \geq f \leq 1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let's take our 0-1 knapsack implementation as a template and make some slight modifications to come up with a fractional knapsack algorithm:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">knapsack_fract</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="n">val_by_weight</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="n">weight</span> 
+                     <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">weights</span><span class="p">)]</span>
+    <span class="n">sort_idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">val_by_weight</span><span class="p">),</span> 
+                                     <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+                                     <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+    <span class="n">knapsack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+    <span class="n">total_weight</span><span class="p">,</span> <span class="n">total_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sort_idx</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">total_weight</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">capacity</span><span class="p">:</span>
+            <span class="n">knapsack</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">total_value</span> <span class="o">+=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">allowed</span> <span class="o">=</span> <span class="n">capacity</span> <span class="o">-</span> <span class="n">total_weight</span>
+            <span class="n">frac</span> <span class="o">=</span> <span class="n">allowed</span> <span class="o">/</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">knapsack</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">frac</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">allowed</span>
+            <span class="n">total_value</span> <span class="o">+=</span> <span class="n">frac</span> <span class="o">*</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>           
+        <span class="k">if</span> <span class="n">total_weight</span> <span class="o">==</span> <span class="n">capacity</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">knapsack</span><span class="p">,</span> <span class="n">total_weight</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_value</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's give it a whirl on a simple example first:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> 
+<span class="n">knapsack_fract</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([1, 0, 1], 50, 180)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The solution is an optimal solution, and we notice that it is the same as the one we got by using the 0-1 knapsack previously.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To demonstrate the difference between the 0-1 knapsack and the fractional knapsack, let's do a second example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">]</span> 
+
+<span class="n">knappsack_fract</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[182]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([0.3333], 10, 166.6667)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-3:-Point-Cover-Interval-Problem">Example 3: Point-Cover-Interval Problem<a class="anchor-link" href="#Example-3:-Point-Cover-Interval-Problem"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The classic Point-Cover-Interval problem is another example that is well suited for demonstrating greedy algorithms. Here, we are given a set of Intervals <em>L</em>, and we want to find the minimum set of points so that each interval is covered at least once by a given point as illustrated in the example below:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>intervals : {(1,3) , ( 2,5) , (3,6) }</p>
+
+<pre><code>1              3
+|______________|
+
+       2                 5
+       |_______*_________|
+
+               3                6
+               |________________|
+
+
+        points : {3}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our greedy strategy, which finds the optimal solution for this problem, can be as follows:</p>
+<ul>
+<li>sort intervals in increasing order by the value of their endpoints</li>
+<li>for interval in interval-set:<ul>
+<li>if interval is not yet covered:<ul>
+<li>add interval-endpoint to the set of points</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">min_points</span><span class="p">(</span><span class="n">intervals</span><span class="p">):</span>
+    <span class="n">s_ints</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">s_ints</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="k">for</span> <span class="n">interv</span> <span class="ow">in</span> <span class="n">s_ints</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">interv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">interv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        
+    <span class="k">return</span> <span class="n">points</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">pts</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span> 
+<span class="n">min_points</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">pts</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="n">min_points</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3, 6]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-4:-Pairwise-Distinct-Summands">Example 4: Pairwise Distinct Summands<a class="anchor-link" href="#Example-4:-Pairwise-Distinct-Summands"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the pairwise distinct summands problem, we are given an integer $n$, and our goal is to find the maximum number of unique summands. For example, given an integer n=8, the maximum number of unique summands would be <code>[1 + 2 + 5] = 3</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Implemented in code using a greedy strategy, it looks as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">max_summands</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">summands</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sum_summands</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">next_int</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">sum_summands</span> <span class="o">+</span> <span class="n">next_int</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="n">sum_summands</span> <span class="o">+=</span> <span class="n">next_int</span>
+        <span class="n">summands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_int</span><span class="p">)</span>
+        <span class="n">next_int</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">summands</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">sum_summands</span>
+    <span class="k">return</span> <span class="n">summands</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, we intitialize the sum of the summands to 0 and evaluate the integer <code>next_int=1</code>. We then enter a while loop if the sum of the summ</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-5-:-Set-Cover-Problems">Example 5 : Set Cover Problems<a class="anchor-link" href="#Example-5-:-Set-Cover-Problems"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Set cover problems are problems where we want to find the minimum number of subsets such that their set union contains all items in a target set. This target set is typically called the "universe." To borrow an example from the excellent <a href="https://en.wikipedia.org/wiki/Set_cover_problem">Wikipedia page</a> on set cover problems, let's assume we have the universe</p>
+<ul>
+<li>$U=\{1, 2, 3, 4, 5\}$</li>
+</ul>
+<p>and are given the collection of sets</p>
+<ul>
+<li>$C=\{\{1, 2, 3\}, \{2, 4\}, \{3, 4\}, \{4, 5\}\}$</li>
+</ul>
+<p>The task is to find the minimum number of sets in $C$ so that their union equals $U$.</p>
+<p>Note that set cover problems are NP-complete, thus no computationally efficient solution exists. However, we can use greedy algorithms to approximate the solution; this solution may or may not be globally optimal.</p>
+<p>The greedy strategy we are going to employ is very simple and works as follows:</p>
+<ul>
+<li>While not all elements in U are covered:<ul>
+<li>For all uncovered sets in C:</li>
+<li>Pick the set that covers most of the elements in U</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;set_1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+              <span class="s1">&#39;set_2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> 
+              <span class="s1">&#39;set_3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> 
+              <span class="s1">&#39;set_4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}}</span>
+<span class="n">sets_used</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">elements_not_covered</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+
+
+<span class="k">while</span> <span class="n">elements_not_covered</span><span class="p">:</span>
+    <span class="n">elements_covered</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">set_</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        
+        <span class="k">if</span> <span class="n">set_</span> <span class="ow">in</span> <span class="n">sets_used</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="n">current_set</span> <span class="o">=</span> <span class="n">collection</span><span class="p">[</span><span class="n">set_</span><span class="p">]</span>
+        <span class="n">would_cover</span> <span class="o">=</span> <span class="n">elements_covered</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">current_set</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">would_cover</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements_covered</span><span class="p">):</span>
+            <span class="n">elements_covered</span> <span class="o">=</span> <span class="n">would_cover</span>
+            <span class="n">sets_used</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">set_</span><span class="p">)</span>
+            <span class="n">elements_not_covered</span> <span class="o">-=</span> <span class="n">elements_covered</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">elements_not_covered</span><span class="p">:</span>
+                <span class="k">break</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">sets_used</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;set_2&#39;, &#39;set_4&#39;, &#39;set_1&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a result, we can see that 3 sets are required to cover the universe U. In this case, the greedy algorithm has not found the globally optimal solution, which would be <code>'set_1'</code> and <code>'set_4'</code>. Note that this is just a trivial example, and greedy algorithms can be very useful approximators for solutions that are computationally infeasible.</p>
+<p>For instance, an exhaustive solution to this problem that would guaranteed to find the global optimum (remember that set cover problems are NP-complete) would involve iterating over a power set, which has $2^n$ elements, where $n$ is the number of sets in the collection. For example, a collection of 30 sets would already require comparing the solutions of $2^{30}=1,073,741,824$ million possible combinations!</p>
+<p>(Note that the greedy approach may have found the globally optimal solution in this simple example if it had iterated over the dictionary in a different order -- for example, if we had swapped the positions of {2, 4} and {4, 5})</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+
+    
+
+</div>
+</div>
+    </div>
+</div>
+ </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+{% endblock %}

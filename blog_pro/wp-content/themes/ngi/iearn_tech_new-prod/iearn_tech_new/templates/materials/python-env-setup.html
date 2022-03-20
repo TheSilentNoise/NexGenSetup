@@ -1,0 +1,369 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+       <div class="row">
+          <div class="header-section">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                    Python Environment Setup
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3">
+    <div class="text-center panel-head">Table of Contents</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Python Installation</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Install Python IDE</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Jupyter Notebook Installation</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+ <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python-Installation">Python Installation<a class="anchor-link" href="#Python-Installation"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Python-in-Mac">Install Python in Mac<a class="anchor-link" href="#Install-Python-in-Mac"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.Open Terminal.</p>
+<p>2.Install and set up Homebrew. Type the below in the terminal.</p>
+<p>Homebrew provides OS X with a free and open source software package managing system that simplifies the installation of software on OS X.</p>
+
+<pre><code>$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+<p>3.Now, put Homebrew directory on top of PATH environment variable. This will enable to use brew commands from the terminal under any directory in the file system.</p>
+
+<pre><code>$ nano ~/.bash_profile
+</code></pre>
+<p>Write the following content</p>
+
+<pre><code>export PATH=/usr/local/bin:$PATH
+</code></pre>
+<p>Save the file and exit</p>
+
+<pre><code>$ source ~/.bash_profile
+</code></pre>
+<p>4.Now install Python3 or python2 depending upon your requirements</p>
+
+<pre><code>$ brew install python3
+</code></pre>
+<p>5.To install a particular package</p>
+
+<pre><code>$ pip3 install &lt;packagename&gt;
+Eg. – pip3 install numpy
+</code></pre>
+<p>6.Create a Virtual Environment while coding in Python.
+Virtual environments enable you to have an isolated space on your computer for Python projects, ensuring that each of your projects can have its own set of dependencies that won’t disrupt any of your other projects.</p>
+
+<pre><code>$ mkdir PythonProject
+$ cd PythonProject
+$ python3 -m venv env #Creates a virtual environment
+$ source env/bin/activate
+(env) $ pip install scipy
+</code></pre>
+<p>Note, that the scipy package would be installed inside the particular environment (env) only, not in globally.</p>
+<p>7.Create simple program in Python</p>
+
+<pre><code>(env) $ nano hello.py
+
+print(“Hello, World!”)
+</code></pre>
+<p>Save and exit
+(env) $ python hello.py</p>
+
+<pre><code>Output :-
+
+    Hello, World!</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Python-in-Linux">Install Python in Linux<a class="anchor-link" href="#Install-Python-in-Linux"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python2.7 is generally pre-installed in all Linux distributions</p>
+<p>To check,</p>
+<p>1.Open Terminal</p>
+
+<pre><code>$ python --version
+Python 2.7.12
+</code></pre>
+<p>2.To install Python 3 versions,</p>
+<p>On Debian derivatives such as Ubuntu, use APT:</p>
+
+<pre><code>$ sudo apt-get install python3
+</code></pre>
+<p>On Red Hat and derivatives, use yum:</p>
+<pre><code>$ sudo yum install python
+</code></pre>
+<p>On SUSE and derivatives, use zypper</p>
+
+<pre><code>$ sudo zypper install python3
+</code></pre>
+<p>3.To check Python 3 version:-</p>
+
+<pre><code>$ python3 –version</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Python-in-Windows">Install Python in Windows<a class="anchor-link" href="#Install-Python-in-Windows"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.Downloading</p>
+
+<pre><code> - Download python from - <a href="https://www.python.org/downloads/">here</a>
+ - Click the Download Python 3.6.x button.
+</code></pre>
+<p>2.Installing</p>
+
+<pre><code>- Double-click the icon labeling the file **python-3.6.x.exe**.
+  An **Open File - Security** Warning pop-up window will appear.
+- Click **Run**.
+- A Python 3.6.x (32-bit) Setup pop-up window will appear.
+
+ **Note:** Ensure to select the checkbox in the pop up
+     - Add Python 3.6.x to PATH
+     - Install Launcher for all users
+
+- Click on the **Install Now** message.
+
+ **Note:** Administrator permission is needed to continue the installation.
+
+- Click the Yes button when asked for Administrator permission.
+
+</code></pre>
+<p>Python has been successfully installed in your Windows machine.</p>
+<p>3.Verifying</p>
+<pre><code>To try to verify installation,
+
+    Go to Start Menu (All Programs) in the home screen.
+    Search Python.
+    It will open the Python command line prompt terminal.
+
+</code></pre>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+  <div class="material">
+ <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Install Python IDE</h2>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After Installing Python successfully , now its time to setup the PyCharm IDE in Windows.</p>
+<p>Download</p>
+<p>To download PyCharm, go to <a href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a>
+Select the appropriate OS
+Click the "DOWNLOAD" link under the Community Section.</p>
+<p>Linux : <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&amp;code=PCC">https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&amp;code=PCC</a></p>
+<p>Windows : <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&amp;code=PCC">https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&amp;code=PCC</a></p>
+<p>MacOS : <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&amp;code=PCC">https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&amp;code=PCC</a></p>
+<p>Run the downloaded file.</p>
+<p>Please note, the below screenshot is specifically for windows. But the setup process is same for other two OS.</p>
+<p>A pop up will appear as PyCharm Community Edition Setup, click on Next.</p>
+<center>
+     <p><img src="../static/img/materials/pycharm1.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Browse the installation location, where you want to keep the PyCharm setup.</p>
+    <center>
+     <p><img src="../static/img/materials/pycharm2.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Click on Next and select the version you want to keep as a shortcut in your desktop.</p>
+    <center>
+     <p><img src="../static/img/materials/pycharm3.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Click on Next and Install.</p>
+    <center>
+     <p><img src="../static/img/materials/pycharm4.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Wait for sometime to finish the installation</p>
+     <center>
+     <p><img src="../static/img/materials/pycharm5.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Click on Finish and Run the PyCharm.</p>
+     <center>
+     <p><img src="../static/img/materials/pycharm6.jpg" alt="title" class="img-responsive" ></p>
+</center>
+<p>Now, the following screen will appear and you have successfully installed PyCharm in your system.</p>
+ <center>
+     <p><img src="../static/img/materials/pycharm7.jpg" alt="title" class="img-responsive" ></p>
+</center>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+ </div>
+</div>
+
+
+<div class="tab-pane text-style" id="tab3">
+  <div class="material">
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Jupyter-Notebook-Installation">Jupyter Notebook Installation<a class="anchor-link" href="#Jupyter-Notebook-Installation"></a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Jupyter-Notebook-in-Ubuntu-using-Python3">Install Jupyter Notebook in Ubuntu using Python3<a class="anchor-link" href="#Install-Jupyter-Notebook-in-Ubuntu-using-Python3"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Prerequisite : Python3 must be installed in Ubuntu</p>
+<p>1.Open Terminal</p>
+<pre><code>test@domain.com:$ cd
+test@domain.com:$ mkdir ~/jupyterNotebook
+test@domain.com:$ cd jupyterNotebook
+test@domain.com:~/jupyterNotebook$ virtualenv -p python3 env
+test@domain.com:~/jupyterNotebook $ source env/bin/activate
+(env) test@domain.com:~/jupyterNotebook$ pip install jupyter</code></pre>
+<p>2.Run Jupyter Notebook from Ubuntu</p>
+<p>Open Terminal</p>
+<pre><code>test@domain.com:$ cd jupyterNotebook
+test@domain.com:~/jupyterNotebook $ source env/bin/activate
+(env) test@domain.com:~/jupyterNotebook$ jupyter notebook
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Jupyter-Notebook-in-Windows">Install Jupyter Notebook in Windows<a class="anchor-link" href="#Install-Jupyter-Notebook-in-Windows"></a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.Install Python3 and create a virtual environment in command prompt.</p>
+
+<pre><code>C:\&gt;C:\Python35\python -m venv c:\path\to\myenv
+
+</code></pre>
+<p>2.Activate the Virtual environment</p>
+
+<pre><code>C:\&gt; &lt;venv&gt;\Scripts\activate.bat
+
+</code></pre>
+<p>3.Install Jupyter Notebook</p>
+
+<pre><code>C:\&gt; pip install jupyter
+
+</code></pre>
+<p>4.Start Jupyter Notebook</p>
+
+<pre><code>C:\&gt; jupyter notebook
+
+</code></pre>
+<p>This will start the jupyter notebook in windows.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

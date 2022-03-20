@@ -1,0 +1,92 @@
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package CloudifyApps
+ */
+
+get_header();
+?>
+      <header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12">Blogs</div>
+              <br/>
+              <hr class="bottom-line">
+          </div>
+</header>
+
+
+<section id ="pricing" class="section-padding">
+  <div class="container">
+
+	   <div class ="col-md-3">
+
+		<div class="">
+
+				<div class="blog-category">
+					<div class="text-center panel-head">Blog Categories</div>
+						<nav id="filter">
+							<ul class="nav tabs panel">
+								<li class="active"><a href="#" onclick="filterSelection('all')">All</a></li>
+								<!--start loop-->
+								<li><a href="#" onclick="cat(1)">Cat1</a></li>
+								<!--end loop-->
+							</ul>
+						</nav>
+					</div>
+
+					 <div class="blog-recent"><br/>
+						<h4>Recently added ...</h4><hr/>
+						  <!--start loop-->
+							<a href="#" >titte</a><br/>
+						  <!--end loop-->
+
+					 </div>
+
+					<br/>
+
+
+				</div>
+
+		</div>
+
+
+
+	  <div class="col-md-9">
+
+	
+
+					<?php
+					while ( have_posts() ) :
+						the_post();
+
+						get_template_part( 'template-parts/content', 'page' );
+
+						//the_post_navigation();
+
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) :
+							//comments_template();
+						endif;
+
+					endwhile; // End of the loop.
+					?>
+
+
+					
+	  </div>
+
+	</div>
+
+  </div>
+</section>
+				
+<?php
+get_footer();

@@ -1,0 +1,49 @@
+#### insert script Table - Courses
+
+INSERT INTO courses (course_name,course_url) VALUES ('Data Engineering Fundamentals','/data-engineering-tutorial');
+INSERT INTO courses (course_name,course_url) VALUES ('Big Data & Hadoop','/bigdata-hadoop-tutorial');
+INSERT INTO courses (course_name,course_url) VALUES ('Programming Fundamentals','/programming-fundamentals-tutorial');
+
+
+LOAD DATA LOCAL INFILE '/home/nivedita/Desktop/blogs.csv' INTO TABLE Practice.blogs
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+
+
+class Courses(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    course_name = db.Column(db.String(500))
+    course_url = db.Column(db.String(500))
+    child = relationship("User_Course")
+
+
+    <SCRIPT LANGUAGE="javascript">
+    function ClearHistory()
+    {
+     var backlen = history.length;
+     history.go(-backlen);
+     window.location.href = "/"
+    }
+    </SCRIPT>
+
+    @app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
+
+
+db.Text(4294967295)
+
+
+
+
+
+insert into Test.role values(1,'Student');
+insert into Test.role values(2,'Employer');
+
+
+

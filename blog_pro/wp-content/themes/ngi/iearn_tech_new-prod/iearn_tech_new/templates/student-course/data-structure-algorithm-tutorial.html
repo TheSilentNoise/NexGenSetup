@@ -1,0 +1,240 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>Data Structure & Algorithm in Python</p>
+              <input type="hidden" value="18" id="course_id"/>
+          </div>
+</header>
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3">
+    <div class="panel-head text-center">Activities</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Study Materials</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Exercises</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Exercises Solution</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">Project</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Submit Feedback</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+
+<div class="row"><div class="sub-head">Study Materials</div><hr/></div>
+
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='python-data-structure-algorithm-material'">
+	<div class=" subject-div">
+	<h4 class="black">Data Structures
+    <div class="pull-right">
+	<a href="/python-data-structure-algorithm-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='python-algorithm-material'">
+	<div class=" subject-div">
+	<h4 class="black">Algorithm Essentials
+    <div class="pull-right">
+	<a href="/python-data-structure-algorithm-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+    <!--
+<div class="col-sm-12 sub-div-pad" onclick="location.href=''">
+	<div class=" subject-div">
+	<h4 class="black">Searching Algorithms
+    <div class="pull-right">
+	<a href="/python-data-structure-algorithm-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href=''">
+	<div class=" subject-div">
+	<h4 class="black">Sorting Algorithms
+    <div class="pull-right">
+	<a href="/python-data-structure-algorithm-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+-->
+
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+<div class="row"><div class="sub-head">Exercises</div><hr/>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/data-structure-exercise'">
+	<div class=" subject-div">
+	<h4 class="black">Exercise
+    <div class="pull-right">
+	<a href="/data-structure-exercise">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+<div class="row"><div class="sub-head">Exercises Solution</div><hr/>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/data-structure-exercise-solution'">
+	<div class=" subject-div">
+	<h4 class="black">Exercise Solution
+    <div class="pull-right">
+	<a href="/data-structure-exercise-solution">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab4">
+<div class="row"><div class="sub-head">Project</div><hr/>
+
+    <div class="feedback-form">
+    <div >
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Develop a Phone Directory system using Python.
+It should have the following features:
+User will able to ---</p>
+<ol>
+<li>Add a contact</li>
+<li>Search a contact</li>
+<li>Delete a contact</li>
+<li>Update a contact</li>
+<li>View directory</li>
+</ol>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab5">
+<div class="row"><div class="sub-head">Submit Feedback</div><hr/></div>
+
+<div class="col-md-12 feedback-form">
+
+    {% if  not feedback_submitted %}
+
+<div id="feedback-form">
+
+    <p>The feedback you give allows us to continually adapt training to better suit your needs.
+    </p>
+<br/>
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Poor</th>
+        <th>Average</th>
+        <th>Good</th>
+        <th>Very Good</th>
+        <th>Excellent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Content Rating</td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="1"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="2"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="3"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="4"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="5"></td>
+      </tr>
+      <tr>
+        <td>Overall Rating</td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="1"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="2"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="3"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="4"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="5"></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+    <div class="form-group">
+      <label for="comments">Comments : </label>
+      <textarea class="form-control" rows="5" id="comments"></textarea>
+    </div>
+
+    <div class="pull-right">
+    <button type="button" class="btn btn-success" value="test" id="btn-feedback" >Submit</button>
+    </div>
+
+</div>
+
+    {% endif %}
+
+     {% if  feedback_submitted %}
+        <div class="text-center" style="color:#D01717"> Thank you for your feedback !</div>
+     {% endif %}
+
+
+    <div id="feedback-submitted" class="text-center">
+        <div style="color:#D01717"> Thank you for your feedback !</div>
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

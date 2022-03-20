@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="blog-heading">
+          <div class="container">
+              <p>Repartitioning and Coalesce in Spark</p>
+              <label class="blog-label"><i>Posted &nbsp;&nbsp;</i> February 24, 2018 </label>
+          </div>
+</header>
+
+
+   <section id ="pricing" class="section-padding">
+     <div class="container">
+
+        <div class="col-sm-12 ">
+
+    <div class="blog-content">
+
+    <p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;">Spark splits data into partitions and executes computations on the partitions in parallel. You should understand how data is partitioned and when you need to manually adjust the partitioning to keep your Spark computations running efficiently.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;">Intro to your partitions</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;">Let&rsquo;s create a Dataframe of numbers to illustrate how data is partitioned </span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val x = (1 to 10).toList</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val numbersDf = x.toDF(&ldquo;number&rdquo;)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">On my machine, the numbers are split into four partitions:</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">numbersDf.rdd.partitions.size // =&gt; 4</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Each partition is a separate CSV file when you write a DataFrame to disc.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">numbersDf.write.csv(&ldquo;/Users/powers/Desktop/spark_output/numbers&rdquo;)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Here is how data is separated on different partitions</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">Partition A: 1, 2</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition B: 3, 4, 5</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">Partition C: 6, 7</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Partition D: 8, 9, 10</span></span></span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;"><span lang="en-US"><u><strong>Coalesce</strong></u></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The coalesce method reduces the number of partitions in a DataFrame. Here&rsquo;s how to consolidate the data into two partitions.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val numbersDf2 = numbersDf.coalesce(2)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">We can verify coalesce has created a new DataFrame with only two partitions:</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">numbersDf2.rdd.partitions.size // =&gt; 2</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">NumbersDf2 will be written out to disc as two text files</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">numbersDf2.write.csv(&ldquo;/Users/powers/Desktop/spark_output/numbers2&rdquo;)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The partitions in numbersDf2 have the following data:</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">Partition A: 1, 2, 3, 4, 5</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Partition C: 6, 7, 8, 9, 10</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The coalesce algorithm moved the data from Partition B to Partition A and moved the data from Partition D to Partition C. The data in Partition A and Partition C does not move with the coalesce algorithm. The algorithm is fast in certain situations because it minimises data movement.</span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;"><span lang="en-US"><u><strong>Increasing Partitions </strong></u></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">You can try to increase the number of partitions with coalesce, but it wont work!</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val numbersDf3 = numbersDf.coalesce(6)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">numbersDf3.rdd.partitions.size // =&gt; 4</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">numbersDF3 keeps four partitions even though we attempted to create 6 partitions with coalesce(6). </span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The coalesce algorithm changes the number of nodes by moving data from some partitions to existing partitions. This algorithm obviously cannot increate the number of partitions.</span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;"><span lang="en-US"><u><strong>Repartition</strong></u></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The repartition method can be used to either increase or decrease the number of partitions in a DataFrame. </span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Let&rsquo;s create a homerDF from the numbersDf with two partitions.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val homerDf = numbersDf.repartition(2)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">homerDf.rdd.partitions.size // =&gt; 2</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Let&rsquo;s examine the data on each partition in homerDF</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">Partition ABC: 1, 3, 5, 6, 8, 10</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition XYZ: 2, 4, 7, 9</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Partition ABC contains data from Partition A , Partition B, Partition C and Partition D. Partition XYZ also contains data from each original partition. The repartition algorithm does a full data shuffle and equally distributes the data among partitions. It does not attempt to minimise data movement like the coalesce algorithm.</span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;"><span lang="en-US"><u><strong>Increasing Partitions</strong></u></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The repartition method can be used to increase the number of partitions as well.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">val bartDf = numbersDf.repartition(6)</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="it-IT">bartDf.rdd.partitions.size // =&gt; 6</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">Here&rsquo;s how the data is split up amongst the partitions in bartDF.</span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00000: 5, 7</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00001: 1</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00002: 2</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00003: 8</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00004: 3, 9</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="fr-FR">Partition 00005: 4, 6, 10</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The repartition method does a full shuffle of data, so the number of partitions can be increased.</span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;"><span lang="en-US"><u><strong>Differences between coalesce and repartition :-</strong></u></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif;">The repartition algorithm does a full shuffle of the data and creates equal sized partitions of data. Coalesce combines existing partitions to avoid a full shuffle.</span></span></p>
+
+
+
+</div>
+
+     </div>
+     </div>
+
+    </section>
+
+ {% endblock %}

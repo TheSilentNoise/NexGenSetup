@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>Post Offers</p>
+          </div>
+</header>
+
+<section id="pricing" class="section-padding" >
+<div class="container col-md-offset-2">
+
+      <!-- <div class="col-md-12">
+            <center>
+             <div class="col-md-3"><label>Select Offer Type:</label></div>
+             <div class="col-md-5">
+                 <select name="cars" class="form-control">
+                        <option value="volvo">Internship</option>
+                        <option value="saab">Job</option>
+                    </select>
+             </div>
+            </center>
+         </div>-->
+
+
+  <div id="internship-post" class="col-md-8 tab-pane fade in active">
+
+       <div class="col-md-12 col-sm-12 col-xs-12">
+             {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                      {% for message in messages %}
+                      <div class="text-center alert alert-info fade in alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                          {{ message }}
+                      </div>
+                      {% endfor %}
+                 {% endif %}
+             {% endwith %}
+       </div>
+
+      <h3 class="text-center">Post New Internship </h3><hr/>
+      <font color="red">All Fields marked with (*) are mandatory.</font>
+
+      <form class="form" method="POST" action="/employers-offers" >
+            {{ form.hidden_tag() }}
+         <div class="col-md-12 profile-item">
+
+             <h4>Internship Details</h4><hr>
+
+              <div class="col-md-12">
+                  <div class="col-md-3"><label>Internship Title:<font color="red">*</font></label></div>
+                  <div class="col-md-9">{{ wtf.form_field(form.title , placeholder='Title of the internship . Ex - Requirement for Programmer Intern') }}</div>
+              </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Paid/Unpaid:</label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.paidType) }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Internship Type:<font color="red">*</font></label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.internshipType) }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Compensation:</label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.compensation , placeholder='Compensation of the internship . Ex - INR 5000 / month') }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Experience:<font color="red">*</font></label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.experience , placeholder='Experience Required . Ex - College students /Fresher') }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Position:</label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.designation , placeholder='Position . Ex - Java Intern') }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Description:<font color="red">*</font></label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.description , placeholder='Description of the internship......') }}</div>
+             </div>
+
+             <div class="col-md-12">
+                 <div class="col-md-3"><label>Skills Required:<font color="red">*</font></label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.skills , placeholder='Required Skills - Ex - Java,Python,Database.....') }}</div>
+             </div>
+
+            <div class="col-md-12">
+                 <div class="col-md-3"><label>Qualification:<font color="red">*</font></label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.qualification , placeholder='Required Qualification , Ex-B.Tech,MCA..') }}</div>
+            </div>
+
+            <div class="col-md-12">
+                 <div class="col-md-3"><label>Stream:</label></div>
+                 <div class="col-md-9">{{ wtf.form_field(form.stream , placeholder='Required Streams , Ex- CSE,IT...') }}</div>
+            </div>
+
+           <div class="col-md-12">
+                 <div class="col-md-3"><label>Start Date:<font color="red">*</font></label></div>
+                 <div class="col-md-4">{{ wtf.form_field(form.startDate , placeholder='') }}</div>
+
+                 <div class="col-md-1"><label>End Date:<font color="red">*</font></label></div>
+                 <div class="col-md-4">{{ wtf.form_field(form.endDate , placeholder='') }}</div>
+           </div>
+
+           <div class="col-md-12">
+                 <div class="col-md-3"><label>Last Date to apply:<font color="red">*</font></label></div>
+                 <div class="col-md-4">{{ wtf.form_field(form.lastApplicationDate , placeholder='') }}</div>
+           </div>
+
+
+           <h4>Contact Details</h4><hr>
+
+           <div class="col-md-12">
+                <div class="col-md-3"><label>Contact Email:<font color="red">*</font></label></div>
+                <div class="col-md-9">{{ wtf.form_field(form.contactEmail , placeholder='Contact Email Id') }}</div>
+           </div>
+
+
+           <div class="col-md-12">
+                <div class="col-md-3"><label>Contact Phone:<font color="red">*</font></label></div>
+                <div class="col-md-9">{{ wtf.form_field(form.contactPhone , placeholder='Contact Phone no') }}</div>
+           </div>
+
+           <h4>Location Details</h4><hr>
+
+           <div class="col-md-12">
+                <div class="col-md-3"><label>Address:</label></div>
+                <div class="col-md-9">{{ wtf.form_field(form.address , placeholder='Address of the internship office') }}</div>
+           </div>
+
+           <div class="col-md-12">
+                <div class="col-md-3"><label>City:<font color="red">*</font></label></div>
+                <div class="col-md-4">{{ wtf.form_field(form.city , placeholder='City') }}</div>
+
+                <div class="col-md-1"><label>State:<font color="red">*</font></label></div>
+                <div class="col-md-4">{{ wtf.form_field(form.state , placeholder='State') }}</div>
+           </div>
+
+           <div class="col-md-12">
+                <div class="col-md-3"><label>Country:<font color="red">*</font></label></div>
+                <div class="col-md-4">{{ wtf.form_field(form.country , placeholder='Country') }}</div>
+           </div>
+
+         </div>
+
+        <center>
+            <div class="col-md-12">
+             <button type="reset" class="btn btn-default">Reset</button>
+             <button type="submit" class="btn btn-success">Publish</button>
+            </div>
+        </center>
+
+
+</form>
+  </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

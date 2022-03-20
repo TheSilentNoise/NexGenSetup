@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12">
+                  <i class="fa fa-graduation-cap"></i>&nbsp;
+                  Course Name :   Data Structure & Algorithm</div>
+              <br/>
+              <hr class="bottom-line">
+          </div>
+</header>
+
+<section  class="section-padding">
+<div class="container">
+
+
+    <hr/>
+
+     <div class="text-center row course-box">
+         <div class="col-md-3">
+		    <h4>Programming languages :&nbsp; <label>Python </label></h4>
+        </div>
+        <div class="col-md-3">
+		    <h4>Course Fees :&nbsp; <label>FREE </label></h4>
+        </div>
+        <div class="col-md-3">
+		    <h4>Course Mode :&nbsp; <label>Self Paced </label></h4>
+        </div>
+        <div class="col-md-3">
+		    <h4>Course Duration : &nbsp; <label>None </label></h4>
+        </div>
+
+    </div>
+<hr/>
+
+
+<div class="col-md-6">
+    <h4><b>Description :</b></h4><hr/>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="more-less glyphicon glyphicon-plus"></i>About the course</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse " role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                        Data Structures and algorithms help you to build better and optimized programs. This course will help you to deep dive on fundamental concepts of Programming, Algorithms and Data Structures.
+                        <br/>In this course, you will learn about different operations, variables, collections, different data structures,Searching and Sorting Algorithms.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="more-less glyphicon glyphicon-plus"></i>Who should go for this course</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    The course is ideally suited for any one who wants to pursue career in Technology space.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="headingFour">
+                        <i class="more-less glyphicon glyphicon-plus"></i>Prerequisites</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                    The learner should have interest in learning about Programming. <br/>
+                    The learner should have basic knowledge of Python.
+               </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<div class="col-md-6">
+
+    <h4><b>Course Curriculum :</b></h4><hr/>
+
+	<div class="panel-group" id="sub-accordion">
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse1">Data Structures</a>
+					        </h4>
+					      </div>
+					      <div id="collapse1" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                   <li>Collections</li>
+                                    <li>Array</li>
+                                    <li>Stack</li>
+                                    <li>Queue</li>
+                                    <li>Dequeue</li>
+                                    <li>Ordered Lists</li>
+                                    <li>Hashtable</li>
+                                    <li>Bloom Filter</li>
+                                </ul>
+                            </div>
+					      </div>
+					    </div>
+
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse2">Algorithm</a>
+					        </h4>
+					      </div>
+					      <div id="collapse2" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                    <li>Recursion</li>
+                                    <li>Divide-and-Conquer Algorithms</li>
+                                    <li>Greedy Algorithm</li>
+                                </ul>
+                            </div>
+					      </div>
+					    </div>
+
+        <!--
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse3">#sub3</a>
+					        </h4>
+					      </div>
+					      <div id="collapse3" class="panel-collapse collapse">
+					        <div class="panel-body">
+
+                            </div>
+					      </div>
+					    </div>
+
+					     <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse4">#sub4</a>
+					        </h4>
+					      </div>
+					      <div id="collapse4" class="panel-collapse collapse">
+					        <div class="panel-body">
+
+                            </div>
+					      </div>
+					    </div>
+-->
+					  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class=" text-center">
+            <br/>
+
+			{% if not current_user.is_authenticated %}
+                <button class="btn btn-success btn-enroll" onclick="window.location.href='/login'">Enroll Now</button>
+		    {% endif %}
+
+            <form action="/enroll-now?course_id=18" method="post">
+
+            {% if current_user.is_authenticated and isEnrolled %}
+		        <button class="btn btn-success btn-enroll" data-toggle="modal" disabled >Enrolled</button>
+		    {% endif %}
+
+            {% if current_user.is_authenticated and not isEnrolled %}
+		        <button class="btn btn-success btn-enroll" type="submit">Enroll Now</button>
+		    {% endif %}
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+  </section>
+
+
+{% endblock %}

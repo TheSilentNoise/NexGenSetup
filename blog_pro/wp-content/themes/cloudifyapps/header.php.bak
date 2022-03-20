@@ -1,0 +1,160 @@
+<?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package CloudifyApps
+ */
+
+?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IEarn.Tech</title>
+    <meta name="description" content="Learn Today...Earn Tomorrow">
+	<?php wp_head(); ?>
+
+		<?php wp_enqueue_style('home', get_stylesheet_directory_uri().'/css/pages/home.css',array('style')); ?>
+
+
+
+	<?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/font.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/font-awesome.min.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/bootstrap.min.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/editor.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/imagehover.min.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/style.css', '1.0', 'all'); ?>
+  	<?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/custom.css', '1.0', 'all'); ?>
+    <?php wp_enqueue_style('cloudifyapps-responsive',  get_stylesheet_directory_uri() . '/css/jquery.dataTables.min.css', '1.0', 'all'); ?>
+
+                       <!--Start of Tawk.to Script-->
+            <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/5b1abe2010b99c7b36d4c236/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+            </script>
+            <!--End of Tawk.to Script-->
+
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117491687-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-117491687-1');
+        </script>
+
+
+</head>
+<!--header part-->
+
+<!--menu-->
+  <body data-spy="scroll" data-offset="70" <?php body_class(); ?>>
+
+	 <!-- header-->
+    <nav class="navbar navbar-default navbar-fixed-top <?php if(is_front_page()){ echo ''; }else{ echo ' navbar-two'; }; ?>">
+      <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+         <a class="navbar-brand" style="padding: 0px 0px 0px 9px;"><i class="fa fa-exclamation"></i>earn</a>
+		 <?php  the_custom_logo(); ?>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="padding: 8px 70px 0px 0px;">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+             <!--{% if not current_user.is_authenticated %}-->
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/internships">Internships</a></li>
+             <!--{% endif %}-->
+
+             <!--{% if current_user.is_authenticated %}
+                    {% if current_user.has_role() == 1 %}
+                    <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/mycourses">My Courses</a></li>
+                                <li><a href="/courses">All Courses</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">Internships <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/myinternships">My Applications</a></li>
+                                        <li><a href="/internships">All Internships</a></li>
+                                    </ul>
+                     </li>
+                    {% endif %}
+
+                    {% if current_user.has_role() == 2 %}
+                             <li><a href="/courses">Courses</a></li>
+                             <li><a href="/internships">Internships</a></li>
+                    {% endif %}
+            {% endif %}
+
+
+
+            <li><a href="/freelancer">Freelancer</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+<!--            <li><a href="/forums">Forums</a></li> <->
+
+
+            <li><a href="/blogs">Blogs</a></li>
+
+            <li><a href="/videos">Videos</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+            {% if not current_user.is_authenticated %}-->
+                <li><a href="{{ url_for('login') }}" >Login</a></li>
+                <li class="btn-trial"><a href="{{ url_for('signup') }}">Sign up</a></li>
+            <!--{% endif %}
+
+
+
+            {% if current_user.is_authenticated %}
+              <li class="dropdown" >
+                  <a class="dropdown-toggle" data-toggle="dropdown">
+                      <span>{{ current_user.user_fname}}</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                {% if current_user.has_role() == 1 %}
+                                <li><a href="/student-profile">My Profile</a></li>
+                                {% endif %}
+                                {% if current_user.has_role() == 2 %}
+                                <li><a href="/employers-profile">My Profile</a></li>
+                                <li><a href="/employers-offers">Post Offers</a></li>
+                                <li><a href="/myoffers">My Offers</a></li>
+                                <li><a href="/applicants">My Applicants</a></li>
+                                {% endif %}
+                                <li><a href="/change-password">Change Password</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+              </li>
+            {% endif %}-->
+
+        </ul>
+        </div>
+      </div>
+    </nav>
+<!--/ header-->
+<br/><br/>
+
+<body>
+    <div class="body">
+<!--menu-->
+

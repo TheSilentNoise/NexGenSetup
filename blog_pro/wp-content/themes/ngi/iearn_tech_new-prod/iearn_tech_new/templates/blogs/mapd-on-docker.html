@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="blog-heading">
+          <div class="container">
+              <p>Installing MapD on Docker in AWS</p>
+              <label class="blog-label"><i>Posted &nbsp;&nbsp;</i> March 3, 2018 </label>
+          </div>
+</header>
+
+   <section id ="pricing" class="section-padding">
+     <div class="container">
+
+<div class="col-sm-12 ">
+
+
+    <div class="blog-content">
+
+
+<p lang="en-US"><strong><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;">Install Docker in AWS EC2 Instance for Ubuntu 16.04 and Run MapD on it.</span></span></strong></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&rdquo;</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo apt-get update</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ apt-cache policy docker-ce</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo apt-get install -y docker-ce</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo systemctl status docker</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo docker run hello-world</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo docker run -d -v $HOME/mapd-docker-storage:/mapd-storage -p 9090-9092:9090-9092 mapd/mapd-ce-cpu</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ docker container ls</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo docker ps</span></span></span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">&lt;containerid&gt; mapd/mapd-ce-cpu "/bin/sh -c '/mapd/s&hellip;" 29 minutes ago Up 29 minutes 0.0.0.0:9090-9092-&gt;9090-9092/tcp wizardly_yalow</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ sudo docker exec -it &lt;container id&gt; /mapd/insert_sample_data</span></span></span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US"># Download the sample dataset you want</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">$ docker exec -it &lt;container id&gt; /mapd/bin/mapdql</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">mapdql&gt; SELECT origin_city AS "Origin", dest_city AS "Destination", AVG(airtime) AS "Average Airtime" FROM flights_2008_10k WHERE distance &lt; 175 GROUP BY origin_city, dest_city;</span></span></span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Origin|Destination|Average Airtime</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">West Palm Beach|Tampa|33.81818181818182</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Norfolk|Baltimore|36.07142857142857</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Ft. Myers|Orlando|28.66666666666667</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Indianapolis|Chicago|39.53846153846154</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Tampa|West Palm Beach|33.25</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Orlando|Ft. Myers|32.58333333333334</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Austin|Houston|33.05555555555556</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Chicago|Indianapolis|32.7</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Baltimore|Norfolk|31.71428571428572</span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Houston|Austin|29.61111111111111</span></span></span></span></p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US">&nbsp;</p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">To open from browser </span></span></span></span></p>
+<p lang="en-US"><span style="color: #000000; font-size: 12pt;"><span style="font-family: Helvetica, serif;"><span style="font-family: Menlo, serif;"><span lang="en-US">Open this : &lt;hostname&gt;:9092</span></span></span></span></p>
+
+
+</div>
+
+     </div>
+     </div>
+    </section>
+
+ {% endblock %}

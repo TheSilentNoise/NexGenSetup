@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>My Applicants</p>
+          </div>
+</header>
+
+<section id="pricing" class="section-padding" >
+<div class="container">
+
+    <h3>Internship Applicants :</h3><hr/>
+
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Application Date</th>
+            <th>Internship Title</th>
+            <th>Applicant's Name</th>
+            <th>Contact Email</th>
+            <th>Contact Phone</th>
+            <th>Profile</th>
+        </tr>
+    </thead>
+    <tbody>
+
+     {% for applicant in applicants %}
+
+        <tr>
+            <td>{{applicant.application_date}}</td>
+            <td>{{applicant.intern_title}}</td>
+            <td>{{applicant.student_fname}}  {{applicant.student_lname}}</td>
+            <td>{{applicant.student_email}}</td>
+            <td>{{applicant.student_phone}}</td>
+            <input type="hidden" value="{{applicant.student_id}}" id="student_id"/>
+            <td><a data-toggle="modal" data-target="#myModal" onclick="viewInternshipApplicants()"><b>View</b></a></td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="overflow-y: scroll; max-height:70%;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Name : <label id="name"></label></h4>
+        </div>
+        <div class="modal-body">
+
+            <table style="width:100%">
+              <tr><td>Email :</td>  <td><div id="email"></div></td></tr>
+              <tr><td>Contact No :  </td><td><div id="contactno"></div></td></tr>
+              <tr><td>Address :</td> <td><div id="address"></div></td></tr>
+              <tr><td>Gender : </td>    <td><div id="gender"></div></td></tr>
+              <tr><td>Date of Birth :</td><td><div id="dob"></div></td></tr>
+              <tr><td>Linkedin Url :</td><td><div id="linkedin"></div></td></tr>
+              <tr><td>Institution :</td>  <td><div id="institution"></div></td></tr>
+              <tr><td>Qualification :</td>  <td><div id="qualification"></div></td></tr>
+              <tr><td>Department :</td>  <td><div id="department"></div></td></tr>
+              <tr><td>Year of passing :</td>  <td><div id="yearofpassing"></div></td></tr>
+              <tr><td>Company Name :</td>  <td><div id="companyname"></div></td></tr>
+              <tr><td>Industry type:</td>  <td><div id="industrytype"></div></td></tr>
+              <tr><td>Designation :</td>  <td><div id="designation"></div></td></tr>
+              <tr><td>Experience :</td>  <td><div id="experience"></div></td></tr>
+              <tr><td>Skills :</td>  <td><div id="skills"></div></td></tr>
+            </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+</section>
+
+
+
+
+{% endblock %}

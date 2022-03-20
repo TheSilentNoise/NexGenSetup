@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>My Applications</p>
+          </div>
+</header>
+
+<section id="pricing" class="section-padding" >
+<div class="container">
+
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Application Date</th>
+            <th>Internship Title</th>
+            <th>Company Name</th>
+            <th>Contact Email</th>
+            <th>Contact Phone</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+
+     {% for application in applications %}
+
+        <tr>
+            <td>{{application.application_date}}</td>
+            <td>{{application.intern_title}}</td>
+            <td>{{application.employer_name}}</td>
+            <td>{{application.intern_email}}</td>
+            <td>{{application.intern_phone}}</td>
+            <td><a href="internship/id={{application.internship_id}}">View</a></td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+
+
+
+</div>
+
+</section>
+
+
+
+
+{% endblock %}

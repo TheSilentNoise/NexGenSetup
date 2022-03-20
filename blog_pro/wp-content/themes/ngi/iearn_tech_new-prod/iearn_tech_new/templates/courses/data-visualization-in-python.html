@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12">
+                  <i class="fa fa-graduation-cap"></i>&nbsp;
+                  Course Name :   Data Visualization</div>
+              <br/>
+              <hr class="bottom-line">
+          </div>
+</header>
+
+<section  class="section-padding">
+<div class="container">
+
+    <hr/>
+
+     <div class="text-center row course-box">
+         <div class="col-sm-3">
+		    <h4>Programming languages :&nbsp; <label>Python </label></h4>
+        </div>
+        <div class="col-sm-3">
+		    <h4>Course Fees :&nbsp; <label>FREE </label></h4>
+        </div>
+         <div class="col-sm-3">
+		    <h4>Course Mode :&nbsp; <label>Self Paced </label></h4>
+        </div>
+        <div class="col-sm-3">
+		    <h4>Course Duration : &nbsp; <label>None </label></h4>
+        </div>
+
+    </div>
+<hr/>
+
+<div class="col-sm-6">
+    <h4><b>Course Description :</b></h4><hr/>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="more-less glyphicon glyphicon-plus"></i>About the course</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse " role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                     Visual representation of data helps to identify signals from an overloaded information overload.
+                     The learner will be introduced to various principle and techniques of univariate and multivariate analysis of data.
+                     The course will introduce learner to descriptive analytics and the user will be able to leverage suitable plotting technique for any data analytical scenario.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="more-less glyphicon glyphicon-plus"></i>Who should go for this course</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    The course is ideally suited for any one who is interested to work on Data Visualization and exploratory data analysis. It is suited for anyone who wants to pursue career in data science, data analytics, machine learning and AI.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="headingFour">
+                        <i class="more-less glyphicon glyphicon-plus"></i>Prerequisites</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                	The learner should have interest in learning about data analysis and should have ideally completed
+                    <br/>1. Fundamentals and Data Structure and <br/> 2. Data Analysis course.
+
+               </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<div class="col-sm-6">
+
+    <h4><b>Course Curriculum :</b></h4><hr/>
+
+	<div class="panel-group" id="sub-accordion">
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse1">Visualization in Matplotlib</a>
+					        </h4>
+					      </div>
+					      <div id="collapse1" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                <li>Introduction to Matplotlib</li>
+                                <li>Basic Example</li>
+                                <li>Matplotlib Object Oriented Method</li>
+                                <li>Special Plot Types</li>
+                                <li>Advanced Matplotlib Concepts</li>
+                                <li>Other 2D plot styles</li>
+                                <li>Colormap and contour figures</li>
+                                <li>3D figures</li>
+                                </ul>
+                            </div>
+					      </div>
+					    </div>
+
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse2">Visualization in Seaborn</a>
+					        </h4>
+					      </div>
+					      <div id="collapse2" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                <li>Introduction to Seaborn</li>
+                                <li>Grids</li>
+                                <li>Style & Color</li>
+                                <li>Distribution Plots</li>
+                                <li>Categorical Data Plots</li>
+                                <li>Matrix Plots</li>
+                                <li>Regression Plots</li>
+                                </ul>
+                            </div>
+					      </div>
+					    </div>
+
+					    <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse3">Visualization in Plotly and Cufflinks</a>
+					        </h4>
+					      </div>
+					      <div id="collapse3" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                     <li>Introduction to Plotly and Cufflinks </li>
+                                     <li>scatter</li>
+                                     <li>bar</li>
+                                     <li>3D Surface</li>
+                                     <li>spread</li>
+                                     <li>histogram</li>
+                                     <li>bubble</li>
+                                     <li>scatter matrix</li>
+                                     <li>heatmap</li>
+                                     <li>ratio</li>
+                                     <li>surface</li>
+                                </ul>
+                            </div>
+					      </div>
+					    </div>
+
+					     <div class="panel panel-default">
+					      <div class="panel-heading">
+					        <h4 class="panel-title">
+					          <a data-toggle="collapse" data-parent="#sub-accordion" href="#collapse4">Different Types of Visualization</a>
+					        </h4>
+					      </div>
+					      <div id="collapse4" class="panel-collapse collapse">
+					        <div class="panel-body">
+                                <ul>
+                                     <li>Univariate Visualization</li>
+                                     <li>Bivariate Visualization</li>
+                                     <li>Time Series Visualization</li>
+                                     <li>Visualizing Outliers</li>
+                                </ul>
+
+                            </div>
+					      </div>
+					    </div>
+
+					  </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class=" text-center">
+<br/>
+			{% if not current_user.is_authenticated %}
+                <button class="btn btn-success btn-enroll" onclick="window.location.href='/login'">Enroll Now</button>
+		    {% endif %}
+
+            <form action="/enroll-now?course_id=8" method="post">
+
+            {% if current_user.is_authenticated and isEnrolled %}
+		        <button class="btn btn-success btn-enroll" data-toggle="modal" disabled width="48" >Enrolled</button>
+		    {% endif %}
+
+            {% if current_user.is_authenticated and not isEnrolled %}
+		        <button class="btn btn-success btn-enroll" type="submit">Enroll Now</button>
+		    {% endif %}
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+  </section>
+
+
+{% endblock %}

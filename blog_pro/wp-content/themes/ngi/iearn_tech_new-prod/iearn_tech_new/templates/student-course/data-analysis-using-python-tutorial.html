@@ -1,0 +1,293 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+<header id="head" class="small">
+          <div class="container">
+               <input type="hidden" value="9" id="course_id"/>
+              <p>Data Analysis using Python</p>
+          </div>
+</header>
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3 ">
+    <div class="text-center panel-head">Activities</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Study Materials</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Exercises</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Exercises Solution</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">Project</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Submit Feedback</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+
+<div class="row"><div class="sub-head">Study Materials</div><hr/></div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/data-analysis-using-numpy-material'">
+	<div class=" subject-div">
+	<h4 class="black">Numpy
+    <div class="pull-right">
+	<a  href="/data-analysis-using-numpy-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/data-analysis-using-pandas-material'">
+	<div class=" subject-div">
+	<h4 class="black">Pandas
+    <div class="pull-right">
+	<a  href="/data-analysis-using-pandas-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad"  onclick="location.href='/data-analysis-using-scipy-material'">
+	<div class=" subject-div">
+	<h4 class="black">Scipy
+    <div class="pull-right">
+	<a  href="/data-analysis-using-scipy-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+
+<div class="col-sm-12 sub-div-pad"  onclick="location.href='/data-wrangling'">
+	<div class=" subject-div">
+	<h4 class="black">Data Wrangling
+    <div class="pull-right">
+	<a  href="/data-wrangling">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/exploratory-data-analysis'">
+	<div class=" subject-div">
+	<h4 class="black">Exploratory Data Analysis - I
+    <div class="pull-right">
+	<a  href="/exploratory-data-analysis">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/exploratory-data-analysis-2'">
+	<div class=" subject-div">
+	<h4 class="black">Exploratory Data Analysis - II
+    <div class="pull-right">
+	<a  href="/exploratory-data-analysis">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+<div class="row"><div class="sub-head">Exercises</div><hr/>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/numpy-excercise'">
+	<div class=" subject-div">
+	<h4 class="black">Numpy Exercises
+    <div class="pull-right">
+	<a  href="/numpy-excercise">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/pandas-excercise'">
+	<div class=" subject-div">
+	<h4 class="black">Pandas Exercises
+    <div class="pull-right">
+	<a  href="/pandas-excercise">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+<div class="row">
+    <div class="sub-head">Exercises Solution</div><hr/>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/numpy-excercise-solutions'">
+	<div class=" subject-div">
+	<h4 class="black">Numpy Exercise with Solution
+    <div class="pull-right">
+	<a  href="/numpy-excercise-solutions">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/pandas-excercise-solutions'">
+	<div class=" subject-div">
+	<h4 class="black">Pandas Exercise with Solution
+    <div class="pull-right">
+	<a  href="/pandas-excercise-solutions">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+
+
+</div>
+
+<div class="tab-pane text-style" id="tab4">
+<div class="row"><div class="sub-head">Project</div><hr/>
+
+ <div tabindex="-1" id="notebook" class="feedback-form">
+    <div >
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download the Walmart Sales dataset from kaggle using the below link-</p>
+<p><a href="https://www.kaggle.com/c/walmart-sales-forecasting/data">https://www.kaggle.com/c/walmart-sales-forecasting/data</a></p>
+<p>Read the file and load it into a data frame.
+Derive the following columns IsWeekday, IsWeekend, IsLongHoliday
+Convert the categorical variables to Numerical variables.</p>
+<p>Find out the following:</p>
+<ol>
+<li>What is the maximum and minimum sales amount?</li>
+<li>What is the date which had maximum and minimum sales amount?</li>
+<li>What is the average sales on weekday, weekend, holiday and long holiday?</li>
+<li>What is the temperature on the day of minimum sales?</li>
+<li>What is the store with maximum and minimum sales?</li>
+<li>What is unemployment rate in the region of the store which witnessed maximum and minimum sales?</li>
+<li>What is the consumer price index in the region of the store which witnessed maximum and minimum sales?</li>
+<li>What is the Fuel Price in the region of the store which witnessed maximum and minimum sales?</li>
+</ol>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab5">
+<div class="row"><div class="sub-head">Submit Feedback</div><hr/></div>
+
+    <div class="col-md-12 feedback-form">
+
+    {% if  not feedback_submitted %}
+
+<div id="feedback-form">
+
+    <p>The feedback you give allows us to continually adapt training to better suit your needs.
+    </p>
+<br/>
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Poor</th>
+        <th>Average</th>
+        <th>Good</th>
+        <th>Very Good</th>
+        <th>Excellent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Content Rating</td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="1"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="2"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="3"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="4"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="5"></td>
+      </tr>
+      <tr>
+        <td>Overall Rating</td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="1"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="2"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="3"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="4"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="5"></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+    <div class="form-group">
+      <label for="comments">Comments : </label>
+      <textarea class="form-control" rows="5" id="comments"></textarea>
+    </div>
+
+    <div class="pull-right">
+    <button type="button" class="btn btn-success" value="test" id="btn-feedback" >Submit</button>
+    </div>
+
+</div>
+
+    {% endif %}
+
+     {% if  feedback_submitted %}
+        <div class="text-center" style="color:#D01717"> Thank you for your feedback !</div>
+     {% endif %}
+
+
+    <div id="feedback-submitted" class="text-center">
+        <div style="color:#D01717"> Thank you for your feedback !</div>
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

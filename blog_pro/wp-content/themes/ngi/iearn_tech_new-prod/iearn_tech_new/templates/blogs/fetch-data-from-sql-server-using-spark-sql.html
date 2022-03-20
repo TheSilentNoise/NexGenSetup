@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="blog-heading">
+          <div class="container">
+              <p>Fetch data from SQLServer using Sparksql</p>
+              <label class="blog-label"><i>Posted &nbsp;&nbsp;</i> February 10, 2018 </label>
+          </div>
+</header>
+
+   <section id ="pricing" class="section-padding">
+     <div class="container">
+
+<div class="col-sm-12 ">
+
+    <div class="blog-content">
+
+
+   <h3>Set the spark version to 2 in .bashrc</h3>
+<p>$ cd</p>
+<p>$ echo export SPARK_MAJOR_VERSION=2 &gt;&gt; .bashrc</p>
+<p>$ exec bash</p>
+<h3>Download the jar</h3>
+<p>from <a href="https://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/enu/sqljdbc_6.0.8112.100_enu.tar.gz">https://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/enu/sqljdbc_6.0.8112.100_enu.tar.gz</a></p>
+<p>$ wget <a href="https://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/enu/sqljdbc_6.0.8112.100_enu.tar.gz">https://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/enu/sqljdbc_6.0.8112.100_enu.tar.gz</a></p>
+<h3>Un-Tar the gz file to get the jar.</h3>
+<p>$ tar -zxvf sqljdbc_6.0.8112.100_enu.tar.gz</p>
+<h3>Copy the jar</h3>
+<p>from sqljdbc_6.0/enu/jre8/sqljdbc42.jar to /usr/hdp/current/spark2-client/jars/</p>
+<p>$ cp sqljdbc_6.0/enu/jre8/sqljdbc42.jar /usr/hdp/current/spark2-client/jars/</p>
+<h3>Code(sparkTest.py)</h3>
+<p>from pyspark.sql import SparkSession //Applicable only for Spark 2</p>
+<p>from pyspark.sql import SQLContext</p>
+<p>if __name__ == "__main__":</p>
+<p>spark = SparkSession.builder.appName("Python Spark SQL basic example").getOrCreate()</p>
+<p>sqlContext = SQLContext(spark)</p>
+<p>jdbcDF = sqlContext.read.format("jdbc").option("url", "jdbc:sqlserver://&lt;SERVERNAME&gt;").option("databaseName", "&lt;DB NAME&gt;").option("dbtable", "&lt;TABLE NAME&gt;").option("user", "&lt;USERNAME&gt;").option("password","&lt;PASSWORD&gt;").load()</p>
+<p>jdbcDF.registerTempTable("&lt;TEMP TABLE NAME&gt;")</p>
+<p>jdbcDFsql = sqlContext.sql("select &lt;COLUMN NAME&gt; from &lt;TEMP TABLE NAME&gt;").show(10)</p>
+<h3><br /> Run the spark command</h3>
+<p>$ spark-submit sparkTest.py</p>
+
+
+
+</div>
+
+     </div>
+     </div>
+    </section>
+
+ {% endblock %}

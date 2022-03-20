@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+{% import "bootstrap/wtf.html" as wtf  %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>My Profile</p>
+          </div>
+</header>
+
+<section id="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+             {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                      {% for message in messages %}
+                      <div class="text-center alert alert-info fade in alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                          {{ message }}
+                      </div>
+                      {% endfor %}
+                 {% endif %}
+             {% endwith %}
+       </div>
+
+     <div class ="col-md-3 text-center">
+         <form action = "/upload-profile-img" method = "POST" enctype = "multipart/form-data">
+         <div class="profile-img">
+                <h5>Add/Update Profile Image</h5><hr/>
+
+                <div class="course-card">
+                    <input type="file" name = "file">
+                    <p style="font-size:12px;color:grey">[Image type *.jpg, *.jpeg, *.png only.]</p>
+                    <div class="course-image" style="height: 200px;">
+                         <img class="img-responsive"  src="{{profile_img}}"  style="border-radius:40px" />
+                    </div><hr/>
+                    <input type="submit" value="Update" class="btn btn-success">
+
+                </div>
+         </div>
+          </form>
+     </div>
+
+
+    <div class="col-md-9">
+
+         <form class="form-emp-details" method="POST" action="/student-profile">
+
+              {{ form.hidden_tag() }}
+
+            <font color="red">All Fields marked with (*) are mandatory.</font>
+            <div class="pull-right">
+                 <button type="submit" class="btn btn-success"  >Save</button><br/>
+                </div>
+
+            <div class="col-md-12 profile-item">
+                <h4><i class="fa fa-user"></i>&nbsp;Personal Details
+                <div class="pull-right">
+                    Email : {{current_user.user_email}}
+                </div></h4><hr/>
+
+                    <div class="form-group">
+                        <div class="col-md-2"><label>First Name :<font color="red">*</font></label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.user_fname,placeholder='Enter your First Name')}}</div>
+
+                        <div class="col-md-2"><label>Last Name :<font color="red">*</font></label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.user_lname,placeholder='Enter your Last Name') }}</div>
+
+                        <div class="col-md-2"><label>Date Of Birth :</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.date_of_birth) }} </div>
+
+                        <div class="col-md-2"><label>Gender:</label></div>
+                        <div class="col-md-4"> {{ wtf.form_field(form.gender) }}</div>
+
+                        <div class="col-md-2"><label>Phone:<font color="red">*</font></label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.user_phoneno,placeholder='Enter your Phone Number') }}</div>
+
+                        <div class="col-md-2"><label>Linkedin Url:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.linkedin_url,placeholder='Enter your Linkedin url') }}</div>
+
+                    </div>
+            </div>
+
+            <div class="col-md-12 profile-item">
+            <h4><i class="fa fa-briefcase"></i>&nbsp;Professional Details</h4><hr/>
+                     <div class="form-group">
+
+                        <div class="col-md-2"><label>CompanyName:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.company_name,placeholder='Company Name . Ex: TCS') }}</div>
+
+                        <div class="col-md-2"><label>Industry Type:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.industry_type,placeholder='Industry Type') }}</div>
+
+                        <div class="col-md-2"><label>Designation</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.designation,placeholder='Designation . Ex:Senior Associate') }}</div>
+
+                        <div class="col-md-2"><label>Experience:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.experience,placeholder='Experience(in Years) . Ex: 2 ') }}</div>
+
+                        <div class="col-md-2"><label>Professional Skills</label></div>
+                        <div class="col-md-10">{{ wtf.form_field(form.skills,placeholder='Professional Skills . Ex: Java,C++,Data Analysis') }}</div>
+
+                     </div>
+        </div>
+
+            <div class="col-md-12 profile-item">
+                  <h4><i class="fa fa-graduation-cap"></i>&nbsp;Educational Details</h4><hr/>
+
+                  <div class="form-group">
+                        <div class="col-md-2"><label>College/University:<font color="red">*</font></label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.institution_name,placeholder='') }}</div>
+
+                        <div class="col-md-2"><label>Qualification:<font color="red">*</font></label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.qualification,placeholder='') }}</div>
+
+                        <div class="col-md-2"><label>Department:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.department,placeholder='') }}</div>
+
+                        <div class="col-md-2"><label>YearOfPassing:</label></div>
+                        <div class="col-md-4">{{ wtf.form_field(form.year_of_passing,placeholder='') }}</div>
+                  </div>
+             </div>
+
+            <div class="col-md-12 profile-item">
+               <h4><i class="fa fa-briefcase"></i>&nbsp;Address Details</h4><hr/>
+                   <div class="form-group">
+
+                        <div class="col-md-2"><label>Address :</label></div>
+                        <div class="col-md-10"> {{ wtf.form_field(form.address,placeholder='Address') }}</div>
+
+                        <div class="col-md-1"><label>City:<font color="red">*</font></label></div>
+                        <div class="col-md-3"> {{ wtf.form_field(form.city,placeholder='City') }}</div>
+
+                        <div class="col-md-1"><label>State:<font color="red">*</font></label></div>
+                        <div class="col-md-3">{{ wtf.form_field(form.state,placeholder='State') }}</div>
+
+                        <div class="col-md-1"><label>Country:<font color="red">*</font></label></div>
+                        <div class="col-md-3">{{ wtf.form_field(form.country,placeholder='Country') }}</div>
+
+                   </div>
+          </div>
+
+            <div class="pull-right">
+                 <button type="submit" class="btn btn-success"  >Save</button><br/>
+             </div>
+
+       </form>
+
+    <!--
+        <div class="col-md-12 profile-item">
+            <form action = "/upload" method = "POST" enctype = "multipart/form-data">
+              <div class="col-md-3">
+                  <label>Upload Resume (*.docx/*.pdf only) :
+                      <a>ssssss.dd</a>
+                  </label>
+              </div>
+              <div class="col-md-7">
+                  <input type="file" name="file" class="form-control">
+              </div>
+              <div class="col-md-1" >
+                   <button type="submit" class="btn btn-success"  >Upload</button>
+              </div>
+            </form>
+        </div>
+
+        -->
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+</section>
+
+
+
+{% endblock %}

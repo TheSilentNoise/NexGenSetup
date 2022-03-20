@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+<br/><br/>
+     <section id ="pricing" class="section-padding">
+     <div class="container">
+
+      <div class="row">
+
+    <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3">
+		<div class="panel panel-success">
+
+			<div class="panel-body">
+                <div class="col-md-12">
+
+                <form class="form-login" method="POST" action="/login">
+                    <h2>Login to IEarn.Tech</h2><hr/>
+                    {{ form.hidden_tag() }}
+
+                    {{ wtf.form_field(form.email , placeholder='Enter your Email') }}
+                    {{ wtf.form_field(form.password , placeholder='Enter Password') }}
+                    {{ wtf.form_field(form.remember) }}
+
+                    <br/>
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-success">login</button>
+                    </div>
+
+
+                </form>
+                 <div style="color:#EC3838;"> {{ message }}</div>
+                    <a href="/reset-password">Forgot Password ?</a>
+                    <hr/>
+                    Not a member yet ? <a href="/signup">Sign up here</a>
+            </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+    </section>
+  {% endblock %}

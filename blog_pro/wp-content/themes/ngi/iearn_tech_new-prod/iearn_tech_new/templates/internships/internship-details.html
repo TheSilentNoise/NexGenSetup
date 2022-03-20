@@ -1,0 +1,254 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+
+
+<header id="head" class="secondary">
+          <div class="container">
+              <div class="col-md-12"><b>Title : </b>{{internshipJson.title}}</div>
+              <p style="font-size:16px;color:white"><b> Posted By : </b> {{internshipJson.company_name}} |
+                                                    <b> Posted on : </b>  {{internshipJson.publish_date}}        |
+                                                    <b> Apply by : </b>  {{internshipJson.last_application_date}}
+              </p>
+          </div>
+</header>
+
+     <section id ="pricing" class="section-padding">
+     <div class="container">
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+             {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                      {% for message in messages %}
+                      <div class="text-center alert alert-info fade in alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                          {{ message }}
+                      </div>
+                      {% endfor %}
+                 {% endif %}
+             {% endwith %}
+       </div>
+
+         <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Internship Details</a></li>
+            <li><a data-toggle="tab" href="#menu1">Company Information</a></li>
+            <li><a data-toggle="tab" href="#menu2">Contact</a></li>
+
+         </ul>
+
+
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <div class="col-md-12 profile-item">
+            <div class="form-group">
+
+             <div class="col-md-12">
+                <div class="col-md-2"><label>Description :</label></div>
+                <div class="col-md-10">{{internshipJson.description}}</div>
+             </div>
+
+             <div class="col-md-12">
+                <div class="col-md-2"><label>Skills Required :</label></div>
+                <div class="col-md-10">{{internshipJson.skills}}</div>
+             </div>
+
+             <div class="col-md-12">
+                <div class="col-md-2"><label>Start Date :</label></div>
+                <div class="col-md-4">{{internshipJson.start_date}}</div>
+                <div class="col-md-2"><label>End Date :</label></div>
+                <div class="col-md-4">{{internshipJson.end_date}}</div>
+             </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Internship Type :</label></div>
+                <div class="col-md-10">{{internshipJson.internship_type}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Paid/Unpaid :</label></div>
+                <div class="col-md-10">{{internshipJson.paid_type}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Position :</label></div>
+                <div class="col-md-10">{{internshipJson.position}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Qualification :</label></div>
+                <div class="col-md-10">{{internshipJson.qualification}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Stream :</label></div>
+                <div class="col-md-10">{{internshipJson.stream}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Experience :</label></div>
+                <div class="col-md-10">{{internshipJson.experience}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Compensation :</label></div>
+                <div class="col-md-10">{{internshipJson.compensation}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>Address :</label></div>
+                <div class="col-md-10">{{internshipJson.address}}</div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-2"><label>City :</label></div>
+                <div class="col-md-2">{{internshipJson.city}}</div>
+                <div class="col-md-2"><label>State :</label></div>
+                <div class="col-md-2">{{internshipJson.state}}</div>
+                <div class="col-md-2"><label>Country :</label></div>
+                <div class="col-md-2">{{internshipJson.country}}</div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
+         <div class="col-md-12 profile-item">
+         <div class="form-group">
+
+             <div class="col-md-9">
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Company Name :</label></div>
+                    <div class="col-md-9">{{internshipJson.company_name}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Company Info :</label></div>
+                    <div class="col-md-9">{{internshipJson.company_info}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Company Url :</label></div>
+                    <div class="col-md-9">{{internshipJson.company_url}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Industry Type :</label></div>
+                    <div class="col-md-9">{{internshipJson.industry_type}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Head Count :</label></div>
+                    <div class="col-md-9">{{internshipJson.head_count}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Established Year :</label></div>
+                    <div class="col-md-9">{{internshipJson.established_year}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Verified  :</label></div>
+                    <div class="col-md-9">{{internshipJson.verified}}</div>
+                 </div>
+
+                 <div class="col-md-12">
+                    <div class="col-md-3"><label>Address :</label></div>
+                    <div class="col-md-9">{{internshipJson.company_address}}</div>
+                 </div>
+
+                  <div class="col-md-12">
+                    <div class="col-md-3"><label>City :</label></div>
+                    <div class="col-md-9">{{internshipJson.emp_city}}</div>
+                 </div>
+
+                  <div class="col-md-12">
+                    <div class="col-md-3"><label>State :</label></div>
+                    <div class="col-md-9">{{internshipJson.emp_state}}</div>
+                 </div>
+
+                  <div class="col-md-12">
+                    <div class="col-md-3"><label>Country :</label></div>
+                    <div class="col-md-9">{{internshipJson.emp_country}}</div>
+                 </div>
+             </div>
+
+             <div class="col-md-3">
+                     <img class="img-responsive"  src="{{internshipJson.logo_path}}"  />
+             </div>
+
+         </div>
+
+         </div>
+
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+
+        <div class="col-md-12 profile-item">
+
+         <div class="form-group">
+
+              <div class="col-md-12">
+                    <div class="col-md-3"><label>Contact Email :</label></div>
+                    <div class="col-md-9">{{internshipJson.contact_email}}</div>
+              </div>
+
+              <div class="col-md-12">
+                    <div class="col-md-3"><label>Contact Phone No :</label></div>
+                    <div class="col-md-9">{{internshipJson.contact_no}}</div>
+              </div>
+
+         </div>
+
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+         <br/><br/>
+
+
+    <center>
+
+
+
+         {% if not current_user.is_authenticated %}
+                <button class="btn btn-success btn-enroll" onclick="window.location.href='/login'">Apply Now</button>
+		 {% endif %}
+
+         {% if  current_user.is_authenticated %}
+              {% if current_user.has_role() == 1 %}
+                    {% if isapplied %}
+                         <button class="btn btn-success btn-enroll" disabled>Applied</button>
+                    {% else %}
+                        <button class="btn btn-success btn-enroll" onclick="window.location.href='/apply-internship?pk_internship_id={{internshipJson.pk_internship_id}}'">Apply Now</button>
+                    {% endif %}
+              {% endif %}
+        {% endif %}
+
+
+
+    </center>
+
+
+
+
+
+
+
+
+
+
+     </div>
+
+
+
+    </section>
+  {% endblock %}

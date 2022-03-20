@@ -1,0 +1,12 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('IearnTech UI') {
+         steps {
+            echo 'Deploying Iearn Tech UI in Prod'
+            sh 'pwd; ls -l; sh ./build_docker.sh prod 8000'
+         }
+      }
+   }
+}

@@ -1,0 +1,219 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="small">
+          <div class="container">
+              <p>Introduction to Statistics</p>
+              <input type="hidden" value="15" id="course_id"/>
+          </div>
+</header>
+
+ <section id ="pricing" class="section-padding">
+<div class="container">
+
+    <div class="col-md-12">
+
+	<div class="col-sm-3">
+    <div class="text-center panel-head">Activities</div>
+    <nav class="nav-sidebar">
+		<ul class="nav tabs panel">
+          <li class=""><a href="#tab1" data-toggle="tab">Study Materials</a></li>
+          <li class=""><a href="#tab2" data-toggle="tab">Exercises</a></li>
+          <li class=""><a href="#tab3" data-toggle="tab">Exercises Solution</a></li>
+          <li class=""><a href="#tab4" data-toggle="tab">Project</a></li>
+          <li class=""><a href="#tab5" data-toggle="tab">Submit Feedback</a></li>
+		</ul>
+	</nav>
+
+    </div>
+
+<div class="col-sm-9">
+<!-- tab content -->
+<div class="tab-content">
+
+<div class="tab-pane active text-style" id="tab1">
+
+<div class="row"><div class="sub-head">Study Materials</div><hr/></div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/basic-statistics-material'">
+	<div class=" subject-div">
+	<h4 class="black">Numerical Measures
+    <div class="pull-right">
+	<a href="/basic-statistics-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/probability-material'">
+	<div class=" subject-div">
+	<h4 class="black">Probability Distribution
+    <div class="pull-right">
+	<a href="/probability-material">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+<div class="tab-pane text-style" id="tab2">
+<div class="row"><div class="sub-head">Exercises</div><hr/>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/exercise-basic-stats'">
+	<div class=" subject-div">
+	<h4 class="black">Basic Exercise
+    <div class="pull-right">
+	<a href="/exercise-basic-stats">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab3">
+<div class="row"><div class="sub-head">Exercises Solution</div><hr/></div>
+
+<div class="col-sm-12 sub-div-pad" onclick="location.href='/exercise-solution-basic-stats'">
+	<div class=" subject-div">
+	<h4 class="black">Basic Exercise & Solution
+    <div class="pull-right">
+	<a href="/exercise-solution-basic-stats">Read <i class="fa fa-chevron-right small"></i></a>
+	</div>
+    </h4>
+    </div>
+</div>
+
+
+</div>
+
+<div class="tab-pane text-style" id="tab4">
+<div class="row"><div class="sub-head">Project</div><hr/>
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="feedback-form">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download the Walmart Sales dataset from kaggle using the below link</p>
+<p><a href="https://www.kaggle.com/c/walmart-sales-forecasting/data">https://www.kaggle.com/c/walmart-sales-forecasting/data</a></p>
+<p>Read the file and load it into a data frame.</p>
+<p>Display names of dependent and independent variables.</p>
+<p>Find data types of all variables.</p>
+<p>Find mean, median, mode, range and standard deviation of weekly sales.</p>
+<p>Find mean, median, mode, range and standard deviation of weekly sales of each store.</p>
+<p>Find mean, median, mode, range and standard deviation of weekly sales of each month.</p>
+<p>Find mean, median, mode, range and standard deviation of weekly sales of each year.</p>
+<p>Verify if weekly sales obeys Central Limit Theorem.</p>
+<p>Calculate InterQuartile Range ,upper and lower quartiles of of Weekly Sales.</p>
+<p>Plot a box plot for Weekly Sales , mark the upper and lower quartiles and verify presence of outliers.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="tab-pane text-style" id="tab5">
+<div class="row"><div class="sub-head">Submit Feedback</div><hr/></div>
+
+<div class="col-md-12 feedback-form">
+
+    {% if  not feedback_submitted %}
+
+<div id="feedback-form">
+
+    <p>The feedback you give allows us to continually adapt training to better suit your needs.
+    </p>
+<br/>
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Poor</th>
+        <th>Average</th>
+        <th>Good</th>
+        <th>Very Good</th>
+        <th>Excellent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Content Rating</td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="1"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="2"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="3"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="4"></td>
+        <td><input type="radio" name="content_rating" id="content_rating" value="5"></td>
+      </tr>
+      <tr>
+        <td>Overall Rating</td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="1"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="2"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="3"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="4"></td>
+        <td><input type="radio" name="overall_rating" id="overall_rating" value="5"></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+    <div class="form-group">
+      <label for="comments">Comments : </label>
+      <textarea class="form-control" rows="5" id="comments"></textarea>
+    </div>
+
+    <div class="pull-right">
+    <button type="button" class="btn btn-success" value="test" id="btn-feedback" >Submit</button>
+    </div>
+
+</div>
+
+    {% endif %}
+
+     {% if  feedback_submitted %}
+        <div class="text-center" style="color:#D01717"> Thank you for your feedback !</div>
+     {% endif %}
+
+
+    <div id="feedback-submitted" class="text-center">
+        <div style="color:#D01717"> Thank you for your feedback !</div>
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+    </div>
+</div>
+ </section>
+
+{% endblock %}

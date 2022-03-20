@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+     <section id ="pricing" class="section-padding">
+     <div class="container">
+
+        <div class="col-md-12">
+          <div class=" text-center">
+            <h2 class="page-heading">Freelancing Freedom</h2>
+          </div>
+        </div>
+
+<br/>
+         <div class="col-md-12">
+
+
+         <center>
+             <img class="img-responsive" src="../static/img/freelance3.jpeg" alt="Web Development" />
+         </center>
+
+
+         <h3 class="text-center">What we Provide</h3><hr/>
+                <p>Iearn.tech helps connect it’s members to wide range of freelancing opportunities across the globe in areas of data analytics, data engineering and web development. Freelancing helps millions of businesses to turn their ideas into reality. In this century freelancing mode is gathering more traction among enterprises due to its dynamic nature, lower cost, higher quality and quicker turnaround time. . </p>
+
+
+         <center>
+             <img  height="400px" src="../static/img/freelance2.jpg" alt="Web Development" />
+         </center>
+
+
+
+        </div>
+
+
+
+
+         <div class="row">
+
+             <div class="col-md-1">
+             </div>
+
+             <div class="col-md-10">
+                     <h3 class="text-center">Overview</h3><hr/>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="headingFour">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>Data Engineering</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                      Data Engineering freelancing opportunities spread across multiple projects related to RDBMS, NoSQL Databases, Datawarehousing, Business Intelligence, Big Data, Realtime Streaming, and Cloud computing technologies.
+                               </div>
+                        </div>
+                    </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>Web Developement</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                        Web development freelancing are spread across Restful web services, user interface and user experience technologies and frameworks like Java, Spring, Python, Flask, Django, Node.js, Angular.js, React.js.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>Data Analytics</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                      Data Analytics freelancing are spread across Data Analysis, Data Visualization, Machine learning, Artificial Intelligence and Internet of Things.
+                               </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+             </div>
+
+
+              <div class="col-md-1">
+              </div>
+
+         </div>
+
+         <div class="col-md-12">
+             <br/>
+             <div class="col-md-6">
+                    <h3>Employers value Iearn.tech because we provide: </h3><hr/>
+
+                    <ul class="trainer-quality">
+                        <p> <i aria-hidden="true" class="fa fa-check-square"></i> Freelancers who are highly trained</p>
+                        <p><i aria-hidden="true" class="fa fa-check-square"></i>&nbsp;Freelancers with relevant production experience</p>
+                        <p><i aria-hidden="true" class="fa fa-check-square"></i>&nbsp;Freelancers with team working experience</p>
+                        <p><i aria-hidden="true" class="fa fa-check-square"></i>&nbsp;Freelancers with knowledge on standard industry practices</p>
+                        <p><i aria-hidden="true" class="fa fa-check-square"></i> Freelancers who are aware of technology trends</p>
+                    </ul>
+
+             </div>
+
+
+             <div class="col-md-6 text-center">
+
+
+                 <div class="col-md-12 col-sm-12 col-xs-12">
+                          {% with messages = get_flashed_messages() %}
+                         {% if messages %}
+                               {% for message in messages %}
+                           <div class="text-center alert alert-info fade in alert-dismissible">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                               {{ message }}
+                          </div>
+                         {% endfor %}
+                         {% endif %}
+                      {% endwith %}
+
+                 </div>
+
+
+
+                 <div class="panel panel-success">
+
+			        <div class="panel-body">
+                    <h3 class="text-center">Freelancing Application form</h3><hr/>
+                         <form class="form-horizontal" action="/freelance-apply" method="post">
+                                 {{ form.hidden_tag() }}
+                             <div class="form-group">
+                              <label class="control-label col-sm-2">Name</label>
+                              <div class="col-sm-9">
+                                     {{ wtf.form_field(form.name , placeholder='Enter your Name') }}
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="control-label col-sm-2" >Email</label>
+                              <div class="col-sm-9">
+                                    {{ wtf.form_field(form.email , placeholder='Enter your Email') }}
+                              </div>
+                            </div>
+
+                             <div class="form-group">
+                                 <label class="control-label col-sm-2" >Phone</label>
+                              <div class="col-sm-9">
+                                   {{ wtf.form_field(form.phone , placeholder='Enter your phone no') }}
+                              </div>
+                            </div>
+
+                             <div class="form-group">
+                              <label class="control-label col-sm-2">Linkedin url</label>
+                              <div class="col-sm-9">
+                                     {{ wtf.form_field(form.linkedinurl , placeholder='Enter Linkedin url') }}
+                              </div>
+                            </div>
+
+                             <div class="form-group">
+
+                              <label class="control-label col-sm-2" >Category</label>
+                              <div class="col-sm-4">
+                                   {{ wtf.form_field(form.category , placeholder='Select Category') }}
+                              </div>
+
+                              <label class="control-label col-sm-3">Hours/Week</label>
+                              <div class="col-sm-2">
+                                     {{ wtf.form_field(form.hours , placeholder='hours') }}
+                              </div>
+
+                              </div>
+
+
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Apply</button>
+                            </div>
+                          </form>
+                    </div>
+                 </div>
+             </div>
+         </div>
+
+     </div>
+    </section>
+  {% endblock %}

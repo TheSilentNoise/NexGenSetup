@@ -1,0 +1,54 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package CloudifyApps
+ */
+
+?>
+
+	</div>
+</body>
+
+<!--Footer-->
+    <footer id="footer" class="footer">
+      <div class="container text-center">
+          <a href="">About Us </a>|
+          <a href="/contact">Contact Us</a> |
+          <a href="">FAQs</a>
+
+      <ul class="social-links">
+        <li><a ><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="https://www.facebook.com/iearn.tech/" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+        Copyright @ <?php echo date('Y'); ?> | www.iearn.tech , All rights reserved
+      </div>
+        <a href="#" class ="scrollToTop"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
+    </footer>
+    <!--/ Footer-->
+
+
+    
+
+
+    <SCRIPT LANGUAGE="javascript">
+    function ClearHistory()
+    {
+     var backlen = history.length;
+     history.go(-backlen);
+     window.location.href = "/#"
+    }
+    </SCRIPT>
+
+	
+	<?php wp_footer(); ?>
+
+  </body>
+</html>
+
+

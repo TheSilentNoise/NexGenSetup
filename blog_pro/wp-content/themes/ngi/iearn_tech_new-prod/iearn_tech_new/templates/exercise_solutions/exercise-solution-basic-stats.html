@@ -1,0 +1,561 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+
+     <section id ="pricing" class="section-padding">
+     <div class="container">
+          <div class="col-md-12">
+       <div class="row">
+          <div class="exercise-header">
+                <div class="col-sm-1" style="padding: 18px 0px 0px 12px;">
+                    <i class="fa fa-chevron-left small" onclick="window.history.back()"></i>
+                </div>
+                <div class="col-sm-11 text-center" >
+                    Basic - Exercises & Solution
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+
+
+<div class="material">
+
+
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download the <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data">wine dataset</a></p>
+<p>Wine dataset Description (It has got 14 columns)</p>
+<p>0) ID<br>
+1) Alcohol <br>
+2) Malic acid <br>
+3) Ash <br>
+4) Alcalinity of ash <br>
+5) Magnesium <br>
+6) Total phenols <br>
+7) Flavanoids <br>
+8) Nonflavanoid phenols <br>
+9) Proanthocyanins <br>
+10) Color intensity <br>
+11) Hue <br>
+12) OD280/OD315 of diluted wines <br>
+13) Proline <br></p>
+<p>Prerequisite : Load the wine csv dataset into a dataframe.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data&quot;</span><span class="p">,</span>
+               <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="s2">&quot;Alcohol&quot;</span> <span class="p">,</span><span class="s2">&quot;Malic acid&quot;</span><span class="p">,</span><span class="s2">&quot;Ash&quot;</span> <span class="p">,</span>
+                      <span class="s2">&quot;Alcalinity of ash&quot;</span> <span class="p">,</span><span class="s2">&quot;Magnesium&quot;</span> <span class="p">,</span><span class="s2">&quot;Total phenols&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;Flavanoids&quot;</span> <span class="p">,</span><span class="s2">&quot;Nonflavanoid phenols&quot;</span><span class="p">,</span><span class="s2">&quot;Proanthocyanins&quot;</span> <span class="p">,</span>
+                      <span class="s2">&quot;Color intensity &quot;</span><span class="p">,</span><span class="s2">&quot;Hue&quot;</span> <span class="p">,</span><span class="s2">&quot;OD280/OD315 of diluted wines&quot;</span> <span class="p">,</span><span class="s2">&quot;Proline&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Alcohol</th>
+      <th>Malic acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of ash</th>
+      <th>Magnesium</th>
+      <th>Total phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diluted wines</th>
+      <th>Proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">iqr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">alcohol</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Alcohol&quot;</span><span class="p">]</span>
+<span class="n">magnesium</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Magnesium&quot;</span><span class="p">]</span>
+<span class="n">Total_phenols</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total phenols&quot;</span><span class="p">]</span>
+<span class="n">Malic_acid</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Malic acid&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1.Find the Mean Malic Acid of all the wines.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">stat</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Malic_acid</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.3363483146067416</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2.Find the Median Alcohol.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">stat</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">alcohol</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>13.05</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>3.Figure out the outliers of any column in the wine dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">magnesium</span><span class="p">,</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbb58b72e80&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAW0AAAD8CAYAAAC8TPVwAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADl0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uIDIuMi4wLCBodHRwOi8vbWF0cGxvdGxpYi5vcmcvFvnyVgAACuVJREFUeJzt3V2MXPdZx/HfEy82RJXVOm4DbCKcQnqRViAldomEuGiJIZEQiyougpAKolIlIkBCSKilV9zxJlVCqkG5QCGAWgoqOBdFYFcIrtrYjihNoKEGt2nXrROnLyZUOLH952ImsM0LWZKdOfvsfj7SyjtnTmae+fvM1zNnx06NMQJAD9dNPQAAmyfaAI2INkAjog3QiGgDNCLaAI2INkAjog3QiGgDNLKy1Td48ODBcejQoa2+WYAd7cyZMxfHGG98pf22PNqHDh3K6dOnt/pmAXa0qvrCZvZzegSgEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARrZ8v9HJJtz/PjxrK+vTzrDxYsXkyQHDx5c+n2vrq5mbW1t6fcL3Yn2RNbX13Nu/YnsvfF1k83w7OX/TJJcvrLcN1zPXnhmqfcHO4loT2jvja/Lm959eLL7f/LB00my9Bmev1/g/885bYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGtlW0jx8/nuPHj089BrTnubRzrUw9wEbr6+tTjwA7gufSzrWtXmkD8H8TbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGRBugEdEGaES0ARoRbYBGNhXtqrq7qh6vqrNV9b5FDwUszqVLl3Ls2LFcunRpS/abynabb1nzvGK0q2pPkg8luSfJbUl+uqpuW+hUwMKcOHEi586dy8mTJ7dkv6lst/mWNc9mXmm/PcnZMca/jzGeTfKRJGsLnQpYiEuXLuXUqVMZY+TUqVMv+6pws/tNZbvNt8x5Vjaxz2qSL264/KUkP7iIYZ5++ulcvnw5x44dW8TNbyvnz5/PlW+7NvUYk7jytW/m/HP/tSt+n6dy/vz57Nu370XbT5w4kTFGkuTatWs5efJk3vWud73q/aay3eZb5jxb8oPIqnpvVZ2uqtNPPfXUVtwksACPPPJIrl69miS5evVqzpw585r2m8p2m2+Z82zmlfZ6kps3XL5pvu1/jDHuT3J/khw+fHi82mFuuOGGJMl99933am+ijWPHjmX9ylenHmMSK2+4Pt+9cmBX/D5P5eXexdx+++15+OGHc/Xq1ezZsyd33HHHa9pvKtttvmXOs5lX2qeS3FpVt1TV3iT3JnloYRMBC3P06NFUVZLkuuuuy1133fWa9pvKdptvmfO8YrTHGFeS/GKSv0nyL0k+OsZ4bGETAQuzf//+HDlyJFWVI0eOZP/+/a9pv6lst/mWOc9mTo9kjPHxJB9f2BTA0hw9ejQXLlx4xVeDm91vKtttvmXNs6loAzvH/v37N/XzhM3uN5XtNt+y5vHX2AEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARlamHmCj1dXVqUeAHcFzaefaVtFeW1ubegTYETyXdi6nRwAaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboBHRBmhkZeoBdrNnLzyTJx88PeH9/0eSLH2GZy88k6weWOp9wk4h2hNZXV2deoRc3HctSXJwZckBXT2wLR4/dCTaE1lbW5t6BKAh57QBGhFtgEZEG6AR0QZoRLQBGhFtgEZEG6AR0QZoRLQBGhFtgEZEG6AR0QZoRLQBGhFtgEZEG6AR0QZoRLQBGhFtgEZEG6AR0QZopMYYW3uDVU8l+cKW3ujyHUxyceohtgHrMGMdZqzDzKLW4XvGGG98pZ22PNo7QVWdHmMcnnqOqVmHGeswYx1mpl4Hp0cAGhFtgEZE+6XdP/UA24R1mLEOM9ZhZtJ1cE4boBGvtAEa2fXRrqpfqarHqurRqvpwVX17Vd1SVZ+qqrNV9WdVtXfqORehqv6wqp6sqkc3bDtQVSeq6nPzX98w315V9XvzNfmnqrp9usm31susw+9U1Wfnj/Uvq+r1G657/3wdHq+qH5tm6q33Uuuw4bpfrapRVQfnl3fV8TDf/kvzY+KxqvrtDduXejzs6mhX1WqSX05yeIzxtiR7ktyb5LeSfHCM8X1JvpbkPdNNuVAPJLn7Bdvel+QTY4xbk3xifjlJ7kly6/zrvUl+f0kzLsMDefE6nEjytjHG9yf51yTvT5Kqui2zY+St8//mWFXtWd6oC/VAXrwOqaqbk/xokic2bN5Vx0NVvSPJWpIfGGO8Ncnvzrcv/XjY1dGeW0nyHVW1kuT6JF9O8s4kfzG//o+S/OREsy3UGOMfknz1BZvXMnvMybc+9rUkD46ZTyZ5fVV913ImXayXWocxxt+OMa7ML34yyU3z79eSfGSMcXmMcS7J2SRvX9qwC/Qyx0OSfDDJryXZ+AOwXXU8JPmFJL85xrg83+fJ+falHw+7OtpjjPXM/sR8IrNYfyPJmSRf3/CE/VKS1WkmnMSNY4wvz7//SpIb59+vJvnihv1207r8fJK/nn+/q9ahqtaSrI8xPv2Cq3bVOiR5S5Ifnp82/fuqOjLfvvR1WFnkjW938/O1a0luSfL1JH+el3h7uFuNMUZV7eqPF1XVB5JcSfKnU8+ybFV1fZJfz+zUyG63kuRAkjuTHEny0ap68xSD7OpX2knuSnJujPHUGOO5JB9L8kOZvdV7/g+0m5KsTzXgBC48/zZ3/uvzbwPXk9y8Yb8dvy5V9XNJfjzJz4z//WzsblqH783sBc2nq+rzmT3WR6rqO7O71iGZvYL+2Px00MNJrmX2b5AsfR12e7SfSHJnVV1fVZXkR5L8c5K/S/JT831+NsnxieabwkOZPebkWx/7Q0nePf/UwJ1JvrHhNMqOU1V3Z3Ye9yfGGN/ccNVDSe6tqn1VdUtmP4h7eIoZF22M8ZkxxpvGGIfGGIcyC9ftY4yvZJcdD0n+Ksk7kqSq3pJkb2b/aNTyj4cxxq7+SvIbST6b5NEkf5xkX5I3zxf+bGanTPZNPeeCHvuHMzuX/1xmT8j3JLkhs0+NfC7JySQH5vtWkg8l+bckn8nsEzeTP4YFrsPZzM5V/uP86w827P+B+To8nuSeqedf5Dq84PrPJzm4S4+HvUn+ZN6JR5K8c6rjwd+IBGhkt58eAWhFtAEaEW2ARkQboBHRBmhEtAEaEW2ARkQboJH/BiiClbsYci6NAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>4.Find the interquartile range of alcohol</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">iqr</span><span class="p">(</span><span class="n">alcohol</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.3150000000000013</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>5.Find the standard deviation and variance of magnesium.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">magnesium</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>202.8433278626436</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">magnesium</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>14.242307673359806</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>6.Find the correlation coefficient and covariance between Alcohol and Total phenoids.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="  hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">alcohol</span><span class="p">,</span><span class="n">Total_phenols</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[1.        , 0.28910112],
+       [0.28910112, 1.        ]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+</div>
+     </div>
+</div>
+    </section>
+
+
+     {% endblock %}

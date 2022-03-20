@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+{% import "bootstrap/wtf.html" as wtf  %}
+
+<header id="head" class="secondary">
+          <div class="container">
+              <p>Contact Us</p><hr class="bottom-line">
+          </div>
+</header>
+
+ <section id ="pricing" class="section-padding">
+      <div class="container">
+
+    <div class="col-md-12">
+
+
+        <div class="col-md-4 boxed-content text-center">
+            <h3>Get in touch</h3><hr>
+            <div >
+                <br/>
+                <h4>Email</h4>
+                <p>hello@iearn.tech</p>
+
+                <hr/>
+                <br/>
+                <h4>Social Media</h4><br>
+						<p>
+						<a href="https://www.linkedin.com/company/iearn.tech/"><img src="../static/img/icon/linkedin.png" ></a>&nbsp;&nbsp;
+				    	<a href="https://www.facebook.com/iearn.tech/" target="_blank"><img src="../static/img/icon/facebook.png" ></a>&nbsp;&nbsp;
+						<a href="https://twitter.com/IEarnTech"><img src="../static/img/icon/twitter.png" ></a>&nbsp;&nbsp;
+					   </p>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="col-md-8">
+                <div class="text-center">
+                        <h3>Got a Query, Write to us -</h3><hr>
+                </div>
+
+                <div class="row">
+                     <form action="/contactus" method="post" role="form" class="contactForm">
+                      {{ form.hidden_tag() }}
+
+                         <div class="col-md-12 col-sm-12 col-xs-12">
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                      {% for message in messages %}
+                                <div class="text-center alert alert-info fade in alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                                  {{ message }}
+                                </div>
+                                      {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                         </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-12 left">
+                            <div class="form-group">
+                                 {{ wtf.form_field(form.name , placeholder='Enter your Name') }}
+                            </div>
+                            <div class="form-group">
+                                {{ wtf.form_field(form.email , placeholder='Enter your Email') }}
+                            </div>
+                            <div class="form-group">
+                                 {{ wtf.form_field(form.subject , placeholder='Subject') }}
+                            </div>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-10 right">
+                            <div class="form-group">
+                                 {{ wtf.form_field(form.message , placeholder='Enter your Message here',cols="10", rows="6") }}
+                            </div>
+                          </div>
+
+                          <div class="col-xs-12 text-right">
+                            <button type="submit" id="submit" name="submit" class="btn btn-success">SEND EMAIL</button>
+                          </div>
+                      </form>
+
+        </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+</section>
+
+
+
+
+
+{% endblock %}

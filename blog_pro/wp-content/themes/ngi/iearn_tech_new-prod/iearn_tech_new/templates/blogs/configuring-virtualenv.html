@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+<!--Banner-->
+{% block content %}
+
+<header id="head" class="blog-heading">
+          <div class="container">
+              <p>Configuring Virtual Environment</p>
+              <label class="blog-label"><i>Posted &nbsp;&nbsp;</i> March 3, 2018 </label>
+          </div>
+</header>
+
+   <section id ="pricing" class="section-padding">
+     <div class="container">
+
+<div class="col-sm-12 ">
+
+    <div class="blog-content">
+
+<h2 class="western"><span style="font-size: 12pt;">What is virtualenv?</span></h2>
+<p><span style="font-size: 12pt;">Virtualenv is a tool that enables developers to create an isolated python environment for each project.</span></p>
+<p><span style="font-size: 12pt;">It enables developers to install required packages in the particular project folder that will be managed by virtualenv</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<h2 class="western"><span style="font-size: 12pt;">What is the advantage of using virtualenv?</span></h2>
+<p><span style="font-size: 12pt;">Different projects may need different set and version of packages which and the versions may have interdependencies.</span></p>
+<p><span style="font-size: 12pt;">It becomes hard to maintain if you install packages globally.</span></p>
+<p><span style="font-size: 12pt;">The advantage of using virtualenv is that it creates isolated environments for each project and keeps the global &lsquo;<em>site-packages</em>&rsquo; folder clean.</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<h1 class="western"><span style="font-size: 12pt;">Installation</span></h1>
+<p><span style="font-size: 12pt;">pip install virtualenv</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<h1 class="western"><span style="font-size: 12pt;">Initialize virtualenv for your project</span></h1>
+<p><span style="font-size: 12pt;">cd &lt;project_directory&gt;</span></p>
+<p><span style="font-size: 12pt;">virtualenv &ndash;no-site-packages venv</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<p><span style="font-size: 12pt;">This will create a venv subdirectory in your project where everything is installed</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<h1 class="western"><span style="font-size: 12pt;">Activate virtualenv for your project</span></h1>
+<p><span style="font-size: 12pt;">Source venv/bin/activate</span></p>
+<p><span style="font-size: 12pt;">(venv) will appear at the beginning of your terminal prompt indicating that you are working inside the virtualenv. Now when you will install something like</span></p>
+<p><span style="font-size: 12pt;">pip install &lt;requirements.txt&gt;</span></p>
+<p><span style="font-size: 12pt;">It will get installed inside venv folder, and not conflict with other projects in the system.</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<h1 class="western"><span style="font-size: 12pt;">Exit</span></h1>
+<p><a name="_GoBack"></a><span style="font-size: 12pt;"> To exit the virtual environment, you should run</span></p>
+<p><span style="font-size: 12pt;">deactivate</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+<p><span style="font-size: 12pt;">&nbsp;</span></p>
+
+
+
+</div>
+</div>
+     </div>
+    </section>
+
+ {% endblock %}
